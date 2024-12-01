@@ -79,52 +79,6 @@ export const streamData: ResortStreams[] = [
   },
 
   {
-    name: "엘리시안강촌",
-    streams: [
-      {
-        name: "정상 (알프)",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "페가수스",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "스키하우스",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "챌린지하우스",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "팬더",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "디어",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "드래곤",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "눈썰매장",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-    ]
-  },
-
-  {
     name: "비발디",
     streams: [
       {
@@ -166,12 +120,17 @@ export const streamData: ResortStreams[] = [
   },
 
   {
-    name: "알펜시아",
+    name: "엘리시안강촌",
     streams: [
       {
-        name: "현장웹캠",
+        name: "스키하우스, 알프하우스, 챌린지하우스, 눈썰매장",
         type: StreamType.YouTube,
-        url: "https://youtu.be/fStEQyg7SWc"
+        url: "https://www.youtube.com/embed/XMwm6A_745w"
+      },
+      {
+        name: "페가수스, 디어래퍼드, 디어하단, 드래곤",
+        type: StreamType.YouTube,
+        url: "https://www.youtube.com/embed/O-12c9lGP34"
       },
     ]
   },
@@ -203,27 +162,73 @@ export const streamData: ResortStreams[] = [
   },
 
   {
-    name: "오투",
+    name: "웰리힐리",
     streams: [
       {
-        name: "스키하우스",
+        name: "알파",
         type: StreamType.HLS,
-        url: "http://118.46.149.144:8080/ramdisk/cam0.m3u8"
+        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam02.stream/playlist.m3u8"
       },
       {
-        name: "오렌지",
+        name: "베이스",
         type: StreamType.HLS,
-        url: "http://118.46.149.144:8080/ramdisk/cam1.m3u8"
+        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam03.stream/playlist.m3u8"
       },
       {
-        name: "버금마루",
+        name: "리조트 전경",
         type: StreamType.HLS,
-        url: "http://118.46.149.144:8080/ramdisk/cam2.m3u8"
+        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam04.stream/playlist.m3u8"
       },
       {
-        name: "으뜸마루",
+        name: "정상광장",
         type: StreamType.HLS,
-        url: "http://118.46.149.144:8080/ramdisk/cam3.m3u8"
+        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam05.stream/playlist.m3u8"
+      },
+      {
+        name: "패밀리",
+        type: StreamType.HLS,
+        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam06.stream/playlist.m3u8"
+      },
+      {
+        name: "워터플래닛",
+        type: StreamType.HLS,
+        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam07.stream/playlist.m3u8"
+      },
+    ]
+  },
+
+  {
+    name: "휘닉스파크",
+    streams: [
+      {
+        name: "호크/스패로우",
+        type: StreamType.HLS,
+        url: "https://streaming.phoenixhnr.co.kr/hls/yh_02.m3u8"
+      },
+      {
+        name: "도도",
+        type: StreamType.HLS,
+        url: "https://streaming.phoenixhnr.co.kr/hls/sp_01.m3u8"
+      },
+      {
+        name: "불새마루",
+        type: StreamType.HLS,
+        url: "https://streaming.phoenixhnr.co.kr/hls/ht_01.m3u8"
+      },
+      {
+        name: "베이스",
+        type: StreamType.HLS,
+        url: "https://streaming.phoenixhnr.co.kr/hls/bc_02.m3u8"
+      },
+      {
+        name: "펭귄",
+        type: StreamType.HLS,
+        url: "https://streaming.phoenixhnr.co.kr/hls/bc_01.m3u8"
+      },
+      {
+        name: "스노우 빌리지",
+        type: StreamType.HLS,
+        url: "https://streaming.phoenixhnr.co.kr/hls/yh_01.m3u8"
       },
     ]
   },
@@ -295,37 +300,12 @@ export const streamData: ResortStreams[] = [
   },
 
   {
-    name: "웰리힐리",
+    name: "알펜시아",
     streams: [
       {
-        name: "알파",
-        type: StreamType.HLS,
-        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam02.stream/playlist.m3u8"
-      },
-      {
-        name: "베이스",
-        type: StreamType.HLS,
-        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam03.stream/playlist.m3u8"
-      },
-      {
-        name: "리조트 전경",
-        type: StreamType.HLS,
-        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam04.stream/playlist.m3u8"
-      },
-      {
-        name: "정상광장",
-        type: StreamType.HLS,
-        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam05.stream/playlist.m3u8"
-      },
-      {
-        name: "패밀리",
-        type: StreamType.HLS,
-        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam06.stream/playlist.m3u8"
-      },
-      {
-        name: "워터플래닛",
-        type: StreamType.HLS,
-        url: "https://live.wellihillipark.com/wellihillipark/_definst_/cam07.stream/playlist.m3u8"
+        name: "현장웹캠",
+        type: StreamType.YouTube,
+        url: "https://www.youtube.com/embed/fStEQyg7SWc"
       },
     ]
   },
@@ -427,37 +407,27 @@ export const streamData: ResortStreams[] = [
   },
 
   {
-    name: "휘닉스파크",
+    name: "오투",
     streams: [
       {
-        name: "호크/스패로우",
+        name: "스키하우스",
         type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/yh_02.m3u8"
+        url: "http://118.46.149.144:8080/ramdisk/cam0.m3u8"
       },
       {
-        name: "도도",
+        name: "오렌지",
         type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/sp_01.m3u8"
+        url: "http://118.46.149.144:8080/ramdisk/cam1.m3u8"
       },
       {
-        name: "불새마루",
+        name: "버금마루",
         type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/ht_01.m3u8"
+        url: "http://118.46.149.144:8080/ramdisk/cam2.m3u8"
       },
       {
-        name: "베이스",
+        name: "으뜸마루",
         type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/bc_02.m3u8"
-      },
-      {
-        name: "펭귄",
-        type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/bc_01.m3u8"
-      },
-      {
-        name: "스노우 빌리지",
-        type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/yh_01.m3u8"
+        url: "http://118.46.149.144:8080/ramdisk/cam3.m3u8"
       },
     ]
   },

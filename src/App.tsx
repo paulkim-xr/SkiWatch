@@ -8,9 +8,9 @@ function App() {
   const [currentStream, setCurrentStream] = useState<Stream | undefined>();
 
   return (
-    <div className="App">
-      <Sidebar data={streamData} onStreamSelect={setCurrentStream} />
+    <div className="App flex h-screen">
       <Player stream={currentStream || { name: "No Stream Selected", type: StreamType.Unavailable, url: "" }} />
+      <Sidebar data={streamData} onStreamSelect={setCurrentStream} />
     </div>
   );
 }

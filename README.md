@@ -1,46 +1,14 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Simple website to see all webcams of Korean ski resorts in one place.
+[곤지암](https://www.konjiamresort.co.kr/ski/liveCam.dev)
+[지산](https://www.jisanresort.co.kr/m/ski/slopes/webcam.asp)
+[비발디](https://www.sonohotelsresorts.com/skiboard/status)
+[엘리시안강촌](https://www.elysian.co.kr/about-gangchon/sky#guide-to-using-slopes)
+[오크밸리](https://oakvalley.co.kr/ski/introduction/realtime#ski-hall)
+[웰리힐리](https://www.wellihillipark.com/home/customer/webcam)
+[휘닉스파크](https://phoenixhnr.co.kr/page/pyeongchang/guide/operation/sketchMovie)
+[용평](https://www.yongpyong.co.kr/kor/guide/realTimeNews/ypResortWebcam.do)
+[알펜시아](https://www.alpensia.com/guide/web-cam.do)
+[하이원](https://www.high1.com/ski/slopeView.do?key=748&mode=p)
+[오투](https://www.o2resort.com/SKI/liftInfo.jsp)
+[무주](https://www.mdysresort.com/)
+[에덴밸리](https://www.edenvalley.co.kr/CS/cam_pop1.asp)
