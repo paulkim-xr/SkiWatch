@@ -1,6 +1,7 @@
 export enum StreamType {
   HLS,
   IFrame,
+  External,
   Unavailable,
 }
 
@@ -411,92 +412,92 @@ export const streamData: ResortStreams[] = [
     streams: [
       {
         name: "제우스2 입구",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=1"
       },
       {
         name: "헤라2 입구",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=2"
       },
       {
         name: "하이원 탑",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=3"
       },
       {
         name: "아테나1",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=4"
       },
       {
         name: "마운틴 허브",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=5"
       },
       {
         name: "아테나2",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=6"
       },
       {
         name: "마운틴 베이스",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=7"
       },
       {
         name: "아테나2 하단",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=8"
       },
       {
         name: "빅토리아 상단",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=9"
       },
       {
         name: "제우스2",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=10"
       },
       {
         name: "밸리 허브",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=11"
       },
       {
         name: "빅토리아1",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=12"
       },
       {
         name: "제우스3",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=13"
       },
       {
         name: "제우스3 중단부",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=14"
       },
       {
         name: "아폴로4 중단부",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=15"
       },
       {
         name: "아폴로 베이스",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=16"
       },
       {
         name: "제우스3 하단",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=17"
       },
       {
         name: "밸리 베이스",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.high1.com/webcam/pop_webcam.do?ch=18"
       },
     ]
@@ -533,22 +534,22 @@ export const streamData: ResortStreams[] = [
     streams: [
       {
         name: "스키하우스",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls.jsp?ch=0"
       },
       {
         name: "오렌지",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls.jsp?ch=1"
       },
       {
         name: "버금마루",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls.jsp?ch=2"
       },
       {
         name: "으뜸마루",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls.jsp?ch=3"
       },
     ]
@@ -620,57 +621,57 @@ export const streamData: ResortStreams[] = [
     streams: [
       {
         name: "설천봉 정상",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=07"
       },
       {
         name: "설천상단슬로프",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=06"
       },
       {
         name: "모차르트, 미뉴에트",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=08"
       },
       {
         name: "폴카",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=09"
       },
       {
         name: "실크로드, 미뉴에트 하단",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=10"
       },
       {
         name: "만선봉 정상",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=02"
       },
       {
         name: "하이디하우스",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=03"
       },
       {
         name: "서역기행, 썬다운",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=04"
       },
       {
         name: "커넥션",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=11"
       },
       {
         name: "설천하우스",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=05"
       },
       {
         name: "만선하우스",
-        type: StreamType.IFrame,
+        type: StreamType.External,
         url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=01"
       },
     ]

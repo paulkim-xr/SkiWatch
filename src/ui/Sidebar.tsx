@@ -42,11 +42,15 @@ function Sidebar({ data, onStreamSelect }: { data: ResortStreams[], onStreamSele
                   <button 
                     className="flex justify-between w-full px-2 py-1" disabled={stream.type === StreamType.Unavailable}
                     onClick={() => {
+                      if (stream.type === StreamType.External) {
+                        window.open(stream.url, '_blank', 'noopener,noreferrer');
+                        return;
+                      }
                       onStreamSelect(stream);
                       setSelectedStream(stream);
                     }}
                   >
-                    {stream.name}                  
+                    {stream.name}
                   </button>
                 </li>
               ))}
