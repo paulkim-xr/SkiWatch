@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/SkiWatch/static/css/main.d9881d3e.css",
-    "main.js": "/SkiWatch/static/js/main.a9ab8ed2.js",
+    "main.js": "/SkiWatch/static/js/main.8095e574.js",
     "static/js/453.50e133b3.chunk.js": "/SkiWatch/static/js/453.50e133b3.chunk.js",
     "index.html": "/SkiWatch/index.html",
     "main.d9881d3e.css.map": "/SkiWatch/static/css/main.d9881d3e.css.map",
-    "main.a9ab8ed2.js.map": "/SkiWatch/static/js/main.a9ab8ed2.js.map",
+    "main.8095e574.js.map": "/SkiWatch/static/js/main.8095e574.js.map",
     "453.50e133b3.chunk.js.map": "/SkiWatch/static/js/453.50e133b3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d9881d3e.css",
-    "static/js/main.a9ab8ed2.js"
+    "static/js/main.8095e574.js"
   ]
 }
