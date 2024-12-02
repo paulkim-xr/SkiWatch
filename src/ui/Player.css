@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
 }
 
 video {
@@ -12,6 +11,8 @@ video {
 }
 
 @media (max-width: 768px) {
-  width: 100vw;
-  height: auto;
+  .video-container {
+    width: 100vw;
+    min-height: 56.25vw;
+  }
 }

@@ -1,6 +1,6 @@
 export enum StreamType {
   HLS,
-  YouTube,
+  IFrame,
   Unavailable,
 }
 
@@ -22,27 +22,27 @@ export const streamData: ResortStreams[] = [
       {
         name: "정상 휴게소",
         type: StreamType.HLS,
-        url: "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam01.stream/playlist.m3u8"
+        url: "https://konjiam.live.cdn.cloudn.co.kr/konjiam/cam01.stream/playlist.m3u8"
       },
       {
         name: "정상부 슬로프",
         type: StreamType.HLS,
-        url: "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam02.stream/playlist.m3u8"
+        url: "https://konjiam.live.cdn.cloudn.co.kr/konjiam/cam02.stream/playlist.m3u8"
       },
       {
         name: "중간 슬로프",
         type: StreamType.HLS,
-        url: "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam05.stream/playlist.m3u8"
+        url: "https://konjiam.live.cdn.cloudn.co.kr/konjiam/cam05.stream/playlist.m3u8"
       },
       {
         name: "초중급 베이스",
         type: StreamType.HLS,
-        url: "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam03.stream/playlist.m3u8"
+        url: "https://konjiam.live.cdn.cloudn.co.kr/konjiam/cam03.stream/playlist.m3u8"
       },
       {
         name: "중상급 베이스",
         type: StreamType.HLS,
-        url: "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam04.stream/playlist.m3u8"
+        url: "https://konjiam.live.cdn.cloudn.co.kr/konjiam/cam04.stream/playlist.m3u8"
       },
     ]
   },
@@ -124,12 +124,12 @@ export const streamData: ResortStreams[] = [
     streams: [
       {
         name: "스키하우스, 알프하우스, 챌린지하우스, 눈썰매장",
-        type: StreamType.YouTube,
+        type: StreamType.IFrame,
         url: "https://www.youtube.com/embed/XMwm6A_745w"
       },
       {
         name: "페가수스, 디어래퍼드, 디어하단, 드래곤",
-        type: StreamType.YouTube,
+        type: StreamType.IFrame,
         url: "https://www.youtube.com/embed/O-12c9lGP34"
       },
     ]
@@ -304,191 +304,374 @@ export const streamData: ResortStreams[] = [
     streams: [
       {
         name: "현장웹캠",
-        type: StreamType.YouTube,
+        type: StreamType.IFrame,
         url: "https://www.youtube.com/embed/fStEQyg7SWc"
       },
     ]
   },
+
+  // {
+  //   name: "하이원",
+  //   streams: [
+  //     {
+  //       name: "제우스2 입구",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch1.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "헤라2 입구",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch2.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "하이원 탑",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch3.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "아테나1",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch4.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "마운틴 허브",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch5.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "아테나2",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch6.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "마운틴 베이스",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch7.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "아테나2 하단",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch8.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "빅토리아 상단",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch9.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "제우스2",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch10.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "밸리 허브",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch11.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "빅토리아1",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch12.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "제우스3",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch13.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "제우스3 중단부",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch14.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "아폴로4 중단부",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch15.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "아폴로 베이스",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch16.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "제우스3 하단",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch17.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "밸리 베이스",
+  //       type: StreamType.HLS,
+  //       url: "http://59.30.12.195:1935/live/_definst_/ch18.stream/playlist.m3u8"
+  //     },
+  //   ]
+  // },
 
   {
     name: "하이원",
     streams: [
       {
         name: "제우스2 입구",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch1.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=1"
       },
       {
         name: "헤라2 입구",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch2.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=2"
       },
       {
         name: "하이원 탑",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch3.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=3"
       },
       {
         name: "아테나1",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch4.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=4"
       },
       {
         name: "마운틴 허브",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch5.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=5"
       },
       {
         name: "아테나2",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch6.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=6"
       },
       {
         name: "마운틴 베이스",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch7.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=7"
       },
       {
         name: "아테나2 하단",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch8.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=8"
       },
       {
         name: "빅토리아 상단",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch9.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=9"
       },
       {
         name: "제우스2",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch10.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=10"
       },
       {
         name: "밸리 허브",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch11.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=11"
       },
       {
         name: "빅토리아1",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch12.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=12"
       },
       {
         name: "제우스3",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch13.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=13"
       },
       {
         name: "제우스3 중단부",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch14.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=14"
       },
       {
         name: "아폴로4 중단부",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch15.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=15"
       },
       {
         name: "아폴로 베이스",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch16.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=16"
       },
       {
         name: "제우스3 하단",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch17.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=17"
       },
       {
         name: "밸리 베이스",
-        type: StreamType.HLS,
-        url: "http://59.30.12.195:1935/live/_definst_/ch18.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.high1.com/webcam/pop_webcam.do?ch=18"
       },
     ]
   },
+
+  // {
+  //   name: "오투",
+  //   streams: [
+  //     {
+  //       name: "스키하우스",
+  //       type: StreamType.HLS,
+  //       url: "http://118.46.149.144:8080/ramdisk/cam0.m3u8"
+  //     },
+  //     {
+  //       name: "오렌지",
+  //       type: StreamType.HLS,
+  //       url: "http://118.46.149.144:8080/ramdisk/cam1.m3u8"
+  //     },
+  //     {
+  //       name: "버금마루",
+  //       type: StreamType.HLS,
+  //       url: "http://118.46.149.144:8080/ramdisk/cam2.m3u8"
+  //     },
+  //     {
+  //       name: "으뜸마루",
+  //       type: StreamType.HLS,
+  //       url: "http://118.46.149.144:8080/ramdisk/cam3.m3u8"
+  //     },
+  //   ]
+  // },
 
   {
     name: "오투",
     streams: [
       {
         name: "스키하우스",
-        type: StreamType.HLS,
-        url: "http://118.46.149.144:8080/ramdisk/cam0.m3u8"
+        type: StreamType.IFrame,
+        url: "http://118.46.149.144:8080/streaming/streamhls.jsp?ch=0"
       },
       {
         name: "오렌지",
-        type: StreamType.HLS,
-        url: "http://118.46.149.144:8080/ramdisk/cam1.m3u8"
+        type: StreamType.IFrame,
+        url: "http://118.46.149.144:8080/streaming/streamhls.jsp?ch=1"
       },
       {
         name: "버금마루",
-        type: StreamType.HLS,
-        url: "http://118.46.149.144:8080/ramdisk/cam2.m3u8"
+        type: StreamType.IFrame,
+        url: "http://118.46.149.144:8080/streaming/streamhls.jsp?ch=2"
       },
       {
         name: "으뜸마루",
-        type: StreamType.HLS,
-        url: "http://118.46.149.144:8080/ramdisk/cam3.m3u8"
+        type: StreamType.IFrame,
+        url: "http://118.46.149.144:8080/streaming/streamhls.jsp?ch=3"
       },
     ]
   },
+
+  // {
+  //   name: "무주",
+  //   streams: [
+  //     {
+  //       name: "설천봉 정상",
+  //       type: StreamType.HLS,
+  //       url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam07.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "설천상단슬로프",
+  //       type: StreamType.HLS,
+  //       url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam06.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "모차르트, 미뉴에트",
+  //       type: StreamType.HLS,
+  //       url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam08.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "폴카",
+  //       type: StreamType.HLS,
+  //       url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam09.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "실크로드, 미뉴에트 하단",
+  //       type: StreamType.HLS,
+  //       url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam10.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "만선봉 정상",
+  //       type: StreamType.HLS,
+  //       url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam02.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "하이디하우스",
+  //       type: StreamType.HLS,
+  //       url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam03.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "서역기행, 썬다운",
+  //       type: StreamType.HLS,
+  //       url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam04.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "커넥션",
+  //       type: StreamType.HLS,
+  //       url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam11.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "설천하우스",
+  //       type: StreamType.HLS,
+  //       url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam05.stream/playlist.m3u8"
+  //     },
+  //     {
+  //       name: "만선하우스",
+  //       type: StreamType.HLS,
+  //       url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam01.stream/playlist.m3u8"
+  //     },
+  //   ]
+  // },
 
   {
     name: "무주",
     streams: [
       {
         name: "설천봉 정상",
-        type: StreamType.HLS,
-        url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam07.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=07"
       },
       {
         name: "설천상단슬로프",
-        type: StreamType.HLS,
-        url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam06.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=06"
       },
       {
         name: "모차르트, 미뉴에트",
-        type: StreamType.HLS,
-        url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam08.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=08"
       },
       {
         name: "폴카",
-        type: StreamType.HLS,
-        url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam09.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=09"
       },
       {
         name: "실크로드, 미뉴에트 하단",
-        type: StreamType.HLS,
-        url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam10.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=10"
       },
       {
         name: "만선봉 정상",
-        type: StreamType.HLS,
-        url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam02.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=02"
       },
       {
         name: "하이디하우스",
-        type: StreamType.HLS,
-        url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam03.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=03"
       },
       {
         name: "서역기행, 썬다운",
-        type: StreamType.HLS,
-        url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam04.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=04"
       },
       {
         name: "커넥션",
-        type: StreamType.HLS,
-        url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam11.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=11"
       },
       {
         name: "설천하우스",
-        type: StreamType.HLS,
-        url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam05.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=05"
       },
       {
         name: "만선하우스",
-        type: StreamType.HLS,
-        url: "http://muju.live.cdn.cloudn.co.kr/mujuresort/_definst_/cam01.stream/playlist.m3u8"
+        type: StreamType.IFrame,
+        url: "http://www.mdysresort.com/guide/webcam_popup.asp?cam_num=01"
       },
     ]
   },

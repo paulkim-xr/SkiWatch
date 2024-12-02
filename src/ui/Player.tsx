@@ -22,8 +22,8 @@ function Player({ stream }: { stream: Stream }) {
   }, [stream]);
 
   return (
-    <div className="flex-1 bg-gray-200 flex items-center justify-center">
-      {stream.type === StreamType.YouTube ? (
+    <div className="video-container flex-1 bg-gray-200 flex items-center justify-center">
+      {stream.type === StreamType.IFrame ? (
         <iframe
           width="100%"
           height="100%"
