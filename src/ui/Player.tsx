@@ -34,7 +34,7 @@ function Player({ stream }: { stream: Stream }) {
           allowFullScreen
         ></iframe>
       ) : (
-        <video ref={videoRef} controls autoPlay />
+        <video ref={videoRef} controls autoPlay muted playsInline/>
       )}
     </div>
   );
