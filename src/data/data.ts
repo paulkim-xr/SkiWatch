@@ -52,29 +52,29 @@ export const streamData: ResortStreams[] = [
     name: "지산",
     streams: [
       {
-        name: "레몬 탑승장",
-        type: StreamType.Unavailable,
-        url: ""
+        name: "레몬",
+        type: StreamType.HLS,
+        url: "https://ant.livecity.co.kr:5443/jisancam/streams/jisan1.m3u8"
       },
       {
-        name: "오렌지/뉴오렌지 탑승장",
-        type: StreamType.Unavailable,
-        url: ""
+        name: "오렌지/뉴오렌지",
+        type: StreamType.HLS,
+        url: "https://ant.livecity.co.kr:5443/jisancam/streams/jisan2.m3u8"
       },
       {
         name: "5번/6번 슬로프",
-        type: StreamType.Unavailable,
-        url: ""
+        type: StreamType.HLS,
+        url: "https://ant.livecity.co.kr:5443/jisancam/streams/jisan3.m3u8"
       },
       {
-        name: "블루 탑승장",
-        type: StreamType.Unavailable,
-        url: ""
+        name: "블루",
+        type: StreamType.HLS,
+        url: "https://ant.livecity.co.kr:5443/jisancam/streams/jisan4.m3u8"
       },
       {
-        name: "실버 탑승장",
-        type: StreamType.Unavailable,
-        url: ""
+        name: "실버",
+        type: StreamType.HLS,
+        url: "https://ant.livecity.co.kr:5443/jisancam/streams/jisan5.m3u8"
       },
     ]
   },
