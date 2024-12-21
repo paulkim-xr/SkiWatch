@@ -31,19 +31,29 @@ function Sidebar({ data, onStreamSelect }: { data: ResortStreams[], onStreamSele
           <li className={`${(resort.name === current?.name ? "selected" : "")} mb-2`} key={resort.name}>
             <button className="flex justify-between p-1 pr-3 w-full text-left font-bold text-gray-700" onClick={() => resortSelected(resort.name)}>
               {resort.name}
-              <span>{resort.name === current?.name ? "▲" : "▼"}</span>
+              <span>{resort === current ? "▲" : "▼"}</span>
             </button>
             <ul 
               ref={(el) => listRefs.current[resort.name] = el}
-              className={`${resort.name === current?.name ? "expanded" : "collapsed"} cam-list pl-4`}
+              className={`${resort === current ? "expanded" : "collapsed"} cam-list pl-4`}
             >
+              <li>
+                <button
+                  className="flex justify-between w-full px-2 py-1 text-left"
+                  onClick={() => {
+                    window.open(resort.weather, '_blank', 'noopener noreferrer');
+                  }}
+                >
+                  날씨
+                </button>
+              </li>
               {resort.streams.map((stream) => (
-                <li className={`${(selectedStream?.name === stream.name ? "selected" : "")}`} key={stream.name}>
+                <li className={`${(selectedStream === stream ? "selected" : "")}`} key={stream.name}>
                   <button 
-                    className="flex justify-between w-full px-2 py-1" disabled={stream.type === StreamType.Unavailable}
+                    className="flex justify-between w-full px-2 py-1 text-left" disabled={stream.type === StreamType.Unavailable}
                     onClick={() => {
                       if (stream.type === StreamType.External) {
-                        window.open(stream.url, '_blank', 'noopener,noreferrer');
+                        window.open(stream.url, '_blank', 'noopener noreferrer');
                         return;
                       }
                       onStreamSelect(stream);

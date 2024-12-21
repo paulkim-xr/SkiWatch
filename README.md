@@ -22,6 +22,6 @@ Simple website to see all webcams of Korean ski resorts in one place.
 
 [오투](https://www.o2resort.com/SKI/liftInfo.jsp)
 
-[무주](https://www.mdysresort.com/)
+[무주](https://www.mdysresort.com/guide/webcam.asp)
 
 [에덴밸리](https://www.edenvalley.co.kr/CS/cam_pop1.asp)

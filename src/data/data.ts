@@ -13,43 +13,46 @@ export interface Stream {
 
 export interface ResortStreams {
   name: string;
+  weather: string;
   streams: Stream[];
 }
 
 export const streamData: ResortStreams[] = [
   {
     name: "곤지암",
+    weather: "https://www.weather.go.kr/w/index.do#dong/4146125300/37.33691985016501/127.29351991528104/%EA%B2%BD%EA%B8%B0%20%EA%B4%91%EC%A3%BC%EC%8B%9C%20%EB%8F%84%EC%B2%99%EB%A9%B4/SCH/%EA%B3%A4%EC%A7%80%EC%95%94%EB%A6%AC%EC%A1%B0%ED%8A%B8%20%EC%8A%A4%ED%82%A4%EC%9E%A5",
     streams: [
       {
         name: "정상 휴게소",
-        type: StreamType.HLS,
-        url: "https://konjiam.live.cdn.cloudn.co.kr/konjiam/cam01.stream/playlist.m3u8"
+        type: StreamType.External,
+        url: "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam01.stream/playlist.m3u8"
       },
       {
         name: "정상부 슬로프",
-        type: StreamType.HLS,
-        url: "https://konjiam.live.cdn.cloudn.co.kr/konjiam/cam02.stream/playlist.m3u8"
+        type: StreamType.External,
+        url: "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam02.stream/playlist.m3u8"
       },
       {
         name: "중간 슬로프",
-        type: StreamType.HLS,
-        url: "https://konjiam.live.cdn.cloudn.co.kr/konjiam/cam05.stream/playlist.m3u8"
+        type: StreamType.External,
+        url: "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam05.stream/playlist.m3u8"
       },
       {
         name: "초중급 베이스",
-        type: StreamType.HLS,
-        url: "https://konjiam.live.cdn.cloudn.co.kr/konjiam/cam03.stream/playlist.m3u8"
+        type: StreamType.External,
+        url: "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam03.stream/playlist.m3u8"
       },
       {
         name: "중상급 베이스",
-        type: StreamType.HLS,
-        url: "https://konjiam.live.cdn.cloudn.co.kr/konjiam/cam04.stream/playlist.m3u8"
+        type: StreamType.External,
+        url: "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam04.stream/playlist.m3u8"
       },
     ]
   },
 
   {
     name: "지산",
+    weather: "https://www.weather.go.kr/w/index.do#dong/4150034000/37.2167714356273/127.345183861823/%EA%B2%BD%EA%B8%B0%20%EC%9D%B4%EC%B2%9C%EC%8B%9C%20%EB%A7%88%EC%9E%A5%EB%A9%B4/SCH/%EC%A7%80%EC%82%B0%ED%8F%AC%EB%A0%88%EC%8A%A4%ED%8A%B8%EB%A6%AC%EC%A1%B0%ED%8A%B8%20%EC%8A%A4%ED%82%A4%EC%9E%A5",
     streams: [
       {
         name: "레몬",
@@ -79,49 +82,62 @@ export const streamData: ResortStreams[] = [
     ]
   },
 
+  // {
+  //   name: "비발디",
+  //   weather: "https://www.weatheri.co.kr/leisure/leisure05.php?rid=11D10302&k=6&a_name=%EB%8C%80%EB%AA%85%EB%B9%84%EB%B0%9C%EB%94%94%ED%8C%8C%ED%81%AC",
+  //   streams: [
+  //     {
+  //       name: "스키장 정상",
+  //       type: StreamType.Unavailable,
+  //       url: ""
+  //     },
+  //     {
+  //       name: "발라드",
+  //       type: StreamType.Unavailable,
+  //       url: ""
+  //     },
+  //     {
+  //       name: "재즈",
+  //       type: StreamType.Unavailable,
+  //       url: ""
+  //     },
+  //     {
+  //       name: "테크노",
+  //       type: StreamType.Unavailable,
+  //       url: ""
+  //     },
+  //     {
+  //       name: "블루스",
+  //       type: StreamType.Unavailable,
+  //       url: ""
+  //     },
+  //     {
+  //       name: "힙합",
+  //       type: StreamType.Unavailable,
+  //       url: ""
+  //     },
+  //     {
+  //       name: "스키장 전경",
+  //       type: StreamType.Unavailable,
+  //       url: ""
+  //     },
+  //   ]
+  // },
   {
     name: "비발디",
+    weather: "https://www.weather.go.kr/w/index.do#dong/5172037000/37.64508331765885/127.68202103965271/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%ED%99%8D%EC%B2%9C%EA%B5%B0%20%EC%84%9C%EB%A9%B4/SCH/%EC%86%8C%EB%85%B8%EB%B2%A8%EB%B9%84%EB%B0%9C%EB%94%94%ED%8C%8C%ED%81%AC",
     streams: [
       {
-        name: "스키장 정상",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "발라드",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "재즈",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "테크노",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "블루스",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "힙합",
-        type: StreamType.Unavailable,
-        url: ""
-      },
-      {
-        name: "스키장 전경",
-        type: StreamType.Unavailable,
-        url: ""
+        name: "공식 홈페이지",
+        type: StreamType.External,
+        url: "https://www.sonohotelsresorts.com/skiboard/status"
       },
     ]
   },
 
   {
     name: "엘리시안강촌",
+    weather: "https://www.weather.go.kr/w/index.do#dong/4182025000/37.822145126315334/127.58991724984118/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%B6%98%EC%B2%9C%EC%8B%9C%20%EB%82%A8%EC%82%B0%EB%A9%B4/SCH/%EC%97%98%EB%A6%AC%EC%8B%9C%EC%95%88%EA%B0%95%EC%B4%8C",
     streams: [
       {
         name: "스키하우스, 알프하우스, 챌린지하우스, 눈썰매장",
@@ -138,32 +154,40 @@ export const streamData: ResortStreams[] = [
 
   {
     name: "오크밸리",
+    weather: "https://www.weather.go.kr/w/index.do#dong/5113033000/37.4031964505172/127.817056509833/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%9B%90%EC%A3%BC%EC%8B%9C%20%EC%A7%80%EC%A0%95%EB%A9%B4/SCH/%EC%98%A4%ED%81%AC%EB%B0%B8%EB%A6%AC%20%EC%8A%A4%ED%82%A4%EC%9E%A5",
     streams: [
       {
-        name: "스키광장",
-        type: StreamType.Unavailable,
-        url: ""
+        name: "스노우파크 옥탑",
+        type: StreamType.HLS,
+        url: "https://cctv-oak9.ktcdn.co.kr/cctv/ch2.stream/chunklist.m3u8"
       },
       {
         name: "I 슬로프",
-        type: StreamType.Unavailable,
-        url: ""
+        type: StreamType.HLS,
+        url: "https://cctv-oak9.ktcdn.co.kr/cctv/ch9.stream/chunklist.m3u8"
       },
       {
         name: "G 슬로프",
-        type: StreamType.Unavailable,
-        url: ""
+        type: StreamType.HLS,
+        url: "https://cctv-oak9.ktcdn.co.kr/cctv/ch7.stream/chunklist.m3u8"
       },
       {
         name: "F 슬로프",
-        type: StreamType.Unavailable,
-        url: ""
+        type: StreamType.HLS,
+        url: "https://cctv-oak9.ktcdn.co.kr/cctv/ch6.stream/chunklist.m3u8"
+      },
+      {
+        name: "플라워리프트 하차장",
+        type: StreamType.HLS,
+        url: "https://cctv-oak9.ktcdn.co.kr/cctv/ch5.stream/chunklist.m3u8"
       },
     ]
   },
 
   {
     name: "웰리힐리",
+    weather: "https://www.weather.go.kr/w/index.do#dong/5173033000/37.4855522986022/128.247790847244/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%ED%9A%A1%EC%84%B1%EA%B5%B0%20%EB%91%94%EB%82%B4%EB%A9%B4/SCH/%EC%9B%B0%EB%A6%AC%ED%9E%90%EB%A6%AC%ED%8C%8C%ED%81%AC%20%EC%8A%A4%EB%85%B8%EC%9A%B0%ED%8C%8C%ED%81%AC",
+    // weather: "https://hosting.coreintec.com/weather/iframe/wellihilli/",
     streams: [
       {
         name: "알파",
@@ -200,6 +224,7 @@ export const streamData: ResortStreams[] = [
 
   {
     name: "휘닉스파크",
+    weather: "https://www.weather.go.kr/w/index.do#dong/5176034000/37.5805715284306/128.322414371847/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%ED%8F%89%EC%B0%BD%EA%B5%B0%20%EB%B4%89%ED%8F%89%EB%A9%B4/SCH/%ED%9C%98%EB%8B%89%EC%8A%A4%20%EC%8A%A4%EB%85%B8%EC%9A%B0%ED%8C%8C%ED%81%AC",
     streams: [
       {
         name: "호크/스패로우",
@@ -236,6 +261,7 @@ export const streamData: ResortStreams[] = [
 
   {
     name: "용평",
+    weather: "https://www.weather.go.kr/w/index.do#dong/5176038000/37.64575528879609/128.6805216545055/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%ED%8F%89%EC%B0%BD%EA%B5%B0%20%EB%8C%80%EA%B4%80%EB%A0%B9%EB%A9%B4/SCH/%EB%AA%A8%EB%82%98%EC%9A%A9%ED%8F%89%20%EC%8A%A4%ED%82%A4%EC%9E%A5",
     streams: [
       {
         name: "옐로우",
@@ -302,6 +328,7 @@ export const streamData: ResortStreams[] = [
 
   {
     name: "알펜시아",
+    weather: "https://www.weather.go.kr/w/index.do#dong/5176038000/37.656374437920505/128.6733956273516/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%ED%8F%89%EC%B0%BD%EA%B5%B0%20%EB%8C%80%EA%B4%80%EB%A0%B9%EB%A9%B4/SCH/%EC%95%8C%ED%8E%9C%EC%8B%9C%EC%95%84%EB%A6%AC%EC%A1%B0%ED%8A%B8%20%EC%8A%A4%ED%82%A4700",
     streams: [
       {
         name: "현장웹캠",
@@ -409,6 +436,7 @@ export const streamData: ResortStreams[] = [
 
   {
     name: "하이원",
+    weather: "https://www.weather.go.kr/w/index.do#dong/5177025300/37.20403827333288/128.83883509780551/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EC%A0%95%EC%84%A0%EA%B5%B0%20%EA%B3%A0%ED%95%9C%EC%9D%8D/SCH/%ED%95%98%EC%9D%B4%EC%9B%90%EB%A6%AC%EC%A1%B0%ED%8A%B8%20%EC%8A%A4%ED%82%A4%EC%9E%A5",
     streams: [
       {
         name: "제우스2 입구",
@@ -531,6 +559,7 @@ export const streamData: ResortStreams[] = [
 
   {
     name: "오투",
+    weather: "https://www.weather.go.kr/w/index.do#dong/5119053500/37.176269951563/128.940538490386/%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%ED%83%9C%EB%B0%B1%EC%8B%9C%20%ED%99%A9%EC%A7%80%EB%8F%99/SCH/%EC%98%A4%ED%88%AC%EB%A6%AC%EC%A1%B0%ED%8A%B8%20%EC%8A%A4%ED%82%A4%EC%9E%A5",
     streams: [
       {
         name: "스키하우스",
@@ -618,6 +647,7 @@ export const streamData: ResortStreams[] = [
 
   {
     name: "무주",
+    weather: "https://www.weather.go.kr/w/index.do#dong/5273034000/35.89090319690769/127.73686354262368/%EC%A0%84%EB%B6%81%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%20%EB%AC%B4%EC%A3%BC%EA%B5%B0%20%EC%84%A4%EC%B2%9C%EB%A9%B4/SCH/%EB%AC%B4%EC%A3%BC%EB%8D%95%EC%9C%A0%EC%82%B0%EB%A6%AC%EC%A1%B0%ED%8A%B8%20%EC%8A%A4%ED%82%A4%EC%9E%A5",
     streams: [
       {
         name: "설천봉 정상",
@@ -679,26 +709,27 @@ export const streamData: ResortStreams[] = [
 
   {
     name: "에덴밸리",
+    weather: "https://www.weather.go.kr/w/index.do#dong/4833033000/35.4248265727876/128.985235423114/%EA%B2%BD%EB%82%A8%20%EC%96%91%EC%82%B0%EC%8B%9C%20%EC%9B%90%EB%8F%99%EB%A9%B4/SCH/%EC%97%90%EB%8D%B4%EB%B0%B8%EB%A6%AC%EB%A6%AC%EC%A1%B0%ED%8A%B8%20%EC%8A%A4%ED%82%A4%EC%9E%A5",
     streams: [
       {
         name: "베이직",
         type: StreamType.Unavailable,
-        url: ""
+        url: "https://rtsp.me/embed/b5FsND7i/"
       },
       {
         name: "쥬피터",
         type: StreamType.Unavailable,
-        url: ""
+        url: "https://rtsp.me/embed/iHQDh9S3/"
       },
       {
         name: "우라누스",
         type: StreamType.Unavailable,
-        url: ""
+        url: "https://rtsp.me/embed/h6RyNKYB/"
       },
       {
         name: "광장",
         type: StreamType.Unavailable,
-        url: ""
+        url: "https://rtsp.me/embed/ftRQtKZD/"
       },
     ]
   }
