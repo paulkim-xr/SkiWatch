@@ -1,3 +1,34 @@
+import { Resort } from "./Util";
+import Alpensia from "./alpensia/data";
+import EdenValley from "./edenvalley/data";
+import Gangchon from "./gangchon/data";
+import High1 from "./high1/data";
+import Jisan from "./jisan/data";
+import Konjiam from "./konjiam/data";
+import Muju from "./muju/data";
+import O2 from "./o2/data";
+import OakValley from "./oakvalley/data";
+import Phoenix from "./phoenix/data";
+import Vivaldi from "./vivaldi/data";
+import WelliHilli from "./wellihilli/data";
+import Yongpyong from "./yongpyong/data";
+
+export const resorts: Resort[] = [
+  Alpensia,
+  EdenValley,
+  Gangchon,
+  High1,
+  Jisan,
+  Konjiam,
+  Muju,
+  O2,
+  OakValley,
+  Phoenix,
+  Vivaldi,
+  WelliHilli,
+  Yongpyong,
+];
+
 export enum StreamType {
   HLS,
   IFrame,

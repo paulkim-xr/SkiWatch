@@ -37,7 +37,7 @@ function Sidebar({ data, onStreamSelect }: { data: ResortStreams[], onStreamSele
               ref={(el) => listRefs.current[resort.name] = el}
               className={`${resort === current ? "expanded" : "collapsed"} cam-list pl-4`}
             >
-              <li>
+              <li className="bg-cyan-300">
                 <button
                   className="flex justify-between w-full px-2 py-1 text-left"
                   onClick={() => {

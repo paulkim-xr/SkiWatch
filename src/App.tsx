@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { Stream, StreamType, streamData } from './data/data';
-import './App.css';
-import Sidebar from './ui/Sidebar';
-import Player from './ui/Player';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Webcam from './Webcam';
+import Slopes from './Slopes';
 
 function App() {
   const [currentStream, setCurrentStream] = useState<Stream | undefined>();
 
   return (
-    <div className="App flex h-screen">
-      <Player stream={currentStream || { name: "No Stream Selected", type: StreamType.Unavailable, url: "" }} />
-      <Sidebar data={streamData} onStreamSelect={setCurrentStream} />
-    </div>
+    <BrowserRouter basename='/SkiWatch'>
+      <Routes>
+        <Route path='/slopes' element={<Slopes />} />
+        <Route path='/' element={<Webcam />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
