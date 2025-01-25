@@ -1,8 +1,10 @@
 import {
     Column,
+    ColumnFiltersState,
     createColumnHelper,
     flexRender,
     getCoreRowModel,
+    getFacetedUniqueValues,
     getFilteredRowModel,
     getSortedRowModel,
     RowData,
@@ -18,7 +20,7 @@ type SlopeRow = {
     id: number;
     resort: Name;
     name: Name;
-    difficulty: Difficulty;
+    difficulty: string;
     length: number | undefined; // m
     width: number | undefined; // m
     area: number | undefined; //  m^2
@@ -32,27 +34,10 @@ type SlopeRow = {
 
 const columnHelper = createColumnHelper<SlopeRow>();
 
-const sortDifficulties: SortingFn<SlopeRow> = (rowA, rowB, _columnId) => {
-    const difficultyOrder = [
-        Difficulty.BEGINNER,
-        Difficulty.BE_IN,
-        Difficulty.INTERMEDIATE,
-        Difficulty.IN_AD,
-        Difficulty.ADVANCED,
-        Difficulty.EXPERT,
-        Difficulty.PARK,
-    ];
-
-    const difficultyA = rowA.original.difficulty;
-    const difficultyB = rowB.original.difficulty;
-
-    return difficultyOrder.indexOf(difficultyA) - difficultyOrder.indexOf(difficultyB);
-}
-
 declare module '@tanstack/react-table' {
     //allows us to define custom properties for our columns
     interface ColumnMeta<TData extends RowData, TValue> {
-        filterVariant?: 'text' | 'range' | 'select'
+        filterVariant?: 'text' | 'range' | 'select' | 'difficulty' | 'resort'
     }
 }
 
@@ -65,9 +50,11 @@ function Filter({ column }: { column: Column<any, unknown> }) {
         () =>
             filterVariant === 'range'
                 ? []
-                : Array.from(column.getFacetedUniqueValues().keys())
-                    .sort()
-                    .slice(0, 5000),
+                : filterVariant === 'difficulty'
+                ? ["초급", "초중급", "중급", "중상급", "상급", "최상급", "파크"]
+                : Array.from(column.getFacetedUniqueValues().keys()).sort(),
+
+                // : Array.from(column.getFacetedUniqueValues().keys()),
         [column.getFacetedUniqueValues(), filterVariant]
     )
 
@@ -105,12 +92,28 @@ function Filter({ column }: { column: Column<any, unknown> }) {
             </div>
             <div className="h-1" />
         </div>
-    ) : filterVariant === 'select' ? (
+    ) : filterVariant === 'select' || filterVariant === 'difficulty' ? (
         <select
             onChange={e => column.setFilterValue(e.target.value)}
             value={columnFilterValue?.toString()}
         >
-            <option value="">All</option>
+            <option value="">선택 안함</option>
+            {sortedUniqueValues.map(value => (
+                //dynamically generated select options from faceted values feature
+                <option value={value} key={value}>
+                    {value}
+                </option>
+            ))}
+        </select>
+    ) : filterVariant === 'resort' ? (
+        <select
+            onChange={e => {
+                column.setFilterValue(e.target.value)
+                console.log(e.target.value)
+            }}
+            value={columnFilterValue?.toString()}
+        >
+            <option value="">선택 안함</option>
             {sortedUniqueValues.map(value => (
                 //dynamically generated select options from faceted values feature
                 <option value={value} key={value}>
@@ -177,7 +180,15 @@ function SlopeTable({ resorts }: { resorts: Resort[] }) {
                     id: slope.id,
                     resort: resort.name,
                     name: slope.name,
-                    difficulty: slope.difficulty,
+                    difficulty: {
+                        [Difficulty.BEGINNER]: "초급",
+                        [Difficulty.BE_IN]: "초중급",
+                        [Difficulty.INTERMEDIATE]: "중급",
+                        [Difficulty.IN_AD]: "중상급",
+                        [Difficulty.ADVANCED]: "상급",
+                        [Difficulty.EXPERT]: "최상급",
+                        [Difficulty.PARK]: "파크",
+                    }[slope.difficulty],
                     length: slope.length,
                     width: slope.width,
                     area: slope.area,
@@ -192,83 +203,113 @@ function SlopeTable({ resorts }: { resorts: Resort[] }) {
         });
     });
     const [sorting, setSorting] = useState<SortingState>([]);
+    const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+
+    const diffSorting: SortingFn<SlopeRow> = (rowA, rowB, _columnId) => {
+        const statusA = rowA.original.difficulty
+        const statusB = rowB.original.difficulty
+        const statusOrder = ["초급", "초중급", "중급", "중상급", "상급", "최상급", "파크"]
+        return statusOrder.indexOf(statusA) - statusOrder.indexOf(statusB)
+    }
 
     const columns = [
-        columnHelper.accessor('resort', {
+        columnHelper.accessor('resort.ko', {
             header: "리조트",
-            cell: info => info.getValue().ko,
+            cell: info => info.getValue(),
             enableSorting: true,
+            filterFn: "equalsString",
             meta: {
-                filterVariant: 'select',
+                filterVariant: "resort"
             }
         }),
-        columnHelper.accessor('name', {
+        columnHelper.accessor('name.ko', {
             header: "이름",
-            cell: info => info.getValue().ko,
+            cell: info => info.getValue(),
             enableSorting: true,
+            filterFn: "includesString",
+            meta: {
+                filterVariant: "text"
+            }
         }),
         columnHelper.accessor('difficulty', {
             header: "난이도",
             enableSorting: true,
             sortDescFirst: false,
-            cell: info => {
-                const difficulty = info.getValue();
-                return {
-                    [Difficulty.BEGINNER]: "초급",
-                    [Difficulty.BE_IN]: "초중급",
-                    [Difficulty.INTERMEDIATE]: "중급",
-                    [Difficulty.IN_AD]: "중상급",
-                    [Difficulty.ADVANCED]: "상급",
-                    [Difficulty.EXPERT]: "최상급",
-                    [Difficulty.PARK]: "파크",
-                }[difficulty];
-            },
-            sortingFn: sortDifficulties,
+            sortingFn: diffSorting,
+            filterFn: "equals",
             meta: {
-                filterVariant: 'select',
+                filterVariant: "difficulty",
             }
         }),
         columnHelper.accessor('length', {
             header: "길이 (m)",
-            cell: info => info.getValue() ? `${info.getValue()}` : '-',
+            cell: info => <div className="text-right">{info.getValue() ? `${info.getValue()}` : '-'}</div>,
             enableSorting: true,
             sortUndefined: 'last',
+            filterFn: "inNumberRange",
+            meta: {
+                filterVariant: "range"
+            }
         }),
         columnHelper.accessor('width', {
             header: "폭 (m)",
-            cell: info => info.getValue() ? `${info.getValue()}` : '-',
+            cell: info => <div className="text-right">{info.getValue() ? `${info.getValue()}` : '-'}</div>,
             enableSorting: true,
             sortUndefined: 'last',
+            filterFn: "inNumberRange",
+            meta: {
+                filterVariant: "range"
+            }
         }),
         columnHelper.accessor('area', {
             header: "면적 (m²)",
-            cell: info => info.getValue() ? `${info.getValue()}` : '-',
+            cell: info => <div className="text-right">{info.getValue() ? `${info.getValue()}` : '-'}</div>,
             enableSorting: true,
             sortUndefined: 'last',
+            filterFn: "inNumberRange",
+            meta: {
+                filterVariant: "range"
+            }
         }),
         columnHelper.accessor('elevation', {
             header: "표고차 (m)",
-            cell: info => info.getValue() ? `${info.getValue()}` : '-',
+            cell: info => <div className="text-right">{info.getValue() ? `${info.getValue()}` : '-'}</div>,
             enableSorting: true,
             sortUndefined: 'last',
+            filterFn: "inNumberRange",
+            meta: {
+                filterVariant: "range"
+            }
         }),
         columnHelper.accessor('minAngle', {
             header: "최소각도 (°)",
-            cell: info => info.getValue() ? `${info.getValue()}` : '-',
+            cell: info => <div className="text-right">{info.getValue() ? `${info.getValue()}` : '-'}</div>,
             enableSorting: true,
             sortUndefined: 'last',
+            filterFn: "inNumberRange",
+            meta: {
+                filterVariant: "range"
+            }
         }),
         columnHelper.accessor('avgAngle', {
             header: "평균각도 (°)",
-            cell: info => info.getValue() ? `${info.getValue()}` : '-',
+            cell: info => <div className="text-right">{info.getValue() ? `${info.getValue()}` : '-'}</div>,
             enableSorting: true,
             sortUndefined: 'last',
+            filterFn: "inNumberRange",
+            meta: {
+                filterVariant: "range"
+            }
         }),
         columnHelper.accessor('maxAngle', {
             header: "최대각도 (°)",
-            cell: info => info.getValue() ? `${info.getValue()}` : '-',
+            cell: info => <div className="text-right">{info.getValue() ? `${info.getValue()}` : '-'}</div>,
             enableSorting: true,
             sortUndefined: 'last',
+            filterFn: "inNumberRange",
+            meta: {
+                filterVariant: "range"
+            }
         }),
     ];
 
@@ -277,37 +318,43 @@ function SlopeTable({ resorts }: { resorts: Resort[] }) {
         columns,
         filterFns: {},
         state: {
-            sorting,
+            sorting, columnFilters,
         },
         onSortingChange: setSorting,
+        onColumnFiltersChange: setColumnFilters,
         getCoreRowModel: getCoreRowModel<SlopeRow>(),
         getFilteredRowModel: getFilteredRowModel<SlopeRow>(),
         getSortedRowModel: getSortedRowModel<SlopeRow>(),
+        getFacetedUniqueValues: getFacetedUniqueValues<SlopeRow>(),
     });
 
     return (
         <table className='overflow-x-auto rounded-md border'>
-            <thead>
+            <thead style={{position: 'sticky', top: 3, background: 'white'}}>
                 {table.getHeaderGroups().map(headerGroup => (
                     <tr key={headerGroup.id}>
                         {headerGroup.headers.map(header => (
                             <th
                                 key={header.id}
-                                className='px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'
-                                onClick={header.column.getToggleSortingHandler()}
+                                className='px-2 py-3 text-left text-xs font-medium text-gray-500 tracking-wider'
                             >
-                                <div className={header.column.getCanSort() ? 'cursor-pointer select-none' : ''}>
-                                    {flexRender(
-                                        header.column.columnDef.header,
-                                        header.getContext()
-                                    )}
+                                <div
+                                    className={header.column.getCanSort() ? 'flex flex-row cursor-pointer select-none' : 'flex flex-row'}
+                                    onClick={header.column.getToggleSortingHandler()}
+                                >
+                                    <div>
+                                        {flexRender(
+                                            header.column.columnDef.header,
+                                            header.getContext()
+                                        )}
+                                    </div>
                                     {{
                                         asc: <FaSortUp />,
                                         desc: <FaSortDown />,
                                     }[header.column.getIsSorted() as string] ?? null}
-                                    {header.column.getCanFilter() ?? <Filter column={header.column} />}
-                                    {header.column.getCanSort() && !header.column.getIsSorted() && <FaSort />}
+                                    {header.column.getCanSort() && !header.column.getIsSorted() ? <FaSort /> : null}
                                 </div>
+                                {header.column.getCanFilter() ? <Filter column={header.column} /> : null}
                             </th>
                         ))}
                     </tr>

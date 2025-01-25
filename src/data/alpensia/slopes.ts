@@ -29,7 +29,7 @@ export const slopes: Slope[] = [
             ko: "브라보",
             en: "Bravo"
         },
-        difficulty: Difficulty.ADVANCED,
+        difficulty: Difficulty.INTERMEDIATE,
         length: 1351,
         width: undefined,
         area: 49115,

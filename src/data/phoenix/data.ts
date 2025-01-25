@@ -5,7 +5,7 @@ import { streams } from "./streams";
 
 const Phoenix: Resort = {
     name: {
-        ko: "휘닉스팤크",
+        ko: "휘닉스파크",
         en: "Phoenix Park"
     },
     homepage: "https://phoenixhnr.co.kr/page/main/pyeongchang?q%5BhmpgDivCd%5D=PP&page=1&size=4",
