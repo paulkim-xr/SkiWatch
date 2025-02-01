@@ -6,7 +6,7 @@ export const streams: Stream[] = [
             ko: "현장웹캠",
             en: "Webcam"
         },
-        type: StreamType.HLS,
+        type: StreamType.IFrame,
         url: "https://www.youtube.com/embed/fStEQyg7SWc"
     },
 ];

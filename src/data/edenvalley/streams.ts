@@ -6,31 +6,15 @@ export const streams: Stream[] = [
             ko: "베이직",
             en: "Basic"
         },
-        type: StreamType.Unavailable,
-        url: "https://rtsp.me/embed/b5FsND7i/"
+        type: StreamType.IFrame,
+        url: "https://rtsp.me/embed/BnyHAfhG"
     },
     {
         name: {
-            ko: "쥬피터",
-            en: "Jupiter"
+            ko: "슬로프 광장",
+            en: "Slope Plaza"
         },
-        type: StreamType.Unavailable,
-        url: "https://rtsp.me/embed/iHQDh9S3/"
-    },
-    {
-        name: {
-            ko: "우라누스",
-            en: "Uranus"
-        },
-        type: StreamType.Unavailable,
-        url: "https://rtsp.me/embed/h6RyNKYB/"
-    },
-    {
-        name: {
-            ko: "광장",
-            en: "Square"
-        },
-        type: StreamType.Unavailable,
-        url: "https://rtsp.me/embed/ftRQtKZD/"
+        type: StreamType.IFrame,
+        url: "https://rtsp.me/embed/eHH3reG8/"
     },
 ];

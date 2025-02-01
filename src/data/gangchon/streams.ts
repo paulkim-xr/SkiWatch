@@ -7,7 +7,7 @@ export const streams: Stream[] = [
             en: "Ski House, Alp House, Challenge House, Snow Sled"
         },
         type: StreamType.IFrame,
-        url: "https://www.youtube.com/embed/XMwm6A_745w"
+        url: "https://www.youtube.com/embed/-usb4BRmm_c"
     },
     {
         name: {
@@ -15,6 +15,6 @@ export const streams: Stream[] = [
             en: "Pegasus, Deer-Leopard, Deer Lower Zone, Dragon"
         },
         type: StreamType.IFrame,
-        url: "https://www.youtube.com/embed/O-12c9lGP34"
+        url: "https://www.youtube.com/embed/XyaS-KSPSFE"
     },
 ];

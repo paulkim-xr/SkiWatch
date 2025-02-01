@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import Hls from "hls.js";
-import { Stream, StreamType } from "../data/data";
+import { Stream, StreamType } from "../data/Util";
 import "./Player.css";
 
 function Player({ stream }: { stream: Stream }) {
@@ -28,9 +28,9 @@ function Player({ stream }: { stream: Stream }) {
           width="100%"
           height="100%"
           src={stream.url}
-          title={stream.name}
+          title={stream.name.ko}
           frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
       ) : (

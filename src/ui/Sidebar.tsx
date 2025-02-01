@@ -1,41 +1,41 @@
 import { useEffect, useRef, useState } from "react";
-import { ResortStreams, Stream, StreamType } from "../data/data";
+import { Resort, Stream, StreamType } from "../data/Util";
 import "./Sidebar.css";
 
-function Sidebar({ data, onStreamSelect }: { data: ResortStreams[], onStreamSelect: (stream: Stream) => void }) {
-  const [current, setCurrent] = useState<ResortStreams | undefined>();
+function Sidebar({ data, onStreamSelect }: { data: Resort[], onStreamSelect: (stream: Stream) => void }) {
+  const [currentResort, setCurrentResort] = useState<Resort | undefined>();
   const [selectedStream, setSelectedStream] = useState<Stream | undefined>();
   const listRefs = useRef<{ [key: string]: HTMLUListElement | null }>({});
 
   function resortSelected(name: String) {
-    if (current?.name === name) {
-      setCurrent(undefined);
+    if (currentResort?.name.ko === name) {
+      setCurrentResort(undefined);
       return;
     }
-    setCurrent(data.find((res) => res.name === name));
+    setCurrentResort(data.find((res) => res.name.ko === name));
   }
 
   useEffect(() => {
     Object.keys(listRefs.current).forEach((key) => {
       const element = listRefs.current[key];
       if (element) {
-        element.style.height = key === current?.name ? `${element.scrollHeight}px` : "0px";
+        element.style.height = key === currentResort?.name.ko ? `${element.scrollHeight}px` : "0px";
       }
     });
-  }, [current]);
+  }, [currentResort]);
 
   return (
     <div className="sidebar bg-white shadow-lg">
       <ul className="resort-list p-4">
         {data.map((resort) => (
-          <li className={`${(resort.name === current?.name ? "selected" : "")} mb-2`} key={resort.name}>
-            <button className="flex justify-between p-1 pr-3 w-full text-left font-bold text-gray-700" onClick={() => resortSelected(resort.name)}>
-              {resort.name}
-              <span>{resort === current ? "▲" : "▼"}</span>
+          <li className={`${(resort.name === currentResort?.name ? "selected" : "")} mb-2`} key={resort.name.ko}>
+            <button className="flex justify-between p-1 pr-3 w-full text-left font-bold text-gray-700" onClick={() => resortSelected(resort.name.ko)}>
+              {resort.name.ko}
+              <span>{resort === currentResort ? "▲" : "▼"}</span>
             </button>
             <ul 
-              ref={(el) => listRefs.current[resort.name] = el}
-              className={`${resort === current ? "expanded" : "collapsed"} cam-list pl-4`}
+              ref={(el) => listRefs.current[resort.name.ko] = el}
+              className={`${resort === currentResort ? "expanded" : "collapsed"} cam-list pl-4`}
             >
               <li className="bg-cyan-300">
                 <button
@@ -48,7 +48,7 @@ function Sidebar({ data, onStreamSelect }: { data: ResortStreams[], onStreamSele
                 </button>
               </li>
               {resort.streams.map((stream) => (
-                <li className={`${(selectedStream === stream ? "selected" : "")}`} key={stream.name}>
+                <li className={`${(selectedStream === stream ? "selected" : "")}`} key={stream.name.ko}>
                   <button 
                     className="flex justify-between w-full px-2 py-1 text-left" disabled={stream.type === StreamType.Unavailable}
                     onClick={() => {
@@ -60,7 +60,7 @@ function Sidebar({ data, onStreamSelect }: { data: ResortStreams[], onStreamSele
                       setSelectedStream(stream);
                     }}
                   >
-                    {stream.name}
+                    {stream.name.ko}
                   </button>
                 </li>
               ))}

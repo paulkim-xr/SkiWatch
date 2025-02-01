@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Stream, StreamType, streamData } from './data/data';
+import { Stream, StreamType } from './data/Util';
+import { resorts } from './data/data';
 import './Webcam.css';
 import Sidebar from './ui/Sidebar';
 import Player from './ui/Player';
@@ -9,8 +10,8 @@ function Webcam() {
 
   return (
     <div className="App flex h-screen">
-      <Player stream={currentStream || { name: "No Stream Selected", type: StreamType.Unavailable, url: "" }} />
-      <Sidebar data={streamData} onStreamSelect={setCurrentStream} />
+      <Player stream={currentStream || { name: { ko: "선택된 영상이 없습니다", en: "No Stream Selected" }, type: StreamType.Unavailable, url: "" }} />
+      <Sidebar data={resorts} onStreamSelect={setCurrentStream} />
     </div>
   );
 }
