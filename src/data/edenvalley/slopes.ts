@@ -1,4 +1,4 @@
-import { degreeToPercent, Difficulty, percentToDegree, Slope } from "../Util"
+import { Difficulty, percentToDegree, Slope } from "../Util"
 
 // https://www.edenvalley.co.kr/ski/View.asp?location=01
 // http://riderspark.com/rp_bbs/edenvalley

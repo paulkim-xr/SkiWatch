@@ -6,7 +6,7 @@ export const streams: Stream[] = [
             ko: "레몬",
             en: "Lemon"
         },
-        type: StreamType.HLS,
+        type: StreamType.Unavailable,
         url: "https://ant.livecity.co.kr:5443/jisancam/streams/jisan1.m3u8"
     },
     {
@@ -14,7 +14,7 @@ export const streams: Stream[] = [
             ko: "오렌지/뉴오렌지",
             en: "Orange/New Orange"
         },
-        type: StreamType.HLS,
+        type: StreamType.Unavailable,
         url: "https://ant.livecity.co.kr:5443/jisancam/streams/jisan2.m3u8"
     },
     {
@@ -22,7 +22,7 @@ export const streams: Stream[] = [
             ko: "5번/6번 슬로프",
             en: "Slope 5/6"
         },
-        type: StreamType.HLS,
+        type: StreamType.Unavailable,
         url: "https://ant.livecity.co.kr:5443/jisancam/streams/jisan3.m3u8"
     },
     {
@@ -30,7 +30,7 @@ export const streams: Stream[] = [
             ko: "블루",
             en: "Blue"
         },
-        type: StreamType.HLS,
+        type: StreamType.Unavailable,
         url: "https://ant.livecity.co.kr:5443/jisancam/streams/jisan4.m3u8"
     },
     {
@@ -38,7 +38,7 @@ export const streams: Stream[] = [
             ko: "실버",
             en: "Silver"
         },
-        type: StreamType.HLS,
+        type: StreamType.Unavailable,
         url: "https://ant.livecity.co.kr:5443/jisancam/streams/jisan5.m3u8"
     },
 ];

@@ -1,12 +1,15 @@
+import { LocalizedText } from "@/lib/i18n/locales";
+
 export enum StreamType {
     HLS,
     IFrame,
     External,
     Unavailable,
+    Vivaldi,
 }
 
 export type Resort = {
-    name: Name;
+    name: LocalizedText;
     homepage: string;
     weather: string;
     lifts: Lift[];
@@ -16,7 +19,7 @@ export type Resort = {
 
 export type Lift = {
     id: number;
-    name: Name;
+    name: LocalizedText;
     length: number; // m
     elevation: number | undefined;
     seats: number | undefined;
@@ -30,7 +33,7 @@ export type Lift = {
 
 export type Slope = {
     id: number;
-    name: Name;
+    name: LocalizedText;
     difficulty: Difficulty;
     length: number | undefined; // m
     width: number | undefined; // m
@@ -47,15 +50,19 @@ export enum Difficulty {
     BEGINNER, BE_IN, INTERMEDIATE, IN_AD, ADVANCED, EXPERT, PARK
 }
 
+export type StreamMetadata = {
+    vivaldi?: {
+        channel: number;
+        serial: string;
+        token?: string;
+    };
+};
+
 export type Stream = {
-    name: Name;
+    name: LocalizedText;
     type: StreamType;
     url: string;
-}
-
-export type Name = {
-    ko: string;
-    en: string;
+    metadata?: StreamMetadata;
 }
 
 export function degreeToPercent(degree: number) {

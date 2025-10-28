@@ -151,3 +151,5 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+AGENTS.md
+public/wespJSSDKEncV4.min.js
