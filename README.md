@@ -1,3 +1,5 @@
+## IMPORTANT! USE <a href="https://skiwatch.vercel.app">skiwatch.vercel.app</a> UNTIL API SERVER REWORK
+
 Simple website to see all webcams of Korean ski resorts in one place.
 
 [곤지암](https://www.konjiamresort.co.kr/ski/liveCam.dev)
