@@ -7,6 +7,6 @@ export const streams: Stream[] = [
             en: "Webcam"
         },
         type: StreamType.IFrame,
-        url: "https://www.youtube.com/embed/482p_sVR2sA"
+        url: "https://www.youtube.com/embed/fStEQyg7SWc"
     },
 ];

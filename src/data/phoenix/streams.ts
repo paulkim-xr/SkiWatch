@@ -11,27 +11,11 @@ export const streams: Stream[] = [
     },
     {
         name: {
-            ko: "도도",
-            en: "Dodo"
-        },
-        type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/sp_01.m3u8"
-    },
-    {
-        name: {
             ko: "불새마루",
             en: "Bulsae Maru"
         },
         type: StreamType.HLS,
         url: "https://streaming.phoenixhnr.co.kr/hls/ht_01.m3u8"
-    },
-    {
-        name: {
-            ko: "베이스",
-            en: "Base"
-        },
-        type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/bc_02.m3u8"
     },
     {
         name: {
@@ -48,5 +32,29 @@ export const streams: Stream[] = [
         },
         type: StreamType.HLS,
         url: "https://streaming.phoenixhnr.co.kr/hls/yh_01.m3u8"
+    },
+    {
+        name: {
+            ko: "도도",
+            en: "Dodo"
+        },
+        type: StreamType.HLS,
+        url: "https://streaming.phoenixhnr.co.kr/hls/sp_01.m3u8"
+    },
+    {
+        name: {
+            ko: "몽블랑 광장",
+            en: "Montblanc Plaza"
+        },
+        type: StreamType.HLS,
+        url: "https://streaming.phoenixhnr.co.kr/hls/mb_03.m3u8"
+    },
+    {
+        name: {
+            ko: "휘닉스 C.C.",
+            en: "Phoenix C.C."
+        },
+        type: StreamType.HLS,
+        url: "https://streaming.phoenixhnr.co.kr/hls/bc_02.m3u8"
     },
 ];

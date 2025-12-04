@@ -6,8 +6,8 @@ export const streams: Stream[] = [
             ko: "베이직",
             en: "Basic"
         },
-        type: StreamType.IFrame,
-        url: "https://rtsp.me/embed/2kTsKt35/"
+        type: StreamType.Unavailable,
+        url: "https://rtsp.me/embed/BnyHAfhG"
     },
     {
         name: {
@@ -15,6 +15,6 @@ export const streams: Stream[] = [
             en: "Slope Plaza"
         },
         type: StreamType.Unavailable,
-        url: "https://rtsp.me/embed/ry9aTdQh"
+        url: "https://rtsp.me/embed/eHH3reG8/"
     },
 ];

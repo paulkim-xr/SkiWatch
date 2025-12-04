@@ -222,7 +222,7 @@ export const slopes: Slope[] = [
     {
         id: 12,
         name: {
-            ko: "레인보우 4",
+            ko: "레인보우4",
             en: "Rainbow 4"
         },
         difficulty: Difficulty.ADVANCED,
