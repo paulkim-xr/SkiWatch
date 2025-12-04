@@ -1,7 +1,11 @@
-import { NavLink, BrowserRouter, Routes, Route } from "react-router-dom";
-import { FiMoon, FiSun } from "react-icons/fi";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { NavLink, BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { FiMoon, FiSun, FiMoreVertical, FiShield, FiInfo, FiCamera, FiBarChart2, FiMap } from "react-icons/fi";
 import Webcam from "@/components/Webcam";
 import Slopes from "@/components/Slopes";
+import ResortListPage from "@/components/ResortListPage";
+import ResortDetailPage from "@/components/ResortDetailPage";
+import ResortWeatherPage from "@/components/ResortWeatherPage";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { useI18n } from "@/lib/i18n/context";
 import { strings } from "@/lib/i18n/strings";
@@ -15,13 +19,50 @@ import {
 } from "@/components/ui/select";
 
 function App() {
+  return (
+    <BrowserRouter basename="/SkiWatch">
+      <AppShell />
+    </BrowserRouter>
+  );
+}
+
+function AppShell() {
   const { isDark, toggle } = useDarkMode();
   const { t, locale, setLocale } = useI18n();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [noticeOpen, setNoticeOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const location = useLocation();
+  const showWeatherAttribution = !location.pathname.startsWith("/slopes");
 
-  const navLinkClass = ({ isActive }: { isActive: boolean }) =>
+  const navItems = useMemo(
+    () => [
+      {
+        to: "/webcams",
+        active: location.pathname === "/" || location.pathname.startsWith("/webcams"),
+        label: t(strings.nav.webcams),
+        icon: <FiCamera className="h-4 w-4" aria-hidden />,
+      },
+      {
+        to: "/slopes",
+        active: location.pathname.startsWith("/slopes"),
+        label: t(strings.nav.slopes),
+        icon: <FiBarChart2 className="h-4 w-4" aria-hidden />,
+      },
+      {
+        to: "/resorts",
+        active: location.pathname.startsWith("/resorts"),
+        label: t(strings.nav.resorts),
+        icon: <FiMap className="h-4 w-4" aria-hidden />,
+      },
+    ],
+    [location.pathname, t]
+  );
+
+  const navLinkClass = (active: boolean) =>
     [
-      "px-3 py-1 text-sm font-medium rounded-md transition-colors",
-      isActive
+      "px-2 py-1 text-sm font-medium rounded-md transition-colors inline-flex items-center gap-1",
+      active
         ? "bg-slate-200 text-slate-900 dark:bg-slate-700 dark:text-slate-100 shadow-sm"
         : "text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-100",
     ].join(" ");
@@ -30,59 +71,208 @@ function App() {
     setLocale(value as Locale);
   };
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      const target = event.target as HTMLElement | null;
+      const insideMenu = menuRef.current && menuRef.current.contains(target as Node);
+      const insideSelectPortal = target?.closest("[data-slot^='select-']") !== null;
+      if (!insideMenu && !insideSelectPortal) {
+        setMenuOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const openPrivacySettings = () => {
+    window.dispatchEvent(new Event("analytics-consent:open"));
+    setMenuOpen(false);
+  };
+
   return (
-    <BrowserRouter basename="/SkiWatch">
-      <div className="h-screen flex flex-col bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors overflow-hidden">
-        <header className="sticky top-0 z-20 border-b border-slate-200/70 dark:border-slate-700/60 bg-white/80 dark:bg-slate-900/80 backdrop-blur">
-          <div className="flex h-14 items-center justify-between px-4">
-            <div className="flex items-center gap-6">
-              {/* <span className="text-lg font-semibold tracking-tight">SkiWatch</span> */}
-              <nav className="flex items-center gap-2">
-                <NavLink to="/" end className={navLinkClass}>
-                  {t(strings.nav.webcams)}
+    <div className="h-screen flex flex-col bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors overflow-hidden">
+      <header className="sticky top-0 z-20 border-b border-slate-200/70 dark:border-slate-700/60 bg-white/80 dark:bg-slate-900/80 backdrop-blur">
+        <div className="flex h-14 items-center justify-between px-4">
+          <div className="flex items-center gap-6">
+            <nav className="flex items-center gap-1 sm:gap-2">
+              {navItems.map((item) => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={navLinkClass(item.active)}
+                  aria-current={item.active ? "page" : undefined}
+                  aria-label={item.label}
+                >
+                  {item.icon}
+                  <span className="hidden sm:inline">{item.label}</span>
                 </NavLink>
-                <NavLink to="/slopes" className={navLinkClass}>
-                  {t(strings.nav.slopes)}
-                </NavLink>
-              </nav>
-            </div>
-            <div className="flex items-center gap-2">
-              <label htmlFor="language-select" className="sr-only">
-                {t(strings.language.label)}
-              </label>
-              <Select value={locale} onValueChange={handleLocaleChange}>
-                <SelectTrigger id="language-select" className="h-9 w-28 justify-between">
-                  <SelectValue placeholder={t(strings.language.label)} />
-                </SelectTrigger>
-                <SelectContent>
-                  {locales.map((code) => (
-                    <SelectItem key={code} value={code}>
-                      {localeLabels[code]}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              ))}
+            </nav>
+          </div>
+          <div className="relative flex items-center gap-2" ref={menuRef}>
+            <button
+              type="button"
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-haspopup="true"
+              aria-expanded={menuOpen}
+              aria-label={t(strings.language.label)}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-slate-300/70 dark:border-slate-600/70 bg-white/80 dark:bg-slate-800/80 text-slate-700 hover:bg-slate-200 dark:text-slate-200 dark:hover:bg-slate-700 transition-colors"
+            >
+              <FiMoreVertical className="h-5 w-5" />
+            </button>
+            {menuOpen && (
+              <div className="absolute right-0 top-11 z-30 w-64 rounded-xl border border-slate-200 bg-white/95 p-3 shadow-xl backdrop-blur dark:border-slate-700 dark:bg-slate-900/95">
+                <div className="space-y-3 text-sm text-slate-700 dark:text-slate-200">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                      {t(strings.language.label)}
+                    </p>
+                    <Select value={locale} onValueChange={(value) => { handleLocaleChange(value); setMenuOpen(false); }}>
+                      <SelectTrigger
+                        id="language-select"
+                        className="mt-1 h-9 w-full justify-between border-slate-300/70 bg-white dark:border-slate-600/70 dark:bg-slate-800"
+                        aria-label={t(strings.language.label)}
+                      >
+                        <SelectValue placeholder={t(strings.language.label)} />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                        {locales.map((code) => (
+                          <SelectItem key={code} value={code}>
+                            <span className="flex items-center gap-2">
+                              <span>{localeLabels[code]}</span>
+                            </span>
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      toggle();
+                      setMenuOpen(false);
+                    }}
+                    className="flex w-full items-center justify-between rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+                  >
+                    <span>{isDark ? t(strings.themeToggle.light) : t(strings.themeToggle.dark)}</span>
+                    {isDark ? <FiSun className="h-4 w-4" /> : <FiMoon className="h-4 w-4" />}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={openPrivacySettings}
+                    className="flex w-full items-center justify-between rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+                  >
+                    <span>{t(strings.analyticsConsent.settings)}</span>
+                    <FiShield className="h-4 w-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setNoticeOpen(true);
+                      setMenuOpen(false);
+                    }}
+                    className="flex w-full items-center justify-between rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+                  >
+                    <span>{t(strings.notices.title)}</span>
+                    <FiInfo className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </header>
+      <div className="flex-1 min-h-0 flex overflow-hidden">
+        <Routes>
+          <Route path="/" element={<Navigate to="/webcams" replace />} />
+          <Route path="/webcams" element={<Webcam />} />
+          <Route path="/webcams/:resort/:stream" element={<Webcam />} />
+          <Route path="/slopes" element={<Slopes />} />
+          <Route path="/resorts" element={<ResortListPage />} />
+          <Route path="/resorts/:slug" element={<ResortDetailPage />} />
+          <Route path="/resorts/:slug/weather" element={<ResortWeatherPage />} />
+        </Routes>
+      </div>
+      {showWeatherAttribution && (
+        <footer className="border-t border-slate-200/70 bg-white/80 px-4 py-2 text-center text-xs text-slate-500 backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/80 dark:text-slate-300">
+          {t(strings.attribution.weather)}{" "}
+          <a
+            href="https://www.kogl.or.kr/"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            {t(strings.attribution.linkLabel)}
+          </a>
+        </footer>
+      )}
+
+      {noticeOpen && (
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-slate-950/60 px-4 backdrop-blur">
+          <div className="w-full max-w-xl rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl dark:border-slate-700 dark:bg-slate-900">
+            <div className="flex items-center justify-between">
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">{t(strings.notices.title)}</h2>
               <button
                 type="button"
-                onClick={toggle}
-                aria-pressed={isDark}
-                aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-                className="inline-flex items-center gap-2 rounded-md border border-slate-300/70 dark:border-slate-600/70 bg-white/80 dark:bg-slate-800/80 px-3 py-1 text-sm font-medium text-slate-700 hover:bg-slate-200 dark:text-slate-200 dark:hover:bg-slate-700 transition-colors"
+                onClick={() => setNoticeOpen(false)}
+                className="rounded-md px-2 py-1 text-sm text-slate-500 hover:text-slate-800 dark:text-slate-300 dark:hover:text-white"
               >
-                {isDark ? <FiSun className="h-4 w-4" /> : <FiMoon className="h-4 w-4" />}
-                <span>{isDark ? t(strings.themeToggle.light) : t(strings.themeToggle.dark)}</span>
+                ✕
               </button>
             </div>
+            <div className="mt-4 space-y-3 text-sm text-slate-700 dark:text-slate-200">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  {t(strings.notices.dataSources)}
+                </p>
+                <p className="mt-1">
+                  {t(strings.attribution.weather)}{" "}
+                  <a
+                    href="https://www.kogl.or.kr/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline"
+                  >
+                    {t(strings.attribution.linkLabel)}
+                  </a>
+                </p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  {t(strings.notices.credits)}
+                </p>
+                <p className="mt-1">React, Vite, Tailwind, Radix UI, dnd-kit, HLS.js, react-icons.</p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  Third-party licenses
+                </p>
+                <ul className="mt-1 list-disc space-y-1 pl-4 text-[13px]">
+                  <li>
+                    spa-github-pages (MIT © Rafael Pedicini) — used for SPA GitHub Pages routing.
+                  </li>
+                  <li>
+                    Hls.js / video.js (Apache 2.0) — video playback helpers.
+                  </li>
+                  <li>
+                    See{" "}
+                    <a
+                      href="https://github.com/paulkim-xr/SkiWatch/blob/main/THIRD_PARTY_NOTICES.md"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline"
+                    >
+                      THIRD_PARTY_NOTICES.md
+                    </a>{" "}
+                    for full license texts.
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </header>
-        <div className="flex-1 min-h-0 flex overflow-hidden">
-          <Routes>
-            <Route path="/slopes" element={<Slopes />} />
-            <Route path="/" element={<Webcam />} />
-          </Routes>
         </div>
-      </div>
-    </BrowserRouter>
+      )}
+    </div>
   );
 }
 
