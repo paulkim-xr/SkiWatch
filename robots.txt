@@ -1,4 +1,3 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
-Sitemap: https://paulkim-xr.github.io/SkiWatch/sitemap.xml
