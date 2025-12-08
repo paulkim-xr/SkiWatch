@@ -7,7 +7,8 @@ export const slopes: Slope[] = [
         id: 0,
         name: {
             ko: "1-1",
-            en: "1-1"
+            en: "1-1",
+            ja: "1-1"
         },
         difficulty: Difficulty.BEGINNER,
         length: 300,
@@ -25,7 +26,8 @@ export const slopes: Slope[] = [
         id: 1,
         name: {
             ko: "1",
-            en: "1"
+            en: "1",
+            ja: "1"
         },
         difficulty: Difficulty.BEGINNER,
         length: 300,
@@ -43,7 +45,8 @@ export const slopes: Slope[] = [
         id: 2,
         name: {
             ko: "2",
-            en: "2"
+            en: "2",
+            ja: "2"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 700,
@@ -61,7 +64,8 @@ export const slopes: Slope[] = [
         id: 3,
         name: {
             ko: "3",
-            en: "3"
+            en: "3",
+            ja: "3"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 720,
@@ -79,7 +83,8 @@ export const slopes: Slope[] = [
         id: 4,
         name: {
             ko: "5",
-            en: "5"
+            en: "5",
+            ja: "5"
         },
         difficulty: Difficulty.ADVANCED,
         length: 870,
@@ -97,7 +102,8 @@ export const slopes: Slope[] = [
         id: 5,
         name: {
             ko: "6",
-            en: "6"
+            en: "6",
+            ja: "6"
         },
         difficulty: Difficulty.EXPERT,
         length: 900,
@@ -115,7 +121,8 @@ export const slopes: Slope[] = [
         id: 6,
         name: {
             ko: "7",
-            en: "7"
+            en: "7",
+            ja: "7"
         },
         difficulty: Difficulty.IN_AD,
         length: 1200,

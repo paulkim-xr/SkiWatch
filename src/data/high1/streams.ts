@@ -4,7 +4,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "제우스2 입구",
-      en: "Zeus 2 Entrance"
+      en: "Zeus 2 Entrance",
+      ja: "ゼウス 2 入口"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=1"
@@ -13,7 +14,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "헤라2 입구",
-      en: "Hera 2 Entrance"
+      en: "Hera 2 Entrance",
+      ja: "ヘラ 2 入口"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=2"
@@ -22,7 +24,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "하이원 탑",
-      en: "High1 Top"
+      en: "High1 Top",
+      ja: "ハイワン 山頂"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=3"
@@ -31,7 +34,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "아테나1",
-      en: "Athena 1"
+      en: "Athena 1",
+      ja: "アテナ 1"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=4"
@@ -40,7 +44,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "마운틴 허브",
-      en: "Mountain Hub"
+      en: "Mountain Hub",
+      ja: "マウンテン ハブ"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=5"
@@ -49,7 +54,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "아테나2",
-      en: "Athena 2"
+      en: "Athena 2",
+      ja: "アテナ 2"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=6"
@@ -58,7 +64,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "마운틴 베이스",
-      en: "Mountain Base"
+      en: "Mountain Base",
+      ja: "マウンテン ベース"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=7"
@@ -67,7 +74,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "아테나2 하단",
-      en: "Athena 2 Bottom"
+      en: "Athena 2 Bottom",
+      ja: "アテナ 2 下部"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=8"
@@ -76,7 +84,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "빅토리아 상단",
-      en: "Victoria Top"
+      en: "Victoria Top",
+      ja: "ビクトリア 山頂"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=9"
@@ -85,7 +94,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "제우스2",
-      en: "Zeus 2"
+      en: "Zeus 2",
+      ja: "ゼウス 2"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=10"
@@ -94,7 +104,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "밸리 허브",
-      en: "Valley Hub"
+      en: "Valley Hub",
+      ja: "バレー ハブ"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=11"
@@ -103,7 +114,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "빅토리아1",
-      en: "Victoria 1"
+      en: "Victoria 1",
+      ja: "ビクトリア 1"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=12"
@@ -112,7 +124,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "제우스3",
-      en: "Zeus 3"
+      en: "Zeus 3",
+      ja: "ゼウス 3"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=13"
@@ -121,7 +134,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "제우스3 중단부",
-      en: "Zeus 3 Middle"
+      en: "Zeus 3 Middle",
+      ja: "ゼウス 3 中腹"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=14"
@@ -130,7 +144,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "아폴로4 중단부",
-      en: "Apollo 4 Middle"
+      en: "Apollo 4 Middle",
+      ja: "アポロ 4 中腹"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=15"
@@ -139,7 +154,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "아폴로 베이스",
-      en: "Apollo Base"
+      en: "Apollo Base",
+      ja: "アポロ ベース"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=16"
@@ -148,7 +164,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "제우스3 하단",
-      en: "Zeus 3 Bottom"
+      en: "Zeus 3 Bottom",
+      ja: "ゼウス 3 下部"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=17"
@@ -157,7 +174,8 @@ export const streams: Stream[] = [
   {
     name: {
       ko: "밸리 베이스",
-      en: "Valley Base"
+      en: "Valley Base",
+      ja: "バレー ベース"
     },
     type: StreamType.External,
     url: "http://www.high1.com/webcam/pop_webcam.do?ch=18"

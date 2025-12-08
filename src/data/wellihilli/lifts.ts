@@ -7,7 +7,8 @@ export const lifts: Lift[] = [
         id: 0,
         name: {
             ko: "알파",
-            en: "Alpha"
+            en: "Alpha",
+            ja: "ジャアルハア"
         },
         length: 484,
         seats: 4,
@@ -24,7 +25,8 @@ export const lifts: Lift[] = [
         id: 1,
         name: {
             ko: "뉴알파",
-            en: "New Alpha"
+            en: "New Alpha",
+            ja: "ナユジャアルハア"
         },
         length: 464,
         seats: 4,
@@ -41,7 +43,8 @@ export const lifts: Lift[] = [
         id: 2,
         name: {
             ko: "브라보",
-            en: "Bravo"
+            en: "Bravo",
+            ja: "バウラアバオ"
         },
         length: 776,
         seats: 4,
@@ -59,7 +62,8 @@ export const lifts: Lift[] = [
         id: 3,
         name: {
             ko: "델타",
-            en: "Delta"
+            en: "Delta",
+            ja: "ダエルパア"
         },
         length: 580,
         seats: 4,
@@ -76,7 +80,8 @@ export const lifts: Lift[] = [
         id: 4,
         name: {
             ko: "에코",
-            en: "Echo"
+            en: "Echo",
+            ja: "ジャエタオ"
         },
         length: 642,
         seats: 4,
@@ -93,7 +98,8 @@ export const lifts: Lift[] = [
         id: 5,
         name: {
             ko: "패밀리",
-            en: "Family"
+            en: "Family",
+            ja: "ハアマイルライ"
         },
         length: 743,
         seats: 4,
@@ -111,7 +117,8 @@ export const lifts: Lift[] = [
         id: 6,
         name: {
             ko: "첼린지",
-            en: "Challenge"
+            en: "Challenge",
+            ja: "カエルラインチャイ"
         },
         length: 765,
         seats: 4,
@@ -128,7 +135,8 @@ export const lifts: Lift[] = [
         id: 7,
         name: {
             ko: "곤돌라",
-            en: "Gondola"
+            en: "Gondola",
+            ja: "ガオンダオルラア"
         },
         length: 1302,
         seats: 8,

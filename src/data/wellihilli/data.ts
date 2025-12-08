@@ -6,7 +6,8 @@ import { streams } from "./streams";
 const WelliHilli: Resort = {
     name: {
         ko: "웰리힐리파크",
-        en: "WelliHilli Park"
+        en: "WelliHilli Park",
+        ja: "ウェリーヒリパーク"
     },
     homepage: "https://www.wellihillipark.com/snowpark",
     weather: "https://www.weather.go.kr/w/index.do#dong/5173033000/37.4855522986022/128.247790847244/",

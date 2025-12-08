@@ -7,7 +7,8 @@ export const slopes: Slope[] = [
         id: 0,
         name: {
             ko: "휘센",
-            en: "Whisen"
+            en: "Whisen",
+            ja: "ハウィサエン"
         },
         difficulty: Difficulty.BEGINNER,
         length: 497,
@@ -25,7 +26,8 @@ export const slopes: Slope[] = [
         id: 1,
         name: {
             ko: "익시오",
-            en: "Ixio"
+            en: "Ixio",
+            ja: "ジャイクサイジャオ"
         },
         difficulty: Difficulty.BE_IN,
         length: 757,
@@ -43,7 +45,8 @@ export const slopes: Slope[] = [
         id: 2,
         name: {
             ko: "그램1",
-            en: "Gram 1"
+            en: "Gram 1",
+            ja: "ガウラアム1"
         },
         difficulty: Difficulty.ADVANCED,
         length: 548,
@@ -61,7 +64,8 @@ export const slopes: Slope[] = [
         id: 3,
         name: {
             ko: "그램2",
-            en: "Gram 2"
+            en: "Gram 2",
+            ja: "ガウラアム2"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 828,
@@ -79,7 +83,8 @@ export const slopes: Slope[] = [
         id: 4,
         name: {
             ko: "씽큐1",
-            en: "ThinQ 1"
+            en: "ThinQ 1",
+            ja: "サインタユ1"
         },
         difficulty: Difficulty.IN_AD,
         length: 380,
@@ -97,7 +102,8 @@ export const slopes: Slope[] = [
         id: 5,
         name: {
             ko: "씽큐2",
-            en: "ThinQ 2"
+            en: "ThinQ 2",
+            ja: "サインタユ2"
         },
         difficulty: Difficulty.BE_IN,
         length: 1049,
@@ -115,7 +121,8 @@ export const slopes: Slope[] = [
         id: 6,
         name: {
             ko: "씽큐3",
-            en: "ThinQ 3"
+            en: "ThinQ 3",
+            ja: "サインタユ3"
         },
         difficulty: Difficulty.IN_AD,
         length: 462,
@@ -133,7 +140,8 @@ export const slopes: Slope[] = [
         id: 7,
         name: {
             ko: "씽큐Br",
-            en: "ThinQ Br"
+            en: "ThinQ Br",
+            ja: "サインタユBr"
         },
         difficulty: Difficulty.ADVANCED,
         length: 204,
@@ -151,7 +159,8 @@ export const slopes: Slope[] = [
         id: 8,
         name: {
             ko: "CNP1",
-            en: "CNP1"
+            en: "CNP1",
+            ja: "CNP1"
         },
         difficulty: Difficulty.BE_IN,
         length: 549,
@@ -169,7 +178,8 @@ export const slopes: Slope[] = [
         id: 9,
         name: {
             ko: "CNP2",
-            en: "CNP2"
+            en: "CNP2",
+            ja: "CNP2"
         },
         difficulty: Difficulty.ADVANCED,
         length: 1087,

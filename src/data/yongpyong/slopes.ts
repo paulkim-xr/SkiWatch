@@ -7,7 +7,8 @@ export const slopes: Slope[] = [
         id: 0,
         name: {
             ko: "옐로우",
-            en: "Yellow"
+            en: "Yellow",
+            ja: "ジャイェルラオジャウ"
         },
         difficulty: Difficulty.BEGINNER,
         length: 600,
@@ -25,7 +26,8 @@ export const slopes: Slope[] = [
         id: 1,
         name: {
             ko: "뉴옐로우",
-            en: "New Yellow"
+            en: "New Yellow",
+            ja: "ナユジャイェルラオジャウ"
         },
         difficulty: Difficulty.BEGINNER,
         length: 350,
@@ -43,7 +45,8 @@ export const slopes: Slope[] = [
         id: 2,
         name: {
             ko: "핑크",
-            en: "Pink"
+            en: "Pink",
+            ja: "ハインタウ"
         },
         difficulty: Difficulty.BE_IN,
         length: 600,
@@ -61,7 +64,8 @@ export const slopes: Slope[] = [
         id: 3,
         name: {
             ko: "메가그린",
-            en: "Mega Green"
+            en: "Mega Green",
+            ja: "マエガアガウライン"
         },
         difficulty: Difficulty.BE_IN,
         length: 1000,
@@ -79,7 +83,8 @@ export const slopes: Slope[] = [
         id: 4,
         name: {
             ko: "레드파라다이스",
-            en: "Red Paradise"
+            en: "Red Paradise",
+            ja: "ラエダウハアラアダアジャイサウ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1000,
@@ -97,7 +102,8 @@ export const slopes: Slope[] = [
         id: 5,
         name: {
             ko: "골드파라다이스",
-            en: "Gold Paradise"
+            en: "Gold Paradise",
+            ja: "ガオルダウハアラアダアジャイサウ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1520,
@@ -115,7 +121,8 @@ export const slopes: Slope[] = [
         id: 6,
         name: {
             ko: "실버파라다이스",
-            en: "Silver Paradise"
+            en: "Silver Paradise",
+            ja: "サイルバオハアラアダアジャイサウ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1460,
@@ -133,7 +140,8 @@ export const slopes: Slope[] = [
         id: 7,
         name: {
             ko: "레인보우파라다이스",
-            en: "Rainbow Paradise"
+            en: "Rainbow Paradise",
+            ja: "ラエジャインバオジャウハアラアダアジャイサウ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 5600,
@@ -151,7 +159,8 @@ export const slopes: Slope[] = [
         id: 8,
         name: {
             ko: "골드 환타스틱",
-            en: "Gold Fantastic"
+            en: "Gold Fantastic",
+            ja: "ガオルダウ ハワンパアサウパイク"
         },
         difficulty: Difficulty.IN_AD,
         length: 1850,
@@ -169,7 +178,8 @@ export const slopes: Slope[] = [
         id: 9,
         name: {
             ko: "골드밸리",
-            en: "Gold Valley"
+            en: "Gold Valley",
+            ja: "ガオルダウバアルライ"
         },
         difficulty: Difficulty.ADVANCED,
         length: 1850,
@@ -187,7 +197,8 @@ export const slopes: Slope[] = [
         id: 10,
         name: {
             ko: "뉴레드",
-            en: "New Red"
+            en: "New Red",
+            ja: "ナユラエダウ"
         },
         difficulty: Difficulty.ADVANCED,
         length: 500,
@@ -205,7 +216,8 @@ export const slopes: Slope[] = [
         id: 11,
         name: {
             ko: "블루",
-            en: "Blue"
+            en: "Blue",
+            ja: "バウルラウ"
         },
         difficulty: Difficulty.ADVANCED,
         length: 300,
@@ -223,7 +235,8 @@ export const slopes: Slope[] = [
         id: 12,
         name: {
             ko: "레인보우 4",
-            en: "Rainbow 4"
+            en: "Rainbow 4",
+            ja: "ラエジャインバオジャウ 4"
         },
         difficulty: Difficulty.ADVANCED,
         length: 635,
@@ -241,7 +254,8 @@ export const slopes: Slope[] = [
         id: 13,
         name: {
             ko: "레드",
-            en: "Red"
+            en: "Red",
+            ja: "ラエダウ"
         },
         difficulty: Difficulty.EXPERT,
         length: 1000,
@@ -259,7 +273,8 @@ export const slopes: Slope[] = [
         id: 14,
         name: {
             ko: "실버",
-            en: "Silver"
+            en: "Silver",
+            ja: "サイルバオ"
         },
         difficulty: Difficulty.EXPERT,
         length: 1000,
@@ -277,7 +292,8 @@ export const slopes: Slope[] = [
         id: 15,
         name: {
             ko: "뉴골드",
-            en: "New Gold"
+            en: "New Gold",
+            ja: "ナユガオルダウ"
         },
         difficulty: Difficulty.EXPERT,
         length: 650,
@@ -295,7 +311,8 @@ export const slopes: Slope[] = [
         id: 16,
         name: {
             ko: "레인보우 1",
-            en: "Rainbow 1"
+            en: "Rainbow 1",
+            ja: "ラエジャインバオジャウ 1"
         },
         difficulty: Difficulty.EXPERT,
         length: 1607,
@@ -313,7 +330,8 @@ export const slopes: Slope[] = [
         id: 17,
         name: {
             ko: "레인보우 2",
-            en: "Rainbow 2"
+            en: "Rainbow 2",
+            ja: "ラエジャインバオジャウ 2"
         },
         difficulty: Difficulty.EXPERT,
         length: 752,
@@ -331,7 +349,8 @@ export const slopes: Slope[] = [
         id: 18,
         name: {
             ko: "레인보우 3",
-            en: "Rainbow 3"
+            en: "Rainbow 3",
+            ja: "ラエジャインバオジャウ 3"
         },
         difficulty: Difficulty.EXPERT,
         length: 1046,
@@ -349,7 +368,8 @@ export const slopes: Slope[] = [
         id: 19,
         name: {
             ko: "드래곤파크",
-            en: "Dragon Park"
+            en: "Dragon Park",
+            ja: "ダウラアガオンハアタウ"
         },
         difficulty: Difficulty.PARK,
         length: 1046,

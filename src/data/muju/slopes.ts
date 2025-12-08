@@ -7,7 +7,8 @@ export const slopes: Slope[] = [
         id: 0,
         name: {
             ko: "서역기행",
-            en: "Soyokgihang"
+            en: "Soyokgihang",
+            ja: "サオジャヨクガイハアン"
         },
         difficulty: Difficulty.BEGINNER,
         length: 3413,
@@ -25,7 +26,8 @@ export const slopes: Slope[] = [
         id: 1,
         name: {
             ko: "이스턴",
-            en: "Eastern"
+            en: "Eastern",
+            ja: "ジャイサウパオン"
         },
         difficulty: Difficulty.BEGINNER,
         length: 374,
@@ -43,7 +45,8 @@ export const slopes: Slope[] = [
         id: 2,
         name: {
             ko: "루키힐",
-            en: "Rookie Hill"
+            en: "Rookie Hill",
+            ja: "ラウタイハイル"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 721,
@@ -61,7 +64,8 @@ export const slopes: Slope[] = [
         id: 3,
         name: {
             ko: "웨스턴",
-            en: "Western"
+            en: "Western",
+            ja: "ジャウェサウパオン"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 305,
@@ -79,7 +83,8 @@ export const slopes: Slope[] = [
         id: 4,
         name: {
             ko: "터보",
-            en: "Turbo"
+            en: "Turbo",
+            ja: "パオバオ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1430,
@@ -97,7 +102,8 @@ export const slopes: Slope[] = [
         id: 5,
         name: {
             ko: "썬다운",
-            en: "Sun Down"
+            en: "Sun Down",
+            ja: "サオンダアジャウン"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 577,
@@ -115,7 +121,8 @@ export const slopes: Slope[] = [
         id: 6,
         name: {
             ko: "프리웨이",
-            en: "Freeway"
+            en: "Freeway",
+            ja: "ハウライジャウェジャイ"
         },
         difficulty: Difficulty.ADVANCED,
         length: 879,
@@ -133,7 +140,8 @@ export const slopes: Slope[] = [
         id: 7,
         name: {
             ko: "파노라마",
-            en: "Panorama"
+            en: "Panorama",
+            ja: "ハアナオラアマア"
         },
         difficulty: Difficulty.ADVANCED,
         length: 737,
@@ -151,7 +159,8 @@ export const slopes: Slope[] = [
         id: 8,
         name: {
             ko: "레이더스 하단",
-            en: "Raiders Lower Zone"
+            en: "Raiders Lower Zone",
+            ja: "ラエジャイダオサウ ハアダアン"
         },
         difficulty: Difficulty.ADVANCED,
         length: 473,
@@ -169,7 +178,8 @@ export const slopes: Slope[] = [
         id: 9,
         name: {
             ko: "야마가",
-            en: "Yamaga"
+            en: "Yamaga",
+            ja: "ジャヤマアガア"
         },
         difficulty: Difficulty.ADVANCED,
         length: 1039,
@@ -187,7 +197,8 @@ export const slopes: Slope[] = [
         id: 10,
         name: {
             ko: "레이더스 상단",
-            en: "Raiders Higher Zone"
+            en: "Raiders Higher Zone",
+            ja: "ラエジャイダオサウ サアンダアン"
         },
         difficulty: Difficulty.EXPERT,
         length: 480,
@@ -205,7 +216,8 @@ export const slopes: Slope[] = [
         id: 11,
         name: {
             ko: "스피츠 하단",
-            en: "Spitz Lower Zone"
+            en: "Spitz Lower Zone",
+            ja: "サウハイカウ ハアダアン"
         },
         difficulty: Difficulty.BEGINNER,
         length: 720,
@@ -223,7 +235,8 @@ export const slopes: Slope[] = [
         id: 12,
         name: {
             ko: "실크로드 하단",
-            en: "Silk Road Lower Zone"
+            en: "Silk Road Lower Zone",
+            ja: "サイルタウラオダウ ハアダアン"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1714,
@@ -241,7 +254,8 @@ export const slopes: Slope[] = [
         id: 13,
         name: {
             ko: "실크로드 상단",
-            en: "Silk Road Upper"
+            en: "Silk Road Upper",
+            ja: "サイルタウラオダウ サアンダアン"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 4386,
@@ -259,7 +273,8 @@ export const slopes: Slope[] = [
         id: 14,
         name: {
             ko: "커넥션",
-            en: "Connection"
+            en: "Connection",
+            ja: "タオナエクサヨン"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1078,
@@ -277,7 +292,8 @@ export const slopes: Slope[] = [
         id: 15,
         name: {
             ko: "미뉴에트",
-            en: "Minuet"
+            en: "Minuet",
+            ja: "マイナユジャエパウ"
         },
         difficulty: Difficulty.ADVANCED,
         length: 1339,
@@ -295,7 +311,8 @@ export const slopes: Slope[] = [
         id: 16,
         name: {
             ko: "모차르트",
-            en: "Mozart"
+            en: "Mozart",
+            ja: "マオカアラウパウ"
         },
         difficulty: Difficulty.EXPERT,
         length: 520,
@@ -313,7 +330,8 @@ export const slopes: Slope[] = [
         id: 17,
         name: {
             ko: "알레그로",
-            en: "Allegro"
+            en: "Allegro",
+            ja: "ジャアルラエガウラオ"
         },
         difficulty: Difficulty.EXPERT,
         length: 467,
@@ -331,7 +349,8 @@ export const slopes: Slope[] = [
         id: 18,
         name: {
             ko: "왈츠",
-            en: "Waltz"
+            en: "Waltz",
+            ja: "ジャワルカウ"
         },
         difficulty: Difficulty.EXPERT,
         length: 111,
@@ -349,7 +368,8 @@ export const slopes: Slope[] = [
         id: 19,
         name: {
             ko: "카덴자",
-            en: "Cadenza"
+            en: "Cadenza",
+            ja: "タアダエンチャア"
         },
         difficulty: Difficulty.EXPERT,
         length: 252,
@@ -367,7 +387,8 @@ export const slopes: Slope[] = [
         id: 20,
         name: {
             ko: "폴카",
-            en: "Polka"
+            en: "Polka",
+            ja: "ハオルタア"
         },
         difficulty: Difficulty.EXPERT,
         length: 428,

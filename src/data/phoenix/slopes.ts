@@ -7,7 +7,8 @@ export const slopes: Slope[] = [
         id: 0,
         name: {
             ko: "스패로우",
-            en: "Sparrow"
+            en: "Sparrow",
+            ja: "サウハアラオジャウ"
         },
         difficulty: Difficulty.BEGINNER,
         length: 978,
@@ -24,7 +25,8 @@ export const slopes: Slope[] = [
         id: 1,
         name: {
             ko: "펭귄",
-            en: "Penguin"
+            en: "Penguin",
+            ja: "ハエンガウィン"
         },
         difficulty: Difficulty.BEGINNER,
         length: 665,
@@ -41,7 +43,8 @@ export const slopes: Slope[] = [
         id: 2,
         name: {
             ko: "도도(강습전용)",
-            en: "Dodo (Training Only)"
+            en: "Dodo (Training Only)",
+            ja: "ダオダオ(ガアンサウプチャオンジャヨン)"
         },
         difficulty: Difficulty.BEGINNER,
         length: 350,
@@ -58,7 +61,8 @@ export const slopes: Slope[] = [
         id: 3,
         name: {
             ko: "키위",
-            en: "Kiwi"
+            en: "Kiwi",
+            ja: "タイジャウィ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 550,
@@ -75,7 +79,8 @@ export const slopes: Slope[] = [
         id: 4,
         name: {
             ko: "파노라마",
-            en: "Panorama"
+            en: "Panorama",
+            ja: "ハアナオラアマア"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1450,
@@ -92,7 +97,8 @@ export const slopes: Slope[] = [
         id: 5,
         name: {
             ko: "호크",
-            en: "Hawk"
+            en: "Hawk",
+            ja: "ハオタウ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 643,
@@ -109,7 +115,8 @@ export const slopes: Slope[] = [
         id: 6,
         name: {
             ko: "밸리",
-            en: "Valley"
+            en: "Valley",
+            ja: "バアルライ"
         },
         difficulty: Difficulty.IN_AD,
         length: 1110,
@@ -126,7 +133,8 @@ export const slopes: Slope[] = [
         id: 7,
         name: {
             ko: "듀크(이상호)",
-            en: "Duke"
+            en: "Duke",
+            ja: "ダユタウ(ジャイサアンハオ)"
         },
         difficulty: Difficulty.IN_AD,
         length: 818,
@@ -143,7 +151,8 @@ export const slopes: Slope[] = [
         id: 8,
         name: {
             ko: "슬로프스타일(SS/SBS)",
-            en: "Slope Style (SS/SBS)"
+            en: "Slope Style (SS/SBS)",
+            ja: "サウルラオハウサウパアジャイル(SS/SBS)"
         },
         difficulty: Difficulty.IN_AD,
         length: 602,
@@ -160,7 +169,8 @@ export const slopes: Slope[] = [
         id: 9,
         name: {
             ko: "챔피온",
-            en: "Champion"
+            en: "Champion",
+            ja: "カアムハイジャオン"
         },
         difficulty: Difficulty.ADVANCED,
         length: 960,
@@ -177,7 +187,8 @@ export const slopes: Slope[] = [
         id: 10,
         name: {
             ko: "환타지",
-            en: "Fantasy"
+            en: "Fantasy",
+            ja: "ハワンパアチャイ"
         },
         difficulty: Difficulty.ADVANCED,
         length: 503,
@@ -194,7 +205,8 @@ export const slopes: Slope[] = [
         id: 11,
         name: {
             ko: "디지",
-            en: "Dizzy"
+            en: "Dizzy",
+            ja: "ダイチャイ"
         },
         difficulty: Difficulty.EXPERT,
         length: 866,
@@ -211,7 +223,8 @@ export const slopes: Slope[] = [
         id: 12,
         name: {
             ko: "모글",
-            en: "Mogul"
+            en: "Mogul",
+            ja: "マオガウル"
         },
         difficulty: Difficulty.EXPERT,
         length: 319,
@@ -228,7 +241,8 @@ export const slopes: Slope[] = [
         id: 13,
         name: {
             ko: "파라다이스",
-            en: "Paradise"
+            en: "Paradise",
+            ja: "ハアラアダアジャイサウ"
         },
         difficulty: Difficulty.EXPERT,
         length: 912,
@@ -245,7 +259,8 @@ export const slopes: Slope[] = [
         id: 14,
         name: {
             ko: "익스트림파크(상단)",
-            en: "Extreme Park (Upper)"
+            en: "Extreme Park (Upper)",
+            ja: "ジャイクサウパウライムハアタウ(サアンダアン)"
         },
         difficulty: Difficulty.PARK,
         length: 765,
@@ -262,7 +277,8 @@ export const slopes: Slope[] = [
         id: 15,
         name: {
             ko: "익스트림파크(하단)",
-            en: "Extreme Park (Lower)"
+            en: "Extreme Park (Lower)",
+            ja: "ジャイクサウパウライムハアタウ(ハアダアン)"
         },
         difficulty: Difficulty.PARK,
         length: 765,
@@ -279,7 +295,8 @@ export const slopes: Slope[] = [
         id: 16,
         name: {
             ko: "하프파이프",
-            en: "Halfpipe"
+            en: "Halfpipe",
+            ja: "ハアハウハアジャイハウ"
         },
         difficulty: Difficulty.PARK,
         length: 168,

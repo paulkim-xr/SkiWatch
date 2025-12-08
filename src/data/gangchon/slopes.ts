@@ -8,7 +8,8 @@ export const slopes: Slope[] = [
         id: 0,
         name: {
             ko: "팬더",
-            en: "Panda"
+            en: "Panda",
+            ja: "ハアンダオ"
         },
         difficulty: Difficulty.BEGINNER,
         length: 306,
@@ -26,7 +27,8 @@ export const slopes: Slope[] = [
         id: 1,
         name: {
             ko: "래빗",
-            en: "Rabbit"
+            en: "Rabbit",
+            ja: "ラアバイス"
         },
         difficulty: Difficulty.BEGINNER,
         length: 436,
@@ -44,7 +46,8 @@ export const slopes: Slope[] = [
         id: 2,
         name: {
             ko: "드래곤/래빗",
-            en: "Dragon/Rabbit"
+            en: "Dragon/Rabbit",
+            ja: "ダウラアガオン/ラアバイス"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1500,
@@ -62,7 +65,8 @@ export const slopes: Slope[] = [
         id: 3,
         name: {
             ko: "호스/제브라",
-            en: "Horse/Zebra"
+            en: "Horse/Zebra",
+            ja: "ハオサウ/チャエバウラア"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1032,
@@ -80,7 +84,8 @@ export const slopes: Slope[] = [
         id: 4,
         name: {
             ko: "호스/페가수스",
-            en: "Horse/Pegasus"
+            en: "Horse/Pegasus",
+            ja: "ハオサウ/ハエガアサウサウ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1045,
@@ -98,7 +103,8 @@ export const slopes: Slope[] = [
         id: 5,
         name: {
             ko: "디어",
-            en: "Deer"
+            en: "Deer",
+            ja: "ダイジャオ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 945,
@@ -116,7 +122,8 @@ export const slopes: Slope[] = [
         id: 6,
         name: {
             ko: "퓨마",
-            en: "Puma"
+            en: "Puma",
+            ja: "ハユマア"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1175,
@@ -134,7 +141,8 @@ export const slopes: Slope[] = [
         id: 7,
         name: {
             ko: "레퍼드",
-            en: "Leopard"
+            en: "Leopard",
+            ja: "ラエハオダウ"
         },
         difficulty: Difficulty.ADVANCED,
         length: 518,
@@ -152,7 +160,8 @@ export const slopes: Slope[] = [
         id: 8,
         name: {
             ko: "재규어",
-            en: "Jaguar"
+            en: "Jaguar",
+            ja: "チャアガユジャオ"
         },
         difficulty: Difficulty.ADVANCED,
         length: 524,

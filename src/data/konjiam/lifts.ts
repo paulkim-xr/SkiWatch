@@ -7,7 +7,8 @@ export const lifts: Lift[] = [
         id: 0,
         name: {
             ko: "휘센",
-            en: "Whisen"
+            en: "Whisen",
+            ja: "ハウィサエン"
         },
         length: 304,
         seats: 4,
@@ -24,7 +25,8 @@ export const lifts: Lift[] = [
         id: 1,
         name: {
             ko: "익시오",
-            en: "Ixio"
+            en: "Ixio",
+            ja: "ジャイクサイジャオ"
         },
         length: 680,
         seats: 6,
@@ -41,7 +43,8 @@ export const lifts: Lift[] = [
         id: 2,
         name: {
             ko: "그램",
-            en: "Gram"
+            en: "Gram",
+            ja: "ガウラアム"
         },
         length: 853,
         seats: 6,
@@ -58,7 +61,8 @@ export const lifts: Lift[] = [
         id: 3,
         name: {
             ko: "씽큐",
-            en: "ThinQ"
+            en: "ThinQ",
+            ja: "サインタユ"
         },
         length: 1325,
         seats: 6,
@@ -75,7 +79,8 @@ export const lifts: Lift[] = [
         id: 4,
         name: {
             ko: "CNP",
-            en: "CNP"
+            en: "CNP",
+            ja: "CNP"
         },
         length: 1306,
         seats: 6,

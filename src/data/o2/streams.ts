@@ -4,7 +4,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "스키하우스",
-            en: "Ski House"
+            en: "Ski House",
+            ja: "Ski ハウス"
         },
         type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=0"
@@ -13,7 +14,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "드림1",
-            en: "Dream 1"
+            en: "Dream 1",
+            ja: "Dream 1"
         },
         type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=1"
@@ -22,7 +24,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "버금마루",
-            en: "Beogeum Maru"
+            en: "Beogeum Maru",
+            ja: "Beogeum Maru"
         },
         type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=2"
@@ -31,7 +34,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "으뜸마루",
-            en: "Eutteum Maru"
+            en: "Eutteum Maru",
+            ja: "Eutteum Maru"
         },
         type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=3"
@@ -40,7 +44,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "글로리1",
-            en: "Glory 1"
+            en: "Glory 1",
+            ja: "Glory 1"
         },
         type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=4"
@@ -49,7 +54,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "해피",
-            en: "Happy"
+            en: "Happy",
+            ja: "Happy"
         },
         type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=5"
@@ -58,7 +64,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "드림2",
-            en: "Dream 2"
+            en: "Dream 2",
+            ja: "Dream 2"
         },
         type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=6"
@@ -67,7 +74,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "글로리3",
-            en: "Glory 3"
+            en: "Glory 3",
+            ja: "Glory 3"
         },
         type: StreamType.External,
         url: "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=7"

@@ -4,7 +4,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "베이직",
-            en: "Basic"
+            en: "Basic",
+            ja: "Basic"
         },
         type: StreamType.IFrame,
         url: "https://rtsp.me/embed/2kTsKt35/"
@@ -12,7 +13,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "슬로프 광장",
-            en: "Slope Plaza"
+            en: "Slope Plaza",
+            ja: "コース 広場"
         },
         type: StreamType.Unavailable,
         url: "https://rtsp.me/embed/ry9aTdQh"

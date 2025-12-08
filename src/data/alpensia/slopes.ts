@@ -7,7 +7,8 @@ export const slopes: Slope[] = [
         id: 0,
         name: {
             ko: "알파",
-            en: "Alpha"
+            en: "Alpha",
+            ja: "ジャアルハア"
         },
         difficulty: Difficulty.BEGINNER,
         length: 648,
@@ -27,7 +28,8 @@ export const slopes: Slope[] = [
         id: 1,
         name: {
             ko: "브라보",
-            en: "Bravo"
+            en: "Bravo",
+            ja: "バウラアバオ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1351,
@@ -49,7 +51,8 @@ export const slopes: Slope[] = [
         id: 2,
         name: {
             ko: "찰리",
-            en: "Charlie"
+            en: "Charlie",
+            ja: "カアルライ"
         },
         difficulty: Difficulty.EXPERT,
         length: 374,
@@ -69,7 +72,8 @@ export const slopes: Slope[] = [
         id: 3,
         name: {
             ko: "델타",
-            en: "Delta"
+            en: "Delta",
+            ja: "ダエルパア"
         },
         difficulty: Difficulty.ADVANCED,
         length: 634,
@@ -89,7 +93,8 @@ export const slopes: Slope[] = [
         id: 4,
         name: {
             ko: "에코",
-            en: "Echo"
+            en: "Echo",
+            ja: "ジャエタオ"
         },
         difficulty: Difficulty.ADVANCED,
         length: 762,
@@ -109,7 +114,8 @@ export const slopes: Slope[] = [
         id: 5,
         name: {
             ko: "폭스트롯",
-            en: "Foxtrot"
+            en: "Foxtrot",
+            ja: "ハオクサウパウラオス"
         },
         difficulty: Difficulty.EXPERT,
         length: 826,

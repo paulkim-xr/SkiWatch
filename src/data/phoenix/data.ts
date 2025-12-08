@@ -6,7 +6,8 @@ import { streams } from "./streams";
 const Phoenix: Resort = {
     name: {
         ko: "휘닉스파크",
-        en: "Phoenix Park"
+        en: "Phoenix Park",
+        ja: "ハウィナイクサウハアタウ"
     },
     homepage: "https://phoenixhnr.co.kr/page/main/pyeongchang?q%5BhmpgDivCd%5D=PP&page=1&size=4",
     weather: "https://www.weather.go.kr/w/index.do#dong/5176034000/37.5835498839915/128.324835376419/",

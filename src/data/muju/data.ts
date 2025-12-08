@@ -6,7 +6,8 @@ import { streams } from "./streams";
 const Muju: Resort = {
     name: {
         ko: "무주",
-        en: "Muju"
+        en: "Muju",
+        ja: "ムジュ"
     },
     homepage: "https://mdysresort.com/",
     weather: "https://www.weather.go.kr/w/index.do#dong/5273034000/35.88956946780578/127.73198583536177/",

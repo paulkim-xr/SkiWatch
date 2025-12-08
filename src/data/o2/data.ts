@@ -6,7 +6,8 @@ import { streams } from "./streams";
 const O2: Resort = {
     name: {
         ko: "오투",
-        en: "O2"
+        en: "O2",
+        ja: "オーツー"
     },
     homepage: "https://www.o2resort.com/main.xhtml",
     weather: "https://www.weather.go.kr/w/index.do#dong/5119053500/37.176269951563/128.940538490386/",

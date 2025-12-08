@@ -7,7 +7,8 @@ export const lifts: Lift[] = [
         id: 0,
         name: {
             ko: "주피터",
-            en: "Jupiter"
+            en: "Jupiter",
+            ja: "チャウハイパオ"
         },
         length: 950,
         seats: 6,
@@ -24,7 +25,8 @@ export const lifts: Lift[] = [
         id: 1,
         name: {
             ko: "제우스",
-            en: "Zeus"
+            en: "Zeus",
+            ja: "チャエジャウサウ"
         },
         length: 1912,
         seats: 6,
@@ -41,7 +43,8 @@ export const lifts: Lift[] = [
         id: 2,
         name: {
             ko: "빅토리아",
-            en: "Victoria"
+            en: "Victoria",
+            ja: "バイクパオライジャア"
         },
         length: 1323,
         seats: 4,
@@ -58,7 +61,8 @@ export const lifts: Lift[] = [
         id: 3,
         name: {
             ko: "헤라",
-            en: "Hera"
+            en: "Hera",
+            ja: "ハエラア"
         },
         length: 1221,
         seats: 6,
@@ -75,7 +79,8 @@ export const lifts: Lift[] = [
         id: 4,
         name: {
             ko: "아폴로",
-            en: "Apollo"
+            en: "Apollo",
+            ja: "ジャアハオルラオ"
         },
         length: 1232,
         seats: 4,
@@ -92,7 +97,8 @@ export const lifts: Lift[] = [
         id: 5,
         name: {
             ko: "아테나",
-            en: "Athena"
+            en: "Athena",
+            ja: "ジャアパエナア"
         },
         length: 1547,
         seats: 6,
@@ -109,7 +115,8 @@ export const lifts: Lift[] = [
         id: 6,
         name: {
             ko: "밸리",
-            en: "Valley"
+            en: "Valley",
+            ja: "バアルライ"
         },
         length: 1243,
         seats: 8,
@@ -126,7 +133,8 @@ export const lifts: Lift[] = [
         id: 7,
         name: {
             ko: "마운틴",
-            en: "Mountain"
+            en: "Mountain",
+            ja: "マアジャウンパイン"
         },
         length: 2832,
         seats: 8,
@@ -143,7 +151,8 @@ export const lifts: Lift[] = [
         id: 8,
         name: {
             ko: "팰리스",
-            en: "Palace"
+            en: "Palace",
+            ja: "ハアルライサウ"
         },
         length: 2523,
         seats: 8,

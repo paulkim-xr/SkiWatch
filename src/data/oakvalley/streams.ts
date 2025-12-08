@@ -4,7 +4,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "스노우파크 옥탑",
-            en: "Snow Park Roof"
+            en: "Snow Park Roof",
+            ja: "スノー パーク Roof"
         },
         type: StreamType.HLS,
         url: "https://cctv-oak9.ktcdn.co.kr/cctv/ch2.stream/chunklist.m3u8"
@@ -12,7 +13,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "I 슬로프",
-            en: "I Slope"
+            en: "I Slope",
+            ja: "I コース"
         },
         type: StreamType.HLS,
         url: "https://cctv-oak9.ktcdn.co.kr/cctv/ch9.stream/chunklist.m3u8"
@@ -20,7 +22,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "G 슬로프",
-            en: "G Slope"
+            en: "G Slope",
+            ja: "G コース"
         },
         type: StreamType.HLS,
         url: "https://cctv-oak9.ktcdn.co.kr/cctv/ch7.stream/chunklist.m3u8"
@@ -28,7 +31,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "F 슬로프",
-            en: "F Slope"
+            en: "F Slope",
+            ja: "F コース"
         },
         type: StreamType.HLS,
         url: "https://cctv-oak9.ktcdn.co.kr/cctv/ch6.stream/chunklist.m3u8"
@@ -36,7 +40,8 @@ export const streams: Stream[] = [
     {
         name: {
             ko: "플라워리프트 하차장",
-            en: "Flower Lift Unloading Area"
+            en: "Flower Lift Unloading Area",
+            ja: "Flower リフト Unloading Area"
         },
         type: StreamType.HLS,
         url: "https://cctv-oak9.ktcdn.co.kr/cctv/ch5.stream/chunklist.m3u8"

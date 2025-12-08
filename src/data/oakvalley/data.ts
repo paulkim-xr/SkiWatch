@@ -6,7 +6,8 @@ import { streams } from "./streams";
 const OakValley: Resort = {
     name: {
         ko: "오크밸리",
-        en: "Oak Valley"
+        en: "Oak Valley",
+        ja: "オークバレー"
     },
     homepage: "https://oakvalley.co.kr/ski/introduction/slope",
     weather: "https://www.weather.go.kr/w/index.do#dong/5113033000/37.4031964505172/127.817056509833/",

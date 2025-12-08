@@ -7,7 +7,8 @@ export const lifts: Lift[] = [
         id: 0,
         name: {
             ko: "에덴",
-            en: "Eden"
+            en: "Eden",
+            ja: "ジャエダエン"
         },
         length: 552,
         seats: 6,
@@ -24,7 +25,8 @@ export const lifts: Lift[] = [
         id: 1,
         name: {
             ko: "밸리",
-            en: "Valley"
+            en: "Valley",
+            ja: "バアルライ"
         },
         length: 847,
         seats: 6,
@@ -41,7 +43,8 @@ export const lifts: Lift[] = [
         id: 2,
         name: {
             ko: "아담",
-            en: "Adam"
+            en: "Adam",
+            ja: "ジャアダアム"
         },
         length: 996,
         seats: 6,

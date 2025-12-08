@@ -7,7 +7,8 @@ export const lifts: Lift[] = [
         id: 0,
         name: {
             ko: "A1",
-            en: "A1"
+            en: "A1",
+            ja: "A1"
         },
         length: 210,
         seats: 4,
@@ -24,7 +25,8 @@ export const lifts: Lift[] = [
         id: 1,
         name: {
             ko: "A",
-            en: "A"
+            en: "A",
+            ja: "A"
         },
         length: 360,
         seats: 4,
@@ -41,7 +43,8 @@ export const lifts: Lift[] = [
         id: 2,
         name: {
             ko: "B",
-            en: "B"
+            en: "B",
+            ja: "B"
         },
         length: 747,
         seats: 4,
@@ -58,7 +61,8 @@ export const lifts: Lift[] = [
         id: 3,
         name: {
             ko: "C",
-            en: "C"
+            en: "C",
+            ja: "C"
         },
         length: 807,
         seats: 6,
@@ -75,7 +79,8 @@ export const lifts: Lift[] = [
         id: 4,
         name: {
             ko: "D",
-            en: "D"
+            en: "D",
+            ja: "D"
         },
         length: 795,
         seats: 4,
@@ -92,7 +97,8 @@ export const lifts: Lift[] = [
         id: 5,
         name: {
             ko: "E",
-            en: "E"
+            en: "E",
+            ja: "E"
         },
         length: 509,
         seats: 4,

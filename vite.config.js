@@ -12,25 +12,4 @@ export default defineConfig({
             "@": resolve(__dirname, "src"),
         },
     },
-    build: {
-        rollupOptions: {
-            output: {
-                manualChunks: function (id) {
-                    if (id.includes("node_modules")) {
-                        if (id.includes("react"))
-                            return "vendor-react";
-                        if (id.includes("@radix-ui"))
-                            return "vendor-radix";
-                        if (id.includes("react-icons") || id.includes("lucide-react"))
-                            return "vendor-icons";
-                        if (id.includes("@dnd-kit"))
-                            return "vendor-dnd";
-                        if (id.includes("hls.js") || id.includes("video.js"))
-                            return "vendor-media";
-                        return "vendor";
-                    }
-                },
-            },
-        },
-    },
 });

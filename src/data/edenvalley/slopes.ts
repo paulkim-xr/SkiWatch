@@ -8,7 +8,8 @@ export const slopes: Slope[] = [
         id: 0,
         name: {
             ko: "베이직",
-            en: "Basic"
+            en: "Basic",
+            ja: "バエジャイチャイク"
         },
         difficulty: Difficulty.BEGINNER,
         length: 587,
@@ -28,7 +29,8 @@ export const slopes: Slope[] = [
         id: 1,
         name: {
             ko: "메인",
-            en: "Main"
+            en: "Main",
+            ja: "マエジャイン"
         },
         difficulty: Difficulty.BEGINNER,
         length: 454,
@@ -48,7 +50,8 @@ export const slopes: Slope[] = [
         id: 2,
         name: {
             ko: "쥬피터",
-            en: "Jupiter"
+            en: "Jupiter",
+            ja: "チャユハイパオ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1023,
@@ -68,7 +71,8 @@ export const slopes: Slope[] = [
         id: 3,
         name: {
             ko: "새턴",
-            en: "Saturn"
+            en: "Saturn",
+            ja: "サアパオン"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 851,
@@ -88,7 +92,8 @@ export const slopes: Slope[] = [
         id: 4,
         name: {
             ko: "우라누스",
-            en: "Uranus"
+            en: "Uranus",
+            ja: "ジャウラアナウサウ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1495,
@@ -108,7 +113,8 @@ export const slopes: Slope[] = [
         id: 5,
         name: {
             ko: "머큐리",
-            en: "Mercury"
+            en: "Mercury",
+            ja: "マオタユライ"
         },
         difficulty: Difficulty.ADVANCED,
         length: 949,
@@ -128,7 +134,8 @@ export const slopes: Slope[] = [
         id: 6,
         name: {
             ko: "비너스",
-            en: "Venus"
+            en: "Venus",
+            ja: "バイナオサウ"
         },
         difficulty: Difficulty.ADVANCED,
         length: 862,

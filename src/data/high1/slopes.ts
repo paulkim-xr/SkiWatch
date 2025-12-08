@@ -7,7 +7,8 @@ export const slopes: Slope[] = [
         id: 0,
         name: {
             ko: "제우스 1",
-            en: "Zeus 1"
+            en: "Zeus 1",
+            ja: "チャエジャウサウ 1"
         },
         difficulty: Difficulty.BEGINNER,
         length: 2328,
@@ -25,7 +26,8 @@ export const slopes: Slope[] = [
         id: 1,
         name: {
             ko: "제우스 2",
-            en: "Zeus 2"
+            en: "Zeus 2",
+            ja: "チャエジャウサウ 2"
         },
         difficulty: Difficulty.BEGINNER,
         length: 2198,
@@ -43,7 +45,8 @@ export const slopes: Slope[] = [
         id: 2,
         name: {
             ko: "제우스 3",
-            en: "Zeus 3"
+            en: "Zeus 3",
+            ja: "チャエジャウサウ 3"
         },
         difficulty: Difficulty.BEGINNER,
         length: 1835,
@@ -61,7 +64,8 @@ export const slopes: Slope[] = [
         id: 3,
         name: {
             ko: "제우스 3-1",
-            en: "Zeus 3-1"
+            en: "Zeus 3-1",
+            ja: "チャエジャウサウ 3-1"
         },
         difficulty: Difficulty.BEGINNER,
         length: 1023,
@@ -79,7 +83,8 @@ export const slopes: Slope[] = [
         id: 4,
         name: {
             ko: "빅토리아 1",
-            en: "Victoria 1"
+            en: "Victoria 1",
+            ja: "バイクパオライジャア 1"
         },
         difficulty: Difficulty.ADVANCED,
         length: 1439,
@@ -97,7 +102,8 @@ export const slopes: Slope[] = [
         id: 5,
         name: {
             ko: "빅토리아 2",
-            en: "Victoria 2"
+            en: "Victoria 2",
+            ja: "バイクパオライジャア 2"
         },
         difficulty: Difficulty.ADVANCED,
         length: 1382,
@@ -115,7 +121,8 @@ export const slopes: Slope[] = [
         id: 6,
         name: {
             ko: "빅토리아 3",
-            en: "Victoria 3"
+            en: "Victoria 3",
+            ja: "バイクパオライジャア 3"
         },
         difficulty: Difficulty.EXPERT,
         length: 1311,
@@ -133,7 +140,8 @@ export const slopes: Slope[] = [
         id: 7,
         name: {
             ko: "헤라 1",
-            en: "Hera 1"
+            en: "Hera 1",
+            ja: "ハエラア 1"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1508,
@@ -151,7 +159,8 @@ export const slopes: Slope[] = [
         id: 8,
         name: {
             ko: "헤라 2",
-            en: "Hera 2"
+            en: "Hera 2",
+            ja: "ハエラア 2"
         },
         difficulty: Difficulty.IN_AD,
         length: 1301,
@@ -169,7 +178,8 @@ export const slopes: Slope[] = [
         id: 9,
         name: {
             ko: "헤라 3",
-            en: "Hera 3"
+            en: "Hera 3",
+            ja: "ハエラア 3"
         },
         difficulty: Difficulty.ADVANCED,
         length: 1278,
@@ -187,7 +197,8 @@ export const slopes: Slope[] = [
         id: 10,
         name: {
             ko: "아폴로 1",
-            en: "Apollo 1"
+            en: "Apollo 1",
+            ja: "ジャアハオルラオ 1"
         },
         difficulty: Difficulty.ADVANCED,
         length: 1506,
@@ -205,7 +216,8 @@ export const slopes: Slope[] = [
         id: 11,
         name: {
             ko: "아폴로 2",
-            en: "Apollo 2"
+            en: "Apollo 2",
+            ja: "ジャアハオルラオ 2"
         },
         difficulty: Difficulty.ADVANCED,
         length: 863,
@@ -223,7 +235,8 @@ export const slopes: Slope[] = [
         id: 12,
         name: {
             ko: "아폴로 3",
-            en: "Apollo 3"
+            en: "Apollo 3",
+            ja: "ジャアハオルラオ 3"
         },
         difficulty: Difficulty.ADVANCED,
         length: 754,
@@ -241,7 +254,8 @@ export const slopes: Slope[] = [
         id: 13,
         name: {
             ko: "아폴로 4",
-            en: "Apollo 4"
+            en: "Apollo 4",
+            ja: "ジャアハオルラオ 4"
         },
         difficulty: Difficulty.ADVANCED,
         length: 1569,
@@ -259,7 +273,8 @@ export const slopes: Slope[] = [
         id: 14,
         name: {
             ko: "아폴로 5",
-            en: "Apollo 5"
+            en: "Apollo 5",
+            ja: "ジャアハオルラオ 5"
         },
         difficulty: Difficulty.EXPERT,
         length: 1239,
@@ -277,7 +292,8 @@ export const slopes: Slope[] = [
         id: 15,
         name: {
             ko: "아폴로 6",
-            en: "Apollo 6"
+            en: "Apollo 6",
+            ja: "ジャアハオルラオ 6"
         },
         difficulty: Difficulty.ADVANCED,
         length: 1543,
@@ -295,7 +311,8 @@ export const slopes: Slope[] = [
         id: 16,
         name: {
             ko: "아테나 2",
-            en: "Athena 2"
+            en: "Athena 2",
+            ja: "ジャアパエナア 2"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 1666,
@@ -313,7 +330,8 @@ export const slopes: Slope[] = [
         id: 17,
         name: {
             ko: "아테나 3",
-            en: "Athena 3"
+            en: "Athena 3",
+            ja: "ジャアパエナア 3"
         },
         difficulty: Difficulty.BEGINNER,
         length: 1862,
@@ -331,7 +349,8 @@ export const slopes: Slope[] = [
         id: 18,
         name: {
             ko: "아테나 3-1",
-            en: "Athena 3-1"
+            en: "Athena 3-1",
+            ja: "ジャアパエナア 3-1"
         },
         difficulty: Difficulty.BEGINNER,
         length: 1162,

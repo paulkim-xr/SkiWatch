@@ -7,7 +7,8 @@ export const slopes: Slope[] = [
         id: 0,
         name: {
             ko: "발라드",
-            en: "Ballad"
+            en: "Ballad",
+            ja: "バアルラアダウ"
         },
         difficulty: Difficulty.BEGINNER,
         length: 508,
@@ -25,7 +26,8 @@ export const slopes: Slope[] = [
         id: 1,
         name: {
             ko: "레게",
-            en: "Reggae"
+            en: "Reggae",
+            ja: "ラエガエ"
         },
         difficulty: Difficulty.IN_AD,
         length: 570,
@@ -43,7 +45,8 @@ export const slopes: Slope[] = [
         id: 2,
         name: {
             ko: "클래식",
-            en: "Classic"
+            en: "Classic",
+            ja: "タウルラアサイク"
         },
         difficulty: Difficulty.IN_AD,
         length: 450,
@@ -61,7 +64,8 @@ export const slopes: Slope[] = [
         id: 3,
         name: {
             ko: "펑키",
-            en: "Funky"
+            en: "Funky",
+            ja: "ハオンタイ"
         },
         difficulty: Difficulty.IN_AD,
         length: 575,
@@ -79,7 +83,8 @@ export const slopes: Slope[] = [
         id: 4,
         name: {
             ko: "테크노 1",
-            en: "Techno 1"
+            en: "Techno 1",
+            ja: "パエタウナオ 1"
         },
         difficulty: Difficulty.IN_AD,
         length: 480,
@@ -97,7 +102,8 @@ export const slopes: Slope[] = [
         id: 5,
         name: {
             ko: "테크노 2",
-            en: "Techno 2"
+            en: "Techno 2",
+            ja: "パエタウナオ 2"
         },
         difficulty: Difficulty.ADVANCED,
         length: 680,
@@ -115,7 +121,8 @@ export const slopes: Slope[] = [
         id: 6,
         name: {
             ko: "힙합 1",
-            en: "Hip-hop 1"
+            en: "Hip-hop 1",
+            ja: "ハイプハアプ 1"
         },
         difficulty: Difficulty.IN_AD,
         length: 240,
@@ -133,7 +140,8 @@ export const slopes: Slope[] = [
         id: 7,
         name: {
             ko: "힙합 2",
-            en: "Hip-hop 2"
+            en: "Hip-hop 2",
+            ja: "ハイプハアプ 2"
         },
         difficulty: Difficulty.IN_AD,
         length: 620,
@@ -151,7 +159,8 @@ export const slopes: Slope[] = [
         id: 8,
         name: {
             ko: "블루스",
-            en: "Blues"
+            en: "Blues",
+            ja: "バウルラウサウ"
         },
         difficulty: Difficulty.BEGINNER,
         length: 365,
@@ -169,7 +178,8 @@ export const slopes: Slope[] = [
         id: 9,
         name: {
             ko: "재즈",
-            en: "Jazz"
+            en: "Jazz",
+            ja: "チャアチャウ"
         },
         difficulty: Difficulty.INTERMEDIATE,
         length: 900,
@@ -187,7 +197,8 @@ export const slopes: Slope[] = [
         id: 10,
         name: {
             ko: "락",
-            en: "Rock"
+            en: "Rock",
+            ja: "ラアク"
         },
         difficulty: Difficulty.EXPERT,
         length: 610,
