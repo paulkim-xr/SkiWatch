@@ -7,12 +7,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import {
-  Locale,
-  defaultLocale,
-  getLocalizedText,
-  LocalizedText,
-} from "@/lib/i18n/locales";
+import { Locale, defaultLocale, getLocalizedText, LocalizedText, locales } from "@/lib/i18n/locales";
 
 type LocaleContextValue = {
   locale: Locale;
@@ -34,7 +29,7 @@ function getInitialLocale(): Locale {
   }
 
   const browserLocale = window.navigator.language.slice(0, 2);
-  return ["ko", "en"].includes(browserLocale) ? (browserLocale as Locale) : defaultLocale;
+  return locales.includes(browserLocale as Locale) ? (browserLocale as Locale) : defaultLocale;
 }
 
 export function LocaleProvider({ children }: PropsWithChildren) {

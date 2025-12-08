@@ -9,6 +9,7 @@ import ResortWeatherPage from "@/components/ResortWeatherPage";
 import { useDarkMode } from "@/hooks/useDarkMode";
 import { useI18n } from "@/lib/i18n/context";
 import { strings } from "@/lib/i18n/strings";
+import { AnalyticsConsent, getStoredConsent, trackPageView, type ConsentStatus } from "@/components/AnalyticsConsent";
 import { Locale, localeLabels, locales } from "@/lib/i18n/locales";
 import {
   Select,
@@ -17,6 +18,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Seo } from "@/components/Seo";
 
 function App() {
   return (
@@ -31,6 +33,7 @@ function AppShell() {
   const { t, locale, setLocale } = useI18n();
   const [menuOpen, setMenuOpen] = useState(false);
   const [noticeOpen, setNoticeOpen] = useState(false);
+  const [consentStatus, setConsentStatus] = useState<ConsentStatus>(() => getStoredConsent());
   const menuRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
   const showWeatherAttribution = !location.pathname.startsWith("/slopes");
@@ -84,6 +87,39 @@ function AppShell() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const handleStatus = (event: Event) => {
+      const detail = (event as CustomEvent<ConsentStatus>).detail;
+      if (detail) setConsentStatus(detail);
+    };
+    window.addEventListener("analytics-consent:status", handleStatus as EventListener);
+    return () => window.removeEventListener("analytics-consent:status", handleStatus as EventListener);
+  }, []);
+
+  useEffect(() => {
+    if (consentStatus !== "granted") return;
+    trackPageView(`${location.pathname}${location.search}`);
+  }, [consentStatus, location.pathname, location.search]);
+
+  const seo = useMemo(() => {
+    if (location.pathname.startsWith("/slopes")) {
+      return {
+        title: t(strings.seo.slopesTitle),
+        description: t(strings.seo.slopesDescription),
+      };
+    }
+    if (location.pathname.startsWith("/resorts")) {
+      return {
+        title: t(strings.nav.resorts),
+        description: t(strings.resortPage.listDescription),
+      };
+    }
+    return {
+      title: t(strings.seo.webcamsTitle),
+      description: t(strings.seo.webcamsDescription),
+    };
+  }, [location.pathname, t]);
+
   const openPrivacySettings = () => {
     window.dispatchEvent(new Event("analytics-consent:open"));
     setMenuOpen(false);
@@ -91,6 +127,7 @@ function AppShell() {
 
   return (
     <div className="h-screen flex flex-col bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors overflow-hidden">
+      <Seo title={seo.title} description={seo.description} path={location.pathname} />
       <header className="sticky top-0 z-20 border-b border-slate-200/70 dark:border-slate-700/60 bg-white/80 dark:bg-slate-900/80 backdrop-blur">
         <div className="flex h-14 items-center justify-between px-4">
           <div className="flex items-center gap-6">
@@ -245,6 +282,33 @@ function AppShell() {
               </div>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  {t(strings.notices.translationHeading)}
+                </p>
+                <p className="mt-1 text-slate-700 dark:text-slate-200">
+                  {t(strings.notices.translationNote)}
+                </p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                  {t(strings.notices.feedback)}
+                </p>
+                <p className="mt-1 flex flex-wrap items-center gap-2">
+                  <a
+                    href="https://github.com/paulkim-xr/SkiWatch/issues"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline"
+                  >
+                    GitHub Issues
+                  </a>
+                  <span className="text-slate-500 dark:text-slate-400">·</span>
+                  <a href="mailto:paul.kim.dev@gmail.com" className="underline">
+                    paul.kim.dev@gmail.com
+                  </a>
+                </p>
+              </div>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
                   Third-party licenses
                 </p>
                 <ul className="mt-1 list-disc space-y-1 pl-4 text-[13px]">
@@ -272,6 +336,7 @@ function AppShell() {
           </div>
         </div>
       )}
+      <AnalyticsConsent />
     </div>
   );
 }

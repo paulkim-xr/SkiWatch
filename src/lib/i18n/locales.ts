@@ -1,4 +1,4 @@
-export const locales = ["ko", "en"] as const;
+export const locales = ["ko", "en", "ja"] as const;
 
 export type Locale = (typeof locales)[number];
 
@@ -9,6 +9,7 @@ export type LocalizedText = Partial<Record<Locale, string>>;
 export const localeLabels: Record<Locale, string> = {
   ko: "한국어",
   en: "English",
+  ja: "日本語",
 };
 
 export function getLocalizedText(
