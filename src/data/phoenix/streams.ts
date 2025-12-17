@@ -8,7 +8,7 @@ export const streams: Stream[] = [
             ja: "Hawk／Sparrow"
         },
         type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/yh_02.m3u8"
+        url: "https://streaming.phoenixhnr.co.kr/hls/yh_02_3.m3u8"
     },
     {
         name: {
@@ -17,7 +17,7 @@ export const streams: Stream[] = [
             ja: "Bulsae Maru"
         },
         type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/ht_01.m3u8"
+        url: "https://streaming.phoenixhnr.co.kr/hls/ht_01_01.m3u8"
     },
     {
         name: {
@@ -35,7 +35,7 @@ export const streams: Stream[] = [
             ja: "スノー ビレッジ"
         },
         type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/yh_01.m3u8"
+        url: "https://streaming.phoenixhnr.co.kr/hls/yh_01_2.m3u8"
     },
     {
         name: {
@@ -57,11 +57,11 @@ export const streams: Stream[] = [
     },
     {
         name: {
-            ko: "휘닉스 C.C.",
-            en: "Phoenix C.C.",
-            ja: "フィニックス C.C."
+            ko: "베이스",
+            en: "Base",
+            ja: "ベース"
         },
         type: StreamType.HLS,
-        url: "https://streaming.phoenixhnr.co.kr/hls/bc_02.m3u8"
+        url: "https://streaming.phoenixhnr.co.kr/hls/bc_02_1.m3u8"
     },
 ];
