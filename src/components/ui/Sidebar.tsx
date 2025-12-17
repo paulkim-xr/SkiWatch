@@ -8,6 +8,7 @@ import {
   KeyboardSensor,
   PointerSensor,
   closestCenter,
+  useDraggable,
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
@@ -31,6 +32,7 @@ import { strings } from "@/lib/i18n/strings";
 import { getStreamIdentifier } from "@/lib/streamKeys";
 import { cn } from "@/lib/utils";
 import { getResortSlug } from "@/lib/resortIndex";
+import type { CSSProperties } from "react";
 
 type SidebarProps = {
   data: Resort[];
@@ -301,28 +303,30 @@ function Sidebar({
   return (
     <aside
       className={cn(
-        "flex w-full flex-1 min-h-0 flex-col border-t border-slate-200/70 md:border-t-0 md:border-l dark:border-slate-800/60 bg-white/70 dark:bg-slate-900/70 backdrop-blur transition-[width] duration-300 overflow-hidden md:h-full",
+        "flex w-full flex-1 min-h-0 flex-col border-t border-slate-200/70 md:border-t-0 md:border-l dark:border-slate-800/60 bg-white/70 dark:bg-slate-900/70 backdrop-blur transition-[width] duration-300 overflow-hidden h-full",
         collapseEnabled ? (collapsed ? "md:w-12 md:flex-none" : "md:w-80 md:flex-none") : "md:w-80 md:flex-none"
       )}
     >
-      {collapseEnabled && (
-        <div className="hidden md:flex justify-end px-3 pt-3">
-          <button
-            type="button"
-            onClick={onToggleCollapse}
-            aria-label={collapsed ? t(strings.sidebar.expand) : t(strings.sidebar.collapse)}
-            aria-pressed={!collapsed}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300/70 bg-white/90 text-slate-600 transition-colors hover:bg-slate-200 dark:border-slate-600/70 dark:bg-slate-800/80 dark:text-slate-100 dark:hover:bg-slate-700"
-          >
-            {collapsed ? <FiChevronLeft className="h-4 w-4" /> : <FiChevronRight className="h-4 w-4" />}
-          </button>
-        </div>
-      )}
+      <div className="relative flex h-full flex-col px-3 py-3">
+        {collapseEnabled && (
+          <div className="hidden md:flex justify-end">
+            <button
+              type="button"
+              onClick={onToggleCollapse}
+              aria-label={collapsed ? t(strings.sidebar.expand) : t(strings.sidebar.collapse)}
+              aria-pressed={!collapsed}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300/70 bg-white/90 text-slate-600 transition-colors hover:bg-slate-200 dark:border-slate-600/70 dark:bg-slate-800/80 dark:text-slate-100 dark:hover:bg-slate-700"
+            >
+              {collapsed ? <FiChevronLeft className="h-4 w-4" /> : <FiChevronRight className="h-4 w-4" />}
+            </button>
+          </div>
+        )}
 
-      {!collapseEnabled || !collapsed ? (
-        <div className="flex-1 min-h-0">
-          <div className="flex h-full flex-col overflow-y-auto pr-1">
-            <ul className="space-y-1.5 py-4">
+        {!collapseEnabled || !collapsed ? (
+          <div className="flex-1 min-h-0">
+            <div className="flex h-full flex-col overflow-hidden">
+              <div className="flex-1 overflow-y-auto px-1 pb-16">
+                <ul className="space-y-1.5 py-3">
             {favoriteEntries.length > 0 && (
               <li className="px-4">
                 <button
@@ -459,35 +463,46 @@ function Sidebar({
                       </li>
                     )}
 
-                    {resort.streams.map((stream) => {
-                      const streamId = getStreamIdentifier(resort, stream);
-                      return (
-                        <li key={streamId} className="px-2" aria-hidden={!isActiveResort}>
-                          {renderStreamAction({
-                            resort,
-                            stream,
-                            streamId,
-                            tabIndex: isActiveResort ? 0 : -1,
-                            showResortLabel: false,
-                            syncAccordion: true,
-                          })}
-                        </li>
-                      );
-                    })}
+                {resort.streams.map((stream) => {
+                  const streamId = getStreamIdentifier(resort, stream);
+                  return (
+                    <DraggableStreamItem
+                      key={streamId}
+                      streamId={streamId}
+                      resort={resort}
+                      stream={stream}
+                      resortSlug={resortSlug}
+                      tabIndex={isActiveResort ? 0 : -1}
+                      isActive={isActiveResort}
+                      renderContent={() =>
+                        renderStreamAction({
+                          resort,
+                          stream,
+                          streamId,
+                          tabIndex: isActiveResort ? 0 : -1,
+                          showResortLabel: false,
+                          syncAccordion: true,
+                        })
+                      }
+                    />
+                  );
+                })}
 
                     <li aria-hidden className="px-2 pb-3" />
                   </ul>
                 </li>
               );
             })}
-          </ul>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="hidden md:flex flex-1 items-center justify-center text-xs uppercase tracking-[0.3em] text-slate-400">
-          <span className="-rotate-90 whitespace-nowrap">{t(strings.sidebar.expand)}</span>
-        </div>
-      )}
+        ) : (
+          <div className="hidden md:flex flex-1 items-center justify-center text-xs uppercase tracking-[0.3em] text-slate-400">
+            <span className="-rotate-90 whitespace-nowrap">{t(strings.sidebar.expand)}</span>
+          </div>
+        )}
+      </div>
     </aside>
   );
 }
@@ -497,6 +512,46 @@ type FavoriteSortableItemProps = {
   handleLabel: string;
   children: ReactNode;
 };
+
+type DraggableStreamItemProps = {
+  streamId: string;
+  resort: Resort;
+  stream: Stream;
+  resortSlug?: string;
+  tabIndex: number;
+  isActive: boolean;
+  renderContent: () => ReactNode;
+};
+
+function DraggableStreamItem({ streamId, resort, stream, resortSlug, tabIndex, isActive, renderContent }: DraggableStreamItemProps) {
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+    id: streamId,
+    data: {
+      type: "stream",
+      payload: { stream, resort, streamId, resortSlug },
+    },
+  });
+
+  const style: CSSProperties = {
+    transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
+    opacity: isDragging ? 0.75 : 1,
+    touchAction: "none",
+  };
+
+  return (
+    <li
+      key={streamId}
+      className="px-2"
+      aria-hidden={!isActive}
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+    >
+      {renderContent()}
+    </li>
+  );
+}
 
 function FavoriteSortableItem({ id, handleLabel, children }: FavoriteSortableItemProps) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id });
