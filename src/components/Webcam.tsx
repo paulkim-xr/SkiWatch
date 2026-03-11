@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
   closestCenter,
@@ -54,6 +54,8 @@ function Webcam() {
   const [shouldSyncSelection, setShouldSyncSelection] = useState(true);
   const [viewItems, setViewItems] = useState<DashboardItem[]>([]);
   const [isPointerDragging, setIsPointerDragging] = useState(false);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
+  const lastOverIdRef = useRef<string | null>(null);
 
   const resortOrder = useMemo(() => resorts.map((r) => r.homepage), []);
   const streamOrder = useMemo(() => {
@@ -125,7 +127,8 @@ function Webcam() {
     stream: entry.stream,
     resortSlug: entry.resortSlug,
     label: `${t(entry.resort.name)} · ${t(entry.stream.name)}`,
-    span: 1,
+    colSpan: 1,
+    rowSpan: 1,
   });
 
   const parseMultiPath = (pathValue: string | undefined) => {
@@ -298,7 +301,21 @@ function Webcam() {
 
   const handleToggleSpan = (id: string) => {
     setViewItems((items) =>
-      items.map((item) => (item.id === id ? { ...item, span: item.span === 2 ? 1 : 2 } : item))
+      items.map((item) => (item.id === id ? { ...item, colSpan: item.colSpan === 2 ? 1 : 2 } : item))
+    );
+  };
+
+  const handleResizeItem = (id: string, colSpan: number, rowSpan: number) => {
+    setViewItems((items) =>
+      items.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              colSpan,
+              rowSpan,
+            }
+          : item
+      )
     );
   };
 
@@ -310,14 +327,15 @@ function Webcam() {
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
+    const effectiveOverId = over?.id ? String(over.id) : lastOverIdRef.current;
+    lastOverIdRef.current = null;
     setIsPointerDragging(false);
-    if (!over) return;
 
     const activeType = active.data.current?.type;
     if (activeType === "grid") {
-      if (active.id === over.id) return;
+      if (!effectiveOverId || active.id === effectiveOverId) return;
       const oldIndex = gridIds.findIndex((id) => id === active.id);
-      const newIndex = gridIds.findIndex((id) => id === over.id);
+      const newIndex = gridIds.findIndex((id) => id === effectiveOverId);
       if (oldIndex === -1 || newIndex === -1) return;
       const nextItems = arrayMove(viewItems, oldIndex, newIndex);
       setViewItems(nextItems);
@@ -337,7 +355,9 @@ function Webcam() {
     };
     if (!payload || payload.type !== "webcam" || !payload.stream) return;
 
-    if (over.id === GRID_DROP_ID || gridIds.includes(String(over.id))) {
+    if (!effectiveOverId) return;
+
+    if (effectiveOverId === GRID_DROP_ID || gridIds.includes(effectiveOverId)) {
       const nextItems = appendPayloadItems(viewItems, [payload]);
       setViewItems(nextItems);
       syncSelectionFromItems(nextItems);
@@ -345,7 +365,7 @@ function Webcam() {
       return;
     }
 
-    if (over.id === PLAYER_DROP_ID) {
+    if (effectiveOverId === PLAYER_DROP_ID) {
       if (viewItems.length <= 1) {
         const nextItems = appendPayloadItems(viewItems, [payload]);
         setViewItems(nextItems);
@@ -358,7 +378,7 @@ function Webcam() {
 
   useEffect(() => {
     if (!isPointerDragging || typeof document === "undefined") return;
-    if (typeof window !== "undefined" && !window.matchMedia("(max-width: 767px)").matches) return;
+    if (!isMobileViewport) return;
 
     const originalBodyOverflow = document.body.style.overflow;
     const originalBodyOverscroll = document.body.style.overscrollBehavior;
@@ -379,7 +399,16 @@ function Webcam() {
       document.documentElement.style.overscrollBehavior = originalHtmlOverscroll;
       document.removeEventListener("touchmove", preventTouchScroll);
     };
-  }, [isPointerDragging]);
+  }, [isMobileViewport, isPointerDragging]);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const media = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobileViewport(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
 
   const collisionDetection: CollisionDetection = (args) => {
     // For dragging from sidebar, prioritize drop target under pointer to make
@@ -398,8 +427,15 @@ function Webcam() {
     <DndContext
       sensors={sensors}
       collisionDetection={collisionDetection}
+      autoScroll={!isMobileViewport}
       onDragStart={() => setIsPointerDragging(true)}
-      onDragCancel={() => setIsPointerDragging(false)}
+      onDragOver={({ over }) => {
+        lastOverIdRef.current = over?.id ? String(over.id) : null;
+      }}
+      onDragCancel={() => {
+        lastOverIdRef.current = null;
+        setIsPointerDragging(false);
+      }}
       onDragEnd={handleDragEnd}
     >
       <div className="flex h-full w-full flex-col overflow-hidden bg-white/70 text-slate-900 backdrop-blur dark:bg-slate-900/40 dark:text-white">
@@ -424,6 +460,7 @@ function Webcam() {
                     items={viewItems}
                     onRemove={handleRemoveFromGrid}
                     onToggleSpan={handleToggleSpan}
+                    onResize={handleResizeItem}
                     isDropping={isPointerDragging}
                     dropRef={setGridDropRef}
                     isOver={isGridDropOver}

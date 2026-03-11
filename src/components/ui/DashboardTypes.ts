@@ -7,7 +7,8 @@ export type DashboardItem = {
   type: DashboardItemType;
   resortSlug: string;
   label: string;
-  span: 1 | 2;
+  colSpan: number;
+  rowSpan: number;
   // Specific to webcam
   stream?: Stream;
 };

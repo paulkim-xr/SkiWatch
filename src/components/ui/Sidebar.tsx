@@ -22,7 +22,7 @@ import {
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { FaRegStar, FaStar } from "react-icons/fa";
-import { FiChevronLeft, FiChevronRight, FiExternalLink, FiSlash } from "react-icons/fi";
+import { FiChevronDown, FiChevronLeft, FiChevronRight, FiExternalLink, FiSlash } from "react-icons/fi";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import { Resort, Stream, StreamType } from "@/data/Util";
 import { useFavorites } from "@/hooks/useFavorites";
@@ -441,8 +441,13 @@ function Sidebar({
                       aria-controls="sidebar-favorites"
                     >
                       <span>{t(strings.sidebar.favorites)}</span>
-                      <span className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                        {favoritesOpen ? t(strings.sidebar.collapse) : t(strings.sidebar.expand)}
+                      <span className="text-slate-500 dark:text-slate-400" aria-hidden>
+                        <FiChevronDown
+                          className={cn(
+                            "h-4 w-4 transition-transform",
+                            favoritesOpen ? "rotate-180" : "rotate-90"
+                          )}
+                        />
                       </span>
                     </button>
                     <div
@@ -524,8 +529,13 @@ function Sidebar({
                           <span>{t(resort.name)}</span>
                           {resortSlug && <WeatherBadge resortSlug={resortSlug} priority />}
                         </div>
-                        <span className="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                          {isActiveResort ? t(strings.sidebar.collapse) : t(strings.sidebar.expand)}
+                        <span className="text-slate-500 dark:text-slate-400" aria-hidden>
+                          <FiChevronDown
+                            className={cn(
+                              "h-4 w-4 transition-transform",
+                              isActiveResort ? "rotate-180" : "rotate-90"
+                            )}
+                          />
                         </span>
                       </button>
 
