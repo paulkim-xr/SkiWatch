@@ -126,7 +126,7 @@ function AppShell() {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors overflow-hidden">
+    <div className="h-screen h-[100svh] flex flex-col bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors overflow-hidden">
       <Seo title={seo.title} description={seo.description} path={location.pathname} />
       <header className="sticky top-0 z-20 border-b border-slate-200/70 dark:border-slate-700/60 bg-white/80 dark:bg-slate-900/80 backdrop-blur">
         <div className="flex h-14 items-center justify-between px-4">
@@ -231,7 +231,7 @@ function AppShell() {
         </Routes>
       </div>
       {showWeatherAttribution && (
-        <footer className="border-t border-slate-200/70 bg-white/80 px-4 py-2 text-center text-xs text-slate-500 backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/80 dark:text-slate-300">
+        <footer className="shrink-0 border-t border-slate-200/70 bg-white/80 px-4 py-2 pb-[max(env(safe-area-inset-bottom),0px)] text-center text-xs text-slate-500 backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/80 dark:text-slate-300">
           {t(strings.attribution.weather)}{" "}
           <a
             href="https://www.kogl.or.kr/"

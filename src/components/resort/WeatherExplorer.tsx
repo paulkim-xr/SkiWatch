@@ -12,6 +12,7 @@ import { strings } from "@/lib/i18n/strings";
 import { useI18n } from "@/lib/i18n/context";
 import { LocalizedText } from "@/lib/i18n/locales";
 import { conditionLabel, type ForecastSlot } from "@/lib/weather/forecast";
+import { formatNumber, cn } from "@/lib/utils";
 
 const SNOW_MM_PER_CM = 10;
 
@@ -1195,12 +1196,6 @@ function SixHourChart({ title, status, error, points, onReload, labels, temperat
 
 // new helper definitions inserted below...
 
-function formatNumber(value: number | undefined, suffix = "") {
-  if (value === undefined || value === null) return suffix ? "—" : "—";
-  const display = Number.isInteger(value) ? `${value}` : value.toFixed(1);
-  return suffix ? `${display}${suffix}` : display;
-}
-
 function formatDailyStat(value: number | undefined, suffix = "") {
   if (value === undefined) return "—";
   return suffix ? `${formatNumber(value)}${suffix}` : formatNumber(value);
@@ -1231,12 +1226,12 @@ function formatSegmentPrecipChance(part?: MidRangeDayPart, fallback?: number) {
   return `${value}%`;
 }
 
-function ConditionIcon({ part }: { part?: MidRangeDayPart }) {
+export function ConditionIcon({ part, className }: { part?: MidRangeDayPart; className?: string }) {
   const { t } = useI18n();
   const { Icon, labelKey, label } = getConditionIcon(part?.weather);
   const displayLabel = labelKey ? t(strings.resortPage.conditions[labelKey]) : label;
   return (
-    <span className="flex flex-col items-center gap-1 text-xs text-slate-600 dark:text-slate-300">
+    <span className={cn("flex flex-col items-center gap-1 text-xs text-slate-600 dark:text-slate-300", className)}>
       <Icon
         className="h-7 w-7 text-slate-500 dark:text-slate-200"
         aria-label={displayLabel}

@@ -48,6 +48,19 @@ export const strings = {
     favoriteAdd: createText({ ko: "즐겨찾기에 추가", en: "Add to favorites", ja: "お気に入りに追加" }),
     favoriteRemove: createText({ ko: "즐겨찾기에서 제거", en: "Remove from favorites", ja: "お気に入りから削除" }),
     favoriteReorder: createText({ ko: "즐겨찾기 순서 변경", en: "Reorder favorites", ja: "お気に入りの並び替え" }),
+    searchPlaceholder: createText({
+      ko: "리조트 또는 웹캠 검색...",
+      en: "Search resorts or webcams...",
+      ja: "リゾートやカメラを検索...",
+    }),
+    addSelected: createText({ ko: "선택 항목 추가", en: "Add selected", ja: "選択を追加" }),
+    addToGrid: createText({ ko: "그리드에 추가", en: "Add to grid", ja: "グリッドに追加" }),
+    addedToGrid: createText({ ko: "추가됨", en: "Added", ja: "追加済み" }),
+    removeFromGrid: createText({ ko: "그리드에서 제거", en: "Remove", ja: "削除" }),
+    clearSelection: createText({ ko: "선택 해제", en: "Clear selection", ja: "選択解除" }),
+    selectedCount: createText({ ko: "선택됨", en: "Selected", ja: "選択中" }),
+    selectMode: createText({ ko: "선택", en: "Select", ja: "選択" }),
+    selectDone: createText({ ko: "완료", en: "Done", ja: "完了" }),
   },
   analyticsConsent: {
     message: createText({

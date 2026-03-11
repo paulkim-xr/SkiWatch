@@ -12,12 +12,15 @@ body {
   @apply bg-slate-100 text-slate-900 transition-colors;
 }
 
-.dark body {
-  @apply bg-slate-950 text-slate-100;
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
 }
 
-#root {
-  min-height: 100vh;
+.dark body {
+  @apply bg-slate-950 text-slate-100;
 }
 
 code {
