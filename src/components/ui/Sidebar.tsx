@@ -31,7 +31,6 @@ import { useI18n } from "@/lib/i18n/context";
 import { strings } from "@/lib/i18n/strings";
 import { getStreamIdentifier } from "@/lib/streamKeys";
 import { type DashboardItemType } from "@/components/ui/DashboardTypes";
-import { FiCloud, FiActivity } from "react-icons/fi";
 import { cn } from "@/lib/utils";
 import { getResortSlug } from "@/lib/resortIndex";
 import type { CSSProperties } from "react";
@@ -59,6 +58,7 @@ type SidebarProps = {
   selectedResortHomepage?: string;
   selectionToken?: number;
   shouldSyncSelection?: boolean;
+  isDragging?: boolean;
   isCollapsed?: boolean;
   onToggleCollapse?: () => void;
 };
@@ -85,6 +85,7 @@ function Sidebar({
   selectedResortHomepage,
   selectionToken = 0,
   shouldSyncSelection = true,
+  isDragging = false,
   isCollapsed = false,
   onToggleCollapse,
   onAddToGrid,
@@ -100,8 +101,6 @@ function Sidebar({
   const { t } = useI18n();
   const { favorites, favoriteSet, toggleFavorite, setFavoritesOrder } = useFavorites();
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedStreamIds, setSelectedStreamIds] = useState<Set<string>>(new Set());
-  const [selectionMode, setSelectionMode] = useState(false);
   const [desktopDndEnabled, setDesktopDndEnabled] = useState(false);
   const [favoritesOpen, setFavoritesOpen] = useState(() => {
     if (typeof window === "undefined") {
@@ -258,40 +257,6 @@ function Sidebar({
     }
   }
 
-  const toggleSelected = (streamId: string) => {
-    setSelectedStreamIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(streamId)) {
-        next.delete(streamId);
-      } else {
-        next.add(streamId);
-      }
-      return next;
-    });
-  };
-
-  const clearSelection = () => setSelectedStreamIds(new Set());
-
-  const addSelectedToGrid = () => {
-    if (!onAddToGrid || selectedStreamIds.size === 0) return;
-    const items = Array.from(selectedStreamIds)
-      .map((streamId) => {
-        const entry = streamLookup.get(streamId);
-        if (!entry) return null;
-        return {
-          type: "webcam" as const,
-          stream: entry.stream,
-          resort: entry.resort,
-          streamId,
-          resortSlug: getResortSlug(entry.resort),
-        };
-      })
-      .filter(Boolean) as { type: DashboardItemType; stream: Stream; resort: Resort; streamId: string; resortSlug?: string }[];
-    if (items.length === 0) return;
-    onAddToGrid(items);
-    clearSelection();
-  };
-
   const handleFavoriteReorder = useCallback(
     (event: DragEndEvent) => {
       const { active, over } = event;
@@ -303,16 +268,6 @@ function Sidebar({
     },
     [favorites, setFavoritesOrder]
   );
-
-  const toggleSelectionMode = () => {
-    if (!gridEnabled) return;
-    setSelectionMode((prev) => {
-      if (prev) {
-        clearSelection();
-      }
-      return !prev;
-    });
-  };
 
   const renderStreamAction = ({
     resort,
@@ -326,8 +281,6 @@ function Sidebar({
     const isSelectable = stream.type !== StreamType.External && stream.type !== StreamType.Unavailable;
     const isSelected = activeStreamId === streamId;
     const isFavorite = favoriteSet.has(streamId);
-    const isChecked = selectedStreamIds.has(streamId);
-    const isInGrid = gridStreamIds?.has(streamId) ?? false;
 
     const indicator = (() => {
       if (isDisabled) {
@@ -360,18 +313,6 @@ function Sidebar({
 
     return (
       <div className="flex items-center gap-1">
-        {selectionMode && (
-          <label className="inline-flex items-center px-1">
-            <input
-              type="checkbox"
-              className="h-4 w-4 rounded border-slate-300 text-accent-light focus:ring-accent-light/40 dark:border-slate-600 dark:bg-slate-900"
-              checked={isChecked}
-              disabled={!isSelectable}
-              onChange={() => toggleSelected(streamId)}
-              aria-label={t(strings.sidebar.selectedCount)}
-            />
-          </label>
-        )}
         <button
           type="button"
           className={cn(
@@ -385,10 +326,6 @@ function Sidebar({
           tabIndex={tabIndex}
           title={stream.type === StreamType.External ? t(strings.sidebar.externalTooltip) : undefined}
           onClick={() => {
-            if (selectionMode) {
-              if (isSelectable) toggleSelected(streamId);
-              return;
-            }
             handleStreamSelection(resort, stream, { syncAccordion });
           }}
         >
@@ -423,93 +360,6 @@ function Sidebar({
         >
             {isFavorite ? <FaStar className="h-4 w-4" /> : <FaRegStar className="h-4 w-4" />}
         </button>
-        {gridEnabled && isSelectable && (
-          <button
-            type="button"
-            disabled={isInGrid ? !onRemoveFromGrid : !onAddToGrid}
-            className={cn(
-              "inline-flex h-10 shrink-0 items-center rounded-md border px-3 text-xs font-semibold transition-colors",
-              isInGrid
-                ? "border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-800 dark:bg-rose-900/30 dark:text-rose-200"
-                : "border-slate-200/80 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-100 dark:hover:bg-slate-800"
-            )}
-            onClick={(event) => {
-              event.stopPropagation();
-              if (isInGrid) {
-                if (!onRemoveFromGrid) return;
-                onRemoveFromGrid(streamId);
-                return;
-              }
-              if (!onAddToGrid) return;
-              onAddToGrid([{ type: "webcam", stream, resort, streamId, resortSlug: getResortSlug(resort) }]);
-            }}
-          >
-            {isInGrid ? t(strings.sidebar.removeFromGrid) : t(strings.sidebar.addToGrid)}
-          </button>
-        )}
-      </div>
-    );
-  };
-
-  const renderWidgetAction = ({
-    resort,
-    type,
-    icon: Icon,
-    label,
-    streamId,
-    tabIndex,
-    syncAccordion = true,
-  }: {
-    resort: Resort;
-    type: DashboardItemType;
-    icon: React.ElementType;
-    label: string;
-    streamId: string;
-    tabIndex: number;
-    syncAccordion?: boolean;
-  }) => {
-    const isInGrid = gridStreamIds?.has(streamId) ?? false;
-    const resortSlug = getResortSlug(resort);
-
-    return (
-      <div className="flex items-center gap-1">
-        <div
-          className={cn(
-            "flex w-full min-w-0 items-center gap-2 rounded-md px-2 py-2 text-left text-sm transition-colors border border-transparent cursor-default",
-            "text-slate-700 dark:text-slate-200"
-          )}
-        >
-          <Icon className="h-4 w-4 text-slate-400 dark:text-slate-500" />
-          <div className="flex min-w-0 flex-col text-left">
-            <span className="truncate text-left font-medium">{label}</span>
-          </div>
-        </div>
-        
-        {onAddToGrid && (
-          <button
-            type="button"
-            disabled={isInGrid ? !onRemoveFromGrid : !resortSlug}
-            className={cn(
-              "inline-flex h-10 shrink-0 items-center rounded-md border px-3 text-xs font-semibold transition-colors",
-              isInGrid
-                ? "border-rose-200 bg-rose-50 text-rose-700 dark:border-rose-800 dark:bg-rose-900/30 dark:text-rose-200"
-                : "border-slate-200/80 bg-white text-slate-700 hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-100 dark:hover:bg-slate-800",
-              !isInGrid && !resortSlug && "opacity-50 cursor-not-allowed"
-            )}
-            onClick={(event) => {
-              event.stopPropagation();
-              if (isInGrid) {
-                if (!onRemoveFromGrid) return;
-                onRemoveFromGrid(streamId);
-                return;
-              }
-              if (!onAddToGrid || !resortSlug) return;
-              onAddToGrid([{ type, resort, streamId, resortSlug }]);
-            }}
-          >
-            {isInGrid ? t(strings.sidebar.removeFromGrid) : t(strings.sidebar.addToGrid)}
-          </button>
-        )}
       </div>
     );
   };
@@ -560,7 +410,12 @@ function Sidebar({
       {!collapseEnabled || !collapsed ? (
         <div className="flex-1 min-h-0">
           <div className="flex h-full flex-col overflow-hidden">
-            <div className="flex-1 overflow-y-auto">
+            <div
+              className={cn(
+                "flex-1 overflow-y-auto",
+                isDragging && "overflow-y-hidden md:overflow-y-auto"
+              )}
+            >
               <div className="sticky top-0 z-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur px-3 py-2">
                 <input
                   type="text"
@@ -569,37 +424,6 @@ function Sidebar({
                   placeholder={t(strings.sidebar.searchPlaceholder)}
                   className="w-full rounded-md border border-slate-300/70 bg-white/90 px-3 py-2 text-sm text-slate-700 shadow-sm focus:border-accent-light focus:outline-none focus:ring-2 focus:ring-accent-light/30 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100"
                 />
-                {gridEnabled && (
-                  <div className="mt-2 flex flex-wrap items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={toggleSelectionMode}
-                    className="inline-flex items-center gap-2 rounded-md border border-slate-200/80 px-3 py-2 text-xs font-semibold text-slate-700 shadow-sm hover:bg-slate-50 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-800"
-                  >
-                    {selectionMode ? t(strings.sidebar.selectDone) : t(strings.sidebar.selectMode)}
-                  </button>
-                  {selectionMode && (
-                    <>
-                      <button
-                        type="button"
-                        onClick={addSelectedToGrid}
-                        disabled={selectedStreamIds.size === 0}
-                        className="inline-flex items-center gap-2 rounded-md bg-accent-light px-3 py-2 text-xs font-semibold text-white shadow hover:bg-accent-light/90 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-accent-dark dark:hover:bg-accent-dark/90"
-                      >
-                        {t(strings.sidebar.addSelected)} ({selectedStreamIds.size})
-                      </button>
-                      <button
-                        type="button"
-                        onClick={clearSelection}
-                        disabled={selectedStreamIds.size === 0}
-                        className="inline-flex items-center gap-2 rounded-md border border-slate-200/80 px-3 py-2 text-xs font-semibold text-slate-600 shadow-sm hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-                      >
-                        {t(strings.sidebar.clearSelection)}
-                      </button>
-                    </>
-                  )}
-                  </div>
-                )}
               </div>
               <ul className="space-y-1.5 py-2">
                 {filteredFavorites.length > 0 && (
@@ -759,7 +583,8 @@ function Sidebar({
                               resortSlug={resortSlug}
                               tabIndex={isActiveResort ? 0 : -1}
                               isActive={isActiveResort}
-                              dragEnabled={gridEnabled && desktopDndEnabled}
+                              dragEnabled={gridEnabled}
+                              dragHandleOnly={!desktopDndEnabled}
                               renderContent={() =>
                                 renderStreamAction({
                                   resort,
@@ -774,53 +599,6 @@ function Sidebar({
                           );
                         })}
                         
-                        {gridEnabled && resortSlug && (
-                          <>
-                            <DraggableStreamItem
-                              key={`${resort.homepage}-weather`}
-                              streamId={`${resort.homepage}-weather`}
-                              itemType="weather"
-                              resort={resort}
-                              resortSlug={resortSlug}
-                              tabIndex={isActiveResort ? 0 : -1}
-                              isActive={isActiveResort}
-                              dragEnabled={desktopDndEnabled}
-                              renderContent={() =>
-                                renderWidgetAction({
-                                  resort,
-                                  type: "weather",
-                                  icon: FiCloud,
-                                  label: t(strings.sidebar.weather),
-                                  streamId: `${resort.homepage}-weather`,
-                                  tabIndex: isActiveResort ? 0 : -1,
-                                  syncAccordion: true,
-                                })
-                              }
-                            />
-                            <DraggableStreamItem
-                              key={`${resort.homepage}-slopes`}
-                              streamId={`${resort.homepage}-slopes`}
-                              itemType="slopes"
-                              resort={resort}
-                              resortSlug={resortSlug}
-                              tabIndex={isActiveResort ? 0 : -1}
-                              isActive={isActiveResort}
-                              dragEnabled={desktopDndEnabled}
-                              renderContent={() =>
-                                renderWidgetAction({
-                                  resort,
-                                  type: "slopes",
-                                  icon: FiActivity,
-                                  label: t(strings.nav.slopes),
-                                  streamId: `${resort.homepage}-slopes`,
-                                  tabIndex: isActiveResort ? 0 : -1,
-                                  syncAccordion: true,
-                                })
-                              }
-                            />
-                          </>
-                        )}
-
                         <li aria-hidden className="px-2 pb-3" />
                       </ul>
                     </li>
@@ -855,6 +633,7 @@ type DraggableStreamItemProps = {
   tabIndex: number;
   isActive: boolean;
   dragEnabled: boolean;
+  dragHandleOnly: boolean;
   renderContent: () => ReactNode;
 };
 
@@ -866,10 +645,12 @@ function DraggableStreamItem({
   resortSlug,
   isActive,
   dragEnabled,
+  dragHandleOnly,
   renderContent,
 }: DraggableStreamItemProps) {
+  const draggableId = `sidebar-${streamId}`;
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
-    id: streamId,
+    id: draggableId,
     disabled: !dragEnabled,
     data: {
       type: "stream",
@@ -880,7 +661,7 @@ function DraggableStreamItem({
   const style: CSSProperties = {
     transform: transform ? `translate3d(${transform.x}px, ${transform.y}px, 0)` : undefined,
     opacity: isDragging ? 0.75 : 1,
-    touchAction: dragEnabled ? "none" : "auto",
+    touchAction: dragEnabled && !dragHandleOnly ? "none" : "auto",
   };
 
   return (
@@ -889,10 +670,25 @@ function DraggableStreamItem({
       aria-hidden={!isActive}
       ref={setNodeRef}
       style={style}
-      {...(dragEnabled ? attributes : {})}
-      {...(dragEnabled ? listeners : {})}
+      {...(dragEnabled && !dragHandleOnly ? attributes : {})}
+      {...(dragEnabled && !dragHandleOnly ? listeners : {})}
     >
-      {renderContent()}
+      {dragEnabled && dragHandleOnly ? (
+        <div className="flex items-center gap-1">
+          <button
+            type="button"
+            aria-label="Drag webcam"
+            className="flex h-9 w-9 shrink-0 touch-none items-center justify-center rounded-md border border-dashed border-slate-300/70 bg-white/80 text-slate-400 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-400"
+            {...attributes}
+            {...listeners}
+          >
+            <RxDragHandleDots2 className="h-4 w-4" />
+          </button>
+          <div className="min-w-0 flex-1">{renderContent()}</div>
+        </div>
+      ) : (
+        renderContent()
+      )}
     </li>
   );
 }

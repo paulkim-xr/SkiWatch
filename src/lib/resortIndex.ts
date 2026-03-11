@@ -84,10 +84,20 @@ export const resortEntries: ResortEntry[] = resorts.map((resort, index) => {
 const entryBySlug = new Map(resortEntries.map((entry) => [entry.slug, entry]));
 const entryByHomepage = new Map(resortEntries.map((entry) => [entry.resort.homepage, entry]));
 const streamRouteById = new Map<string, { resortSlug: string; streamSlug: string }>();
+const streamById = new Map<
+  string,
+  { resortSlug: string; streamSlug: string; resort: Resort; stream: Stream }
+>();
 
 resortEntries.forEach((entry) => {
   entry.streams.forEach((stream) => {
     streamRouteById.set(stream.id, { resortSlug: entry.slug, streamSlug: stream.slug });
+    streamById.set(stream.id, {
+      resortSlug: entry.slug,
+      streamSlug: stream.slug,
+      resort: entry.resort,
+      stream: stream.stream,
+    });
   });
 });
 
@@ -134,6 +144,14 @@ export function getRouteForStream(resort: Resort, stream: Stream) {
     resortSlug: entry.slug,
     streamSlug: streamEntry.slug,
   };
+}
+
+export function getRouteForStreamId(streamId: string) {
+  return streamRouteById.get(streamId);
+}
+
+export function findStreamById(streamId: string) {
+  return streamById.get(streamId);
 }
 
 export function getAllWebcamRouteParams() {

@@ -223,6 +223,7 @@ function AppShell() {
         <Routes>
           <Route path="/" element={<Navigate to="/webcams" replace />} />
           <Route path="/webcams" element={<Webcam />} />
+          <Route path="/webcams/m/*" element={<Webcam />} />
           <Route path="/webcams/:resort/:stream" element={<Webcam />} />
           <Route path="/slopes" element={<Slopes />} />
           <Route path="/resorts" element={<ResortListPage />} />
