@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "react-router-dom";
-import { ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { PointerEvent, ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   DndContext,
   DragEndEvent,
@@ -59,6 +59,16 @@ type SidebarProps = {
   selectionToken?: number;
   shouldSyncSelection?: boolean;
   isDragging?: boolean;
+  isMobileViewport?: boolean;
+  onMobileHandleDragStart?: (
+    payload: { type: DashboardItemType; stream?: Stream; resort: Resort; streamId: string; resortSlug?: string },
+    point: { x: number; y: number }
+  ) => void;
+  onMobileHandleDragMove?: (point: { x: number; y: number }) => void;
+  onMobileHandleDragEnd?: (
+    payload: { type: DashboardItemType; stream?: Stream; resort: Resort; streamId: string; resortSlug?: string },
+    point: { x: number; y: number }
+  ) => void;
   isCollapsed?: boolean;
   onToggleCollapse?: () => void;
 };
@@ -86,6 +96,10 @@ function Sidebar({
   selectionToken = 0,
   shouldSyncSelection = true,
   isDragging = false,
+  isMobileViewport = false,
+  onMobileHandleDragStart,
+  onMobileHandleDragMove,
+  onMobileHandleDragEnd,
   isCollapsed = false,
   onToggleCollapse,
   onAddToGrid,
@@ -413,8 +427,9 @@ function Sidebar({
             <div
               className={cn(
                 "flex-1 overflow-y-auto",
-                isDragging && "overflow-y-hidden md:overflow-y-auto"
+                isDragging && isMobileViewport && "overflow-y-hidden"
               )}
+              data-dragging={isDragging && isMobileViewport ? "1" : "0"}
             >
               <div className="sticky top-0 z-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur px-3 py-2">
                 <input
@@ -595,6 +610,10 @@ function Sidebar({
                               isActive={isActiveResort}
                               dragEnabled={gridEnabled}
                               dragHandleOnly={!desktopDndEnabled}
+                              useManualHandleDrag={isMobileViewport}
+                              onMobileHandleDragStart={onMobileHandleDragStart}
+                              onMobileHandleDragMove={onMobileHandleDragMove}
+                              onMobileHandleDragEnd={onMobileHandleDragEnd}
                               renderContent={() =>
                                 renderStreamAction({
                                   resort,
@@ -644,6 +663,16 @@ type DraggableStreamItemProps = {
   isActive: boolean;
   dragEnabled: boolean;
   dragHandleOnly: boolean;
+  useManualHandleDrag: boolean;
+  onMobileHandleDragStart?: (
+    payload: { type: DashboardItemType; stream?: Stream; resort: Resort; streamId: string; resortSlug?: string },
+    point: { x: number; y: number }
+  ) => void;
+  onMobileHandleDragMove?: (point: { x: number; y: number }) => void;
+  onMobileHandleDragEnd?: (
+    payload: { type: DashboardItemType; stream?: Stream; resort: Resort; streamId: string; resortSlug?: string },
+    point: { x: number; y: number }
+  ) => void;
   renderContent: () => ReactNode;
 };
 
@@ -656,15 +685,22 @@ function DraggableStreamItem({
   isActive,
   dragEnabled,
   dragHandleOnly,
+  useManualHandleDrag,
+  onMobileHandleDragStart,
+  onMobileHandleDragMove,
+  onMobileHandleDragEnd,
   renderContent,
 }: DraggableStreamItemProps) {
   const draggableId = `sidebar-${streamId}`;
+  const isManualDraggingRef = useRef(false);
+  const activePointerIdRef = useRef<number | null>(null);
+  const payload = { type: itemType, stream, resort, streamId, resortSlug };
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: draggableId,
     disabled: !dragEnabled,
     data: {
       type: "stream",
-      payload: { type: itemType, stream, resort, streamId, resortSlug },
+      payload,
     },
   });
 
@@ -673,6 +709,33 @@ function DraggableStreamItem({
     opacity: isDragging ? 0.75 : 1,
     touchAction: dragEnabled && !dragHandleOnly ? "none" : "auto",
   };
+
+  useEffect(() => {
+    if (!useManualHandleDrag) return;
+
+    const handlePointerMove = (event: globalThis.PointerEvent) => {
+      if (!isManualDraggingRef.current) return;
+      if (activePointerIdRef.current !== null && event.pointerId !== activePointerIdRef.current) return;
+      onMobileHandleDragMove?.({ x: event.clientX, y: event.clientY });
+    };
+
+    const handlePointerEnd = (event: globalThis.PointerEvent) => {
+      if (!isManualDraggingRef.current) return;
+      if (activePointerIdRef.current !== null && event.pointerId !== activePointerIdRef.current) return;
+      isManualDraggingRef.current = false;
+      activePointerIdRef.current = null;
+      onMobileHandleDragEnd?.(payload, { x: event.clientX, y: event.clientY });
+    };
+
+    window.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener("pointerup", handlePointerEnd);
+    window.addEventListener("pointercancel", handlePointerEnd);
+    return () => {
+      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener("pointerup", handlePointerEnd);
+      window.removeEventListener("pointercancel", handlePointerEnd);
+    };
+  }, [onMobileHandleDragEnd, onMobileHandleDragMove, payload, useManualHandleDrag]);
 
   return (
     <li
@@ -689,8 +752,17 @@ function DraggableStreamItem({
             type="button"
             aria-label="Drag webcam"
             className="flex h-9 w-9 shrink-0 touch-none items-center justify-center rounded-md border border-dashed border-slate-300/70 bg-white/80 text-slate-400 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-400"
-            {...attributes}
-            {...listeners}
+            {...(useManualHandleDrag
+              ? {
+                  onPointerDown: (event: PointerEvent<HTMLButtonElement>) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    isManualDraggingRef.current = true;
+                    activePointerIdRef.current = event.pointerId;
+                    onMobileHandleDragStart?.(payload, { x: event.clientX, y: event.clientY });
+                  },
+                }
+              : { ...attributes, ...listeners })}
           >
             <RxDragHandleDots2 className="h-4 w-4" />
           </button>

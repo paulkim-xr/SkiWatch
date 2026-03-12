@@ -8,6 +8,7 @@ import {
   DragMoveEvent,
   KeyboardSensor,
   PointerSensor,
+  TouchSensor,
   pointerWithin,
   useDroppable,
   useSensor,
@@ -56,6 +57,7 @@ function Webcam() {
   const [viewItems, setViewItems] = useState<DashboardItem[]>([]);
   const [isPointerDragging, setIsPointerDragging] = useState(false);
   const [isMobileViewport, setIsMobileViewport] = useState(false);
+  const [manualOverId, setManualOverId] = useState<string | null>(null);
   const lastOverIdRef = useRef<string | null>(null);
   const lastPointerRef = useRef<{ x: number; y: number } | null>(null);
   const playerDropElementRef = useRef<HTMLDivElement | null>(null);
@@ -72,6 +74,7 @@ function Webcam() {
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
+    useSensor(TouchSensor, { activationConstraint: { delay: 120, tolerance: 8 } }),
     useSensor(KeyboardSensor)
   );
 
@@ -339,25 +342,59 @@ function Webcam() {
     navigateForItems([]);
   };
 
+  const resolveDropTargetFromPoint = (point: { x: number; y: number }) => {
+    const inRect = (node: HTMLElement | null) => {
+      if (!node) return false;
+      const rect = node.getBoundingClientRect();
+      return point.x >= rect.left && point.x <= rect.right && point.y >= rect.top && point.y <= rect.bottom;
+    };
+    if (inRect(gridDropElementRef.current)) return GRID_DROP_ID;
+    if (inRect(playerDropElementRef.current)) return PLAYER_DROP_ID;
+    return null;
+  };
+
+  const handleStreamPayloadDrop = (
+    payload: {
+      type: DashboardItemType;
+      stream?: Stream;
+      resort: Resort;
+      streamId: string;
+      resortSlug?: string;
+    },
+    effectiveOverId: string | null
+  ) => {
+    if (!effectiveOverId) return;
+    if (payload.type !== "webcam" || !payload.stream) return;
+
+    if (effectiveOverId === GRID_DROP_ID || gridIds.includes(effectiveOverId)) {
+      const nextItems = appendPayloadItems(viewItems, [payload]);
+      setViewItems(nextItems);
+      syncSelectionFromItems(nextItems);
+      navigateForItems(nextItems);
+      return;
+    }
+
+    if (effectiveOverId === PLAYER_DROP_ID && viewItems.length <= 1) {
+      const nextItems = appendPayloadItems(viewItems, [payload]);
+      setViewItems(nextItems);
+      syncSelectionFromItems(nextItems);
+      navigateForItems(nextItems);
+    }
+  };
+
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
     const resolveTargetFromPointer = () => {
       const pointer = lastPointerRef.current;
       if (!pointer) return null;
-      const inRect = (node: HTMLElement | null) => {
-        if (!node) return false;
-        const rect = node.getBoundingClientRect();
-        return pointer.x >= rect.left && pointer.x <= rect.right && pointer.y >= rect.top && pointer.y <= rect.bottom;
-      };
-      if (inRect(gridDropElementRef.current)) return GRID_DROP_ID;
-      if (inRect(playerDropElementRef.current)) return PLAYER_DROP_ID;
-      return null;
+      return resolveDropTargetFromPoint(pointer);
     };
 
     let effectiveOverId =
       (over?.id ? String(over.id) : null) || lastOverIdRef.current || resolveTargetFromPointer();
     lastOverIdRef.current = null;
     lastPointerRef.current = null;
+    setManualOverId(null);
     setIsPointerDragging(false);
 
     const activeType = active.data.current?.type;
@@ -385,27 +422,8 @@ function Webcam() {
       streamId: string;
       resortSlug?: string;
     };
-    if (!payload || payload.type !== "webcam" || !payload.stream) return;
-
-    if (!effectiveOverId) return;
-
-    if (effectiveOverId === GRID_DROP_ID || gridIds.includes(effectiveOverId)) {
-      const nextItems = appendPayloadItems(viewItems, [payload]);
-      setViewItems(nextItems);
-      syncSelectionFromItems(nextItems);
-      navigateForItems(nextItems);
-      return;
-    }
-
-    if (effectiveOverId === PLAYER_DROP_ID) {
-      if (viewItems.length <= 1) {
-        const nextItems = appendPayloadItems(viewItems, [payload]);
-        setViewItems(nextItems);
-        syncSelectionFromItems(nextItems);
-        navigateForItems(nextItems);
-        return;
-      }
-    }
+    if (!payload) return;
+    handleStreamPayloadDrop(payload, effectiveOverId);
   };
 
   const handleDragMove = (event: DragMoveEvent) => {
@@ -415,6 +433,45 @@ function Webcam() {
       x: translated.left + translated.width / 2,
       y: translated.top + translated.height / 2,
     };
+  };
+
+  const handleMobileHandleDragStart = (
+    _payload: {
+      type: DashboardItemType;
+      stream?: Stream;
+      resort: Resort;
+      streamId: string;
+      resortSlug?: string;
+    },
+    point: { x: number; y: number }
+  ) => {
+    lastOverIdRef.current = null;
+    lastPointerRef.current = point;
+    setManualOverId(resolveDropTargetFromPoint(point));
+    setIsPointerDragging(true);
+  };
+
+  const handleMobileHandleDragMove = (point: { x: number; y: number }) => {
+    lastPointerRef.current = point;
+    setManualOverId(resolveDropTargetFromPoint(point));
+  };
+
+  const handleMobileHandleDragEnd = (
+    payload: {
+      type: DashboardItemType;
+      stream?: Stream;
+      resort: Resort;
+      streamId: string;
+      resortSlug?: string;
+    },
+    point: { x: number; y: number }
+  ) => {
+    const effectiveOverId = manualOverId ?? resolveDropTargetFromPoint(point);
+    lastOverIdRef.current = null;
+    lastPointerRef.current = null;
+    setManualOverId(null);
+    setIsPointerDragging(false);
+    handleStreamPayloadDrop(payload, effectiveOverId);
   };
 
   useEffect(() => {
@@ -481,6 +538,7 @@ function Webcam() {
       onDragStart={() => {
         lastOverIdRef.current = null;
         lastPointerRef.current = null;
+        setManualOverId(null);
         setIsPointerDragging(true);
       }}
       onDragMove={handleDragMove}
@@ -490,6 +548,7 @@ function Webcam() {
       onDragCancel={() => {
         lastOverIdRef.current = null;
         lastPointerRef.current = null;
+        setManualOverId(null);
         setIsPointerDragging(false);
       }}
       onDragEnd={handleDragEnd}
@@ -519,7 +578,7 @@ function Webcam() {
                     onResize={handleResizeItem}
                     isDropping={isPointerDragging}
                     dropRef={setGridDropRef}
-                    isOver={isGridDropOver}
+                    isOver={isGridDropOver || manualOverId === GRID_DROP_ID}
                   />
                 </div>
               ) : (
@@ -530,7 +589,7 @@ function Webcam() {
                     className={cn(
                       "absolute inset-0 z-20 flex items-center justify-center transition",
                       isPointerDragging ? "pointer-events-auto bg-slate-900/15 dark:bg-slate-100/10" : "pointer-events-none bg-transparent",
-                      isPlayerDropOver && "ring-2 ring-accent-light/60 dark:ring-accent-dark/70"
+                      (isPlayerDropOver || manualOverId === PLAYER_DROP_ID) && "ring-2 ring-accent-light/60 dark:ring-accent-dark/70"
                     )}
                   />
                   <Player stream={currentStream ?? fallbackStream} resortSlug={selectedResortSlug} rounded={false} />
@@ -553,6 +612,10 @@ function Webcam() {
               selectionToken={selectionToken}
               shouldSyncSelection={shouldSyncSelection}
               isDragging={isPointerDragging}
+              isMobileViewport={isMobileViewport}
+              onMobileHandleDragStart={handleMobileHandleDragStart}
+              onMobileHandleDragMove={handleMobileHandleDragMove}
+              onMobileHandleDragEnd={handleMobileHandleDragEnd}
             />
           </div>
         </div>
