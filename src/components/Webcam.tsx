@@ -5,6 +5,7 @@ import {
   CollisionDetection,
   DndContext,
   DragEndEvent,
+  DragMoveEvent,
   KeyboardSensor,
   PointerSensor,
   pointerWithin,
@@ -56,6 +57,9 @@ function Webcam() {
   const [isPointerDragging, setIsPointerDragging] = useState(false);
   const [isMobileViewport, setIsMobileViewport] = useState(false);
   const lastOverIdRef = useRef<string | null>(null);
+  const lastPointerRef = useRef<{ x: number; y: number } | null>(null);
+  const playerDropElementRef = useRef<HTMLDivElement | null>(null);
+  const gridDropElementRef = useRef<HTMLDivElement | null>(null);
 
   const resortOrder = useMemo(() => resorts.map((r) => r.homepage), []);
   const streamOrder = useMemo(() => {
@@ -74,8 +78,18 @@ function Webcam() {
   const gridIds = useMemo(() => viewItems.map((item) => item.id), [viewItems]);
   const gridIdSet = useMemo(() => new Set(gridIds), [gridIds]);
   const isGridMode = viewItems.length > 1;
-  const { setNodeRef: setPlayerDropRef, isOver: isPlayerDropOver } = useDroppable({ id: PLAYER_DROP_ID });
-  const { setNodeRef: setGridDropRef, isOver: isGridDropOver } = useDroppable({ id: GRID_DROP_ID });
+  const { setNodeRef: baseSetPlayerDropRef, isOver: isPlayerDropOver } = useDroppable({ id: PLAYER_DROP_ID });
+  const { setNodeRef: baseSetGridDropRef, isOver: isGridDropOver } = useDroppable({ id: GRID_DROP_ID });
+
+  const setPlayerDropRef = (node: HTMLDivElement | null) => {
+    playerDropElementRef.current = node;
+    baseSetPlayerDropRef(node);
+  };
+
+  const setGridDropRef = (node: HTMLDivElement | null) => {
+    gridDropElementRef.current = node;
+    baseSetGridDropRef(node);
+  };
 
   const fallbackStream: Stream = {
     name: createText({ ko: "선택된 영상이 없습니다", en: "No stream selected" }),
@@ -327,11 +341,29 @@ function Webcam() {
 
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
-    const effectiveOverId = over?.id ? String(over.id) : lastOverIdRef.current;
+    const resolveTargetFromPointer = () => {
+      const pointer = lastPointerRef.current;
+      if (!pointer) return null;
+      const inRect = (node: HTMLElement | null) => {
+        if (!node) return false;
+        const rect = node.getBoundingClientRect();
+        return pointer.x >= rect.left && pointer.x <= rect.right && pointer.y >= rect.top && pointer.y <= rect.bottom;
+      };
+      if (inRect(gridDropElementRef.current)) return GRID_DROP_ID;
+      if (inRect(playerDropElementRef.current)) return PLAYER_DROP_ID;
+      return null;
+    };
+
+    let effectiveOverId =
+      (over?.id ? String(over.id) : null) || lastOverIdRef.current || resolveTargetFromPointer();
     lastOverIdRef.current = null;
+    lastPointerRef.current = null;
     setIsPointerDragging(false);
 
     const activeType = active.data.current?.type;
+    if (activeType === "stream" && !effectiveOverId) {
+      effectiveOverId = viewItems.length > 1 ? GRID_DROP_ID : PLAYER_DROP_ID;
+    }
     if (activeType === "grid") {
       if (!effectiveOverId || active.id === effectiveOverId) return;
       const oldIndex = gridIds.findIndex((id) => id === active.id);
@@ -376,6 +408,15 @@ function Webcam() {
     }
   };
 
+  const handleDragMove = (event: DragMoveEvent) => {
+    const translated = event.active.rect.current.translated;
+    if (!translated) return;
+    lastPointerRef.current = {
+      x: translated.left + translated.width / 2,
+      y: translated.top + translated.height / 2,
+    };
+  };
+
   useEffect(() => {
     if (!isPointerDragging || typeof document === "undefined") return;
     if (!isMobileViewport) return;
@@ -400,6 +441,15 @@ function Webcam() {
       document.removeEventListener("touchmove", preventTouchScroll);
     };
   }, [isMobileViewport, isPointerDragging]);
+
+  useEffect(() => {
+    if (!isPointerDragging || typeof window === "undefined") return;
+    const onPointerMove = (event: PointerEvent) => {
+      lastPointerRef.current = { x: event.clientX, y: event.clientY };
+    };
+    window.addEventListener("pointermove", onPointerMove, { passive: true });
+    return () => window.removeEventListener("pointermove", onPointerMove);
+  }, [isPointerDragging]);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -428,12 +478,18 @@ function Webcam() {
       sensors={sensors}
       collisionDetection={collisionDetection}
       autoScroll={!isMobileViewport}
-      onDragStart={() => setIsPointerDragging(true)}
+      onDragStart={() => {
+        lastOverIdRef.current = null;
+        lastPointerRef.current = null;
+        setIsPointerDragging(true);
+      }}
+      onDragMove={handleDragMove}
       onDragOver={({ over }) => {
         lastOverIdRef.current = over?.id ? String(over.id) : null;
       }}
       onDragCancel={() => {
         lastOverIdRef.current = null;
+        lastPointerRef.current = null;
         setIsPointerDragging(false);
       }}
       onDragEnd={handleDragEnd}
@@ -470,6 +526,7 @@ function Webcam() {
                 <div className="relative w-full overflow-hidden md:min-h-0 md:flex-1">
                   <div
                     ref={setPlayerDropRef}
+                    data-testid="player-drop-zone"
                     className={cn(
                       "absolute inset-0 z-20 flex items-center justify-center transition",
                       isPointerDragging ? "pointer-events-auto bg-slate-900/15 dark:bg-slate-100/10" : "pointer-events-none bg-transparent",

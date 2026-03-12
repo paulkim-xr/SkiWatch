@@ -37,6 +37,7 @@ export function DashboardGrid({
   return (
     <div
       ref={dropRef}
+      data-testid="grid-drop-zone"
       className={cn(
         "h-full w-full rounded-lg border border-slate-200/70 bg-white/70 p-3 shadow-sm backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/60",
         showDropHighlight && "ring-2 ring-accent-light/60 dark:ring-accent-dark/60"
