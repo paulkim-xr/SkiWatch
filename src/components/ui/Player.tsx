@@ -239,7 +239,7 @@ function Player({
               </span>
             )}
           </div>
-          <p className="text-xs text-slate-500 dark:text-slate-400">{summaryData.summary.label}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400">{t(strings.resortPage.conditions[summaryData.summary.condition])}</p>
           {stream.type === StreamType.Vivaldi && (
             <p className="mt-2 text-[11px] text-slate-400 dark:text-slate-500">
               <a href="https://github.com/hletrd/slopes" target="_blank" rel="noreferrer" className="underline">

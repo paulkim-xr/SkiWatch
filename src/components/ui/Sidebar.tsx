@@ -692,6 +692,7 @@ function DraggableStreamItem({
   onMobileHandleDragEnd,
   renderContent,
 }: DraggableStreamItemProps) {
+  const { t } = useI18n();
   const draggableId = `sidebar-${streamId}`;
   const isManualDraggingRef = useRef(false);
   const activePointerIdRef = useRef<number | null>(null);
@@ -751,7 +752,7 @@ function DraggableStreamItem({
         <div className="flex items-center gap-1">
           <button
             type="button"
-            aria-label="Drag webcam"
+            aria-label={t(strings.dashboardGrid.dragToReorder)}
             className="flex h-9 w-9 shrink-0 touch-none items-center justify-center rounded-md border border-dashed border-slate-300/70 bg-white/80 text-slate-400 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-400"
             {...(useManualHandleDrag
               ? {

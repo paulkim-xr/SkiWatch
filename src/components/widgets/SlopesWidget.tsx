@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useI18n } from "@/lib/i18n/context";
-import { strings, difficultyLabels } from "@/lib/i18n/strings";
+import { strings, difficultyLabels, formatTemplate } from "@/lib/i18n/strings";
 import { getLocalizedText } from "@/lib/i18n/locales";
 import { Difficulty } from "@/data/Util";
 import { useResortIndex } from "@/lib/resortData";
@@ -25,7 +25,7 @@ export function SlopesWidget({ resortSlug }: { resortSlug: string }) {
     return (
       <div className="flex h-full w-full flex-col items-center justify-center p-4">
         <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">
-          {t(strings.slopes.description)} Unavailable
+          {t(strings.widgets.unavailable)}
         </p>
       </div>
     );
@@ -73,11 +73,11 @@ export function SlopesWidget({ resortSlug }: { resortSlug: string }) {
       
       <div className="grid grid-cols-2 gap-3 mb-4">
         <div className="flex flex-col justify-center rounded-xl bg-slate-50 p-3 dark:bg-slate-800">
-          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Total Slopes</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t(strings.widgets.totalSlopes)}</p>
           <p className="text-2xl font-semibold">{stats.totalSlopes}</p>
         </div>
         <div className="flex flex-col justify-center rounded-xl bg-slate-50 p-3 dark:bg-slate-800">
-          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">Total Length</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t(strings.widgets.totalLength)}</p>
           <p className="text-2xl font-semibold">{stats.totalLengthKm} km</p>
         </div>
       </div>
@@ -96,7 +96,9 @@ export function SlopesWidget({ resortSlug }: { resortSlug: string }) {
         ))}
         {topDifficulties.length < Object.keys(stats.diffCounts).filter(k => stats.diffCounts[k as any as Difficulty] > 0).length && (
           <span className="inline-flex rounded-full px-2 py-1 text-[10px] font-semibold bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400">
-            +{Object.keys(stats.diffCounts).filter(k => stats.diffCounts[k as any as Difficulty] > 0).length - 3} more
+            {formatTemplate(strings.widgets.moreCount, locale, {
+              count: Object.keys(stats.diffCounts).filter(k => stats.diffCounts[k as any as Difficulty] > 0).length - 3,
+            })}
           </span>
         )}
       </div>

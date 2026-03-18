@@ -5,6 +5,8 @@ import { useWeather } from "@/hooks/useWeather";
 import { useInViewport } from "@/hooks/useInViewport";
 import { WeatherCondition } from "@/lib/weather/forecast";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n/context";
+import { strings } from "@/lib/i18n/strings";
 
 type WeatherBadgeProps = {
   resortSlug?: string;
@@ -31,6 +33,7 @@ function iconForCondition(condition: WeatherCondition) {
 }
 
 export function WeatherBadge({ resortSlug, className, priority = false }: WeatherBadgeProps) {
+  const { t } = useI18n();
   const { ref, inView } = useInViewport<HTMLSpanElement>({ rootMargin: "200px", once: true });
   const shouldFetch = priority || inView;
   const { status, data } = useWeather(resortSlug, { mode: "now", enabled: shouldFetch });
@@ -53,9 +56,9 @@ export function WeatherBadge({ resortSlug, className, priority = false }: Weathe
 
   if (status === "error" || !data) {
     return (
-      <span ref={ref} className={cn("inline-flex items-center text-red-400", className)} title="Weather unavailable">
+      <span ref={ref} className={cn("inline-flex items-center text-red-400", className)} title={t(strings.weatherBadge.unavailable)}>
         <FiAlertTriangle className="h-4 w-4" aria-hidden />
-        <span className="sr-only">Weather unavailable</span>
+        <span className="sr-only">{t(strings.weatherBadge.unavailable)}</span>
       </span>
     );
   }
@@ -67,7 +70,7 @@ export function WeatherBadge({ resortSlug, className, priority = false }: Weathe
     <span ref={ref} className={cn("inline-flex items-center gap-1 text-xs text-slate-500 dark:text-slate-300", className)}>
       <Icon className="h-4 w-4" aria-hidden />
       <span className="flex items-center gap-1">
-        {typeof temp === "number" ? <span>{temp.toFixed(1)}°C</span> : <span>{data.summary.label}</span>}
+        {typeof temp === "number" ? <span>{temp.toFixed(1)}°C</span> : <span>{t(strings.resortPage.conditions[data.summary.condition])}</span>}
         {typeof wind === "number" && (
           <span className="inline-flex items-center gap-0.5 text-[11px] text-slate-400 dark:text-slate-400">
             <FiWind className="h-3 w-3" aria-hidden />

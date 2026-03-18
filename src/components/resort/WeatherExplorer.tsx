@@ -8,10 +8,10 @@ import type { IconType } from "react-icons";
 import { useWeather } from "@/hooks/useWeather";
 import { useWeatherHistory, type WeatherHistorySlot } from "@/hooks/useWeatherHistory";
 import { useMidRange, type MidRangeDayPart, type MidRangeResult } from "@/hooks/useMidRange";
-import { strings } from "@/lib/i18n/strings";
+import { strings, formatTemplate } from "@/lib/i18n/strings";
 import { useI18n } from "@/lib/i18n/context";
-import { LocalizedText } from "@/lib/i18n/locales";
-import { conditionLabel, type ForecastSlot } from "@/lib/weather/forecast";
+import { LocalizedText, getLocalizedText, type Locale } from "@/lib/i18n/locales";
+import { type ForecastSlot } from "@/lib/weather/forecast";
 import { formatNumber, cn } from "@/lib/utils";
 
 const SNOW_MM_PER_CM = 10;
@@ -23,7 +23,7 @@ type WeatherExplorerProps = {
 };
 
 export function WeatherExplorer({ resortSlug, resortName, showStandaloneHeader = true }: WeatherExplorerProps) {
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
   const title = t(resortName);
   const history = useWeatherHistory(resortSlug, { hours: 48, mode: "now" });
   const forecast = useWeather(resortSlug, { mode: "forecast" });
@@ -34,14 +34,14 @@ export function WeatherExplorer({ resortSlug, resortName, showStandaloneHeader =
   const upcoming48Slots = hourlySlots.slice(0, 48);
   const upcomingDigest = summarizeUpcoming48(upcoming48Slots);
   const historyTempRange = getTemperatureRange(history.data?.slots ?? []);
-  const extendedDays = buildExtendedDays(midRange.data, forecast.data?.hourly ?? [], forecastBaseDate)
+  const extendedDays = buildExtendedDays(midRange.data, forecast.data?.hourly ?? [], forecastBaseDate, locale)
     .filter((day) => day.dayOffset >= 1 && day.dayOffset <= 7);
   const segmentStats = buildSegmentStatsFromHourly(hourlySlots);
   const pastSixSlots = historySlots.slice(0, 6);
   const pastSixDisplay = [...pastSixSlots].reverse();
   const nextSixSlots = hourlySlots.slice(0, 6);
-  const pastSixSeries = buildMiniSeriesFromHistory(pastSixDisplay);
-  const nextSixSeries = buildMiniSeriesFromForecast(nextSixSlots);
+  const pastSixSeries = buildMiniSeriesFromHistory(pastSixDisplay, locale);
+  const nextSixSeries = buildMiniSeriesFromForecast(nextSixSlots, locale);
   const sharedSixHourRange = getSharedTemperatureRange(pastSixSeries, nextSixSeries);
 
   return (
@@ -105,6 +105,8 @@ export function WeatherExplorer({ resortSlug, resortName, showStandaloneHeader =
               <div className="flex-1 min-w-0">
                 <TemperatureTrendChart
                   days={extendedDays}
+                  locale={locale}
+                  titleLabel={t(strings.resortPage.temperatureTrend)}
                   labels={{
                     max: t(strings.resortPage.maxTempLabel),
                     min: t(strings.resortPage.minTempLabel),
@@ -116,6 +118,7 @@ export function WeatherExplorer({ resortSlug, resortName, showStandaloneHeader =
             </div>
             <DailyStatTable
               days={extendedDays}
+              locale={locale}
               segmentStats={segmentStats}
               labels={{
                 condition: t(strings.resortPage.condition),
@@ -211,7 +214,7 @@ export function WeatherExplorer({ resortSlug, resortName, showStandaloneHeader =
           {forecast.status === "loading" ? (
             <p className="text-sm text-slate-500 dark:text-slate-400">{t(strings.resortPage.weatherLoading)}</p>
           ) : forecast.error ? (
-            <p className="text-sm text-amber-700 dark:text-amber-200">{forecast.error.message}</p>
+            <p className="text-sm text-amber-700 dark:text-amber-200">{t(strings.resortPage.weatherError)}</p>
           ) : upcoming48Slots.length === 0 || !upcomingDigest ? (
             <p className="text-sm text-slate-500 dark:text-slate-400">{t(strings.resortPage.weatherError)}</p>
           ) : (
@@ -249,7 +252,7 @@ export function WeatherExplorer({ resortSlug, resortName, showStandaloneHeader =
         {forecast.status === "loading" ? (
           <p className="text-sm text-slate-500 dark:text-slate-400">{t(strings.resortPage.weatherLoading)}</p>
         ) : forecast.error ? (
-          <p className="text-sm text-amber-700 dark:text-amber-200">{forecast.error.message}</p>
+          <p className="text-sm text-amber-700 dark:text-amber-200">{t(strings.resortPage.weatherError)}</p>
         ) : hourlySlots.length === 0 ? (
           <p className="text-sm text-slate-500 dark:text-slate-400">{t(strings.resortPage.weatherError)}</p>
         ) : (
@@ -268,7 +271,7 @@ export function WeatherExplorer({ resortSlug, resortName, showStandaloneHeader =
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                 {hourlySlots.map((slot) => (
                   <tr key={slot.key}>
-                    <td className="px-4 py-2 text-slate-700 dark:text-slate-200">{formatForecastTimestamp(slot)}</td>
+                    <td className="px-4 py-2 text-slate-700 dark:text-slate-200">{formatForecastTimestamp(slot, locale)}</td>
                     <td className="px-4 py-2 text-slate-700 dark:text-slate-200">
                       <ConditionIcon
                         part={{
@@ -413,22 +416,21 @@ function summarizeUpcoming48(slots: ForecastSlot[]) {
   };
 }
 
-function formatHistoryTimestamp(slot: WeatherHistorySlot) {
+function formatHistoryTimestamp(slot: WeatherHistorySlot, locale: Locale) {
   if (!slot.date || !slot.time) return "—";
   const iso = `${slot.date.slice(0, 4)}-${slot.date.slice(4, 6)}-${slot.date.slice(6, 8)}T${slot.time.slice(0, 2)}:${slot.time.slice(2, 4)}:00+09:00`;
   const d = new Date(iso);
-  return `${d.getMonth() + 1}/${d.getDate()} ${slot.time.slice(0, 2)}:${slot.time.slice(2, 4)}`;
+  return `${formatMonthDay(d, locale)} ${slot.time.slice(0, 2)}:${slot.time.slice(2, 4)}`;
 }
 
-function formatForecastTimestamp(slot: ForecastSlot) {
+function formatForecastTimestamp(slot: ForecastSlot, locale: Locale) {
   if (!slot.date || !slot.time) {
     return "—";
   }
-  const month = slot.date.slice(4, 6);
-  const day = slot.date.slice(6, 8);
+  const date = new Date(`${slot.date.slice(0, 4)}-${slot.date.slice(4, 6)}-${slot.date.slice(6, 8)}T00:00:00+09:00`);
   const hour = slot.time.slice(0, 2);
   const minute = slot.time.slice(2, 4);
-  return `${month}/${day} ${hour}:${minute}`;
+  return `${formatMonthDay(date, locale)} ${hour}:${minute}`;
 }
 
 function getTemperatureRange(slots: Array<{ temperature?: number }>) {
@@ -448,7 +450,12 @@ function getRecentHistorySlots(slots: WeatherHistorySlot[]) {
     .slice(0, 24);
 }
 
-function buildExtendedDays(data: MidRangeResult | undefined, hourlySlots: ForecastSlot[] = [], forecastBaseDate?: string) {
+function buildExtendedDays(
+  data: MidRangeResult | undefined,
+  hourlySlots: ForecastSlot[] = [],
+  forecastBaseDate?: string,
+  locale: Locale = "ko"
+) {
   const baseDate = data?.shortTerm?.baseDate ?? data?.land?.baseDate ?? data?.temperature?.baseDate ?? forecastBaseDate;
   const dayMap = new Map<number, {
     dayOffset: number;
@@ -464,14 +471,19 @@ function buildExtendedDays(data: MidRangeResult | undefined, hourlySlots: Foreca
 
   const ensureEntry = (offset: number) => {
     if (!dayMap.has(offset)) {
-      dayMap.set(offset, { dayOffset: offset, displayLabel: `+${offset}d`, dateLabel: undefined, isoDate: undefined });
+      dayMap.set(offset, {
+        dayOffset: offset,
+        displayLabel: formatTemplate(strings.resortPage.dayOffset, locale, { offset }),
+        dateLabel: undefined,
+        isoDate: undefined,
+      });
     }
     return dayMap.get(offset)!;
   };
 
   data?.shortTerm?.days.forEach((day) => {
     const entry = ensureEntry(day.dayOffset);
-    entry.dateLabel = formatShortDate(day.date) ?? entry.dateLabel;
+    entry.dateLabel = formatShortDate(day.date, locale) ?? entry.dateLabel;
     entry.isoDate = day.date ?? entry.isoDate;
     entry.am = day.am ?? entry.am;
     entry.pm = day.pm ?? entry.pm;
@@ -481,7 +493,7 @@ function buildExtendedDays(data: MidRangeResult | undefined, hourlySlots: Foreca
 
   data?.land?.days.forEach((day) => {
     const entry = ensureEntry(day.dayOffset);
-    entry.dateLabel = entry.dateLabel ?? formatOffsetDate(baseDate, day.dayOffset);
+    entry.dateLabel = entry.dateLabel ?? formatOffsetDate(baseDate, day.dayOffset, locale);
     entry.isoDate = entry.isoDate ?? formatOffsetIsoDate(baseDate, day.dayOffset);
     if (day.am) entry.am = day.am;
     if (day.pm) entry.pm = day.pm;
@@ -489,7 +501,7 @@ function buildExtendedDays(data: MidRangeResult | undefined, hourlySlots: Foreca
   });
   data?.temperature?.days.forEach((day) => {
     const entry = ensureEntry(day.dayOffset);
-    entry.dateLabel = entry.dateLabel ?? formatOffsetDate(baseDate, day.dayOffset);
+    entry.dateLabel = entry.dateLabel ?? formatOffsetDate(baseDate, day.dayOffset, locale);
     entry.isoDate = entry.isoDate ?? formatOffsetIsoDate(baseDate, day.dayOffset);
     entry.min = day.min ?? entry.min;
     entry.max = day.max ?? entry.max;
@@ -514,7 +526,7 @@ function buildExtendedDays(data: MidRangeResult | undefined, hourlySlots: Foreca
         // Only backfill near-term gaps (up to 4 days out).
         if (offset < 1 || offset > 4) return;
         const entry = ensureEntry(offset);
-        entry.dateLabel = entry.dateLabel ?? formatShortDate(date) ?? entry.dateLabel;
+        entry.dateLabel = entry.dateLabel ?? formatShortDate(date, locale) ?? entry.dateLabel;
         entry.isoDate = entry.isoDate ?? date;
         const temps = slots
           .map((s) => s.temperature)
@@ -552,16 +564,20 @@ function buildExtendedDays(data: MidRangeResult | undefined, hourlySlots: Foreca
     .sort((a, b) => a.dayOffset - b.dayOffset)
     .map((day) => ({
       ...day,
-      dateLabel: day.dateLabel ?? formatOffsetDate(baseDate, day.dayOffset),
+      dateLabel: day.dateLabel ?? formatOffsetDate(baseDate, day.dayOffset, locale),
       isoDate: day.isoDate ?? formatOffsetIsoDate(baseDate, day.dayOffset),
     }));
 }
 
 function TemperatureTrendChart({
   days,
+  locale,
+  titleLabel,
   labels,
 }: {
   days: Array<{ dayOffset: number; dateLabel?: string; min?: number; max?: number; am?: MidRangeDayPart; pm?: MidRangeDayPart; allDay?: MidRangeDayPart }>;
+  locale: Locale;
+  titleLabel: string;
   labels: { max: string; min: string; rain: string; snow: string };
 }) {
   const entries = days.filter((day) => day.min !== undefined || day.max !== undefined);
@@ -585,7 +601,7 @@ function TemperatureTrendChart({
   const minPath = buildPath(entries.map((day, index) => (day.min !== undefined ? { x: toX(index), y: toY(day.min) } : null)));
 
   return (
-    <div className="relative" aria-label="Temperature trend">
+    <div className="relative" aria-label={titleLabel}>
       <div className="overflow-hidden">
         <svg
           width="100%"
@@ -631,7 +647,7 @@ function TemperatureTrendChart({
                     setHover({
                       x: toX(index),
                       y: toY(day.max!),
-                      label: day.dateLabel ?? `+${day.dayOffset}d`,
+                      label: day.dateLabel ?? formatTemplate(strings.resortPage.dayOffset, locale, { offset: day.dayOffset }),
                       value: day.max!,
                       type: "max",
                     })
@@ -650,7 +666,7 @@ function TemperatureTrendChart({
                     setHover({
                       x: toX(index),
                       y: toY(day.min!),
-                      label: day.dateLabel ?? `+${day.dayOffset}d`,
+                      label: day.dateLabel ?? formatTemplate(strings.resortPage.dayOffset, locale, { offset: day.dayOffset }),
                       value: day.min!,
                       type: "min",
                     })
@@ -703,8 +719,8 @@ function buildPath(points: Array<{ x: number; y: number } | null>) {
 function detectPrecip(day: { am?: MidRangeDayPart; pm?: MidRangeDayPart; allDay?: MidRangeDayPart }) {
   const text = [day.allDay?.weather, day.am?.weather, day.pm?.weather].filter(Boolean).join(" ").toLowerCase();
   if (!text) return undefined;
-  if (text.includes("snow") || text.includes("눈")) return "snow";
-  if (text.includes("rain") || text.includes("비")) return "rain";
+  if (text.includes("snow") || text.includes("눈") || text.includes("雪")) return "snow";
+  if (text.includes("rain") || text.includes("비") || text.includes("雨")) return "rain";
   return undefined;
 }
 
@@ -713,7 +729,7 @@ function pickCondition(slots: ForecastSlot[]) {
   const counts = new Map<string, { label: string; condition: string; count: number }>();
   slots.forEach((slot) => {
     const key = slot.condition ?? "unknown";
-    const label = slot.condition ? conditionLabel(slot.condition) : "—";
+    const label = slot.condition ?? "unknown";
     const entry = counts.get(key) ?? { label, condition: key, count: 0 };
     entry.count += 1;
     counts.set(key, entry);
@@ -741,16 +757,17 @@ type SegmentStats = {
 
 type DailyStatTableProps = {
   days: ReturnType<typeof buildExtendedDays>;
+  locale: Locale;
   labels: { condition: string; precipChance: string; precipTotal: string; wind: string };
   segmentStats?: Record<string, Record<string, SegmentStats>>;
 };
 
-function DailyStatTable({ days, labels, segmentStats }: DailyStatTableProps) {
+function DailyStatTable({ days, locale, labels, segmentStats }: DailyStatTableProps) {
   if (!days.length) return null;
 
   const columns = days.map((day) => ({
     day,
-    segments: buildDaySegments(day),
+    segments: buildDaySegments(day, locale),
   }));
 
   return (
@@ -825,15 +842,15 @@ function DailyStatTable({ days, labels, segmentStats }: DailyStatTableProps) {
   );
 }
 
-function formatOffsetDate(baseDate: string | undefined, offset: number) {
-  if (!baseDate || baseDate.length !== 8) return `Day +${offset}`;
+function formatOffsetDate(baseDate: string | undefined, offset: number, locale: Locale) {
+  if (!baseDate || baseDate.length !== 8) return formatTemplate(strings.resortPage.dayOffset, locale, { offset });
   const date = new Date(
     Number(baseDate.slice(0, 4)),
     Number(baseDate.slice(4, 6)) - 1,
     Number(baseDate.slice(6, 8))
   );
   date.setDate(date.getDate() + offset);
-  return `${date.getMonth() + 1}/${date.getDate()}`;
+  return formatMonthDay(date, locale);
 }
 
 function formatOffsetIsoDate(baseDate: string | undefined, offset: number) {
@@ -850,9 +867,10 @@ function formatOffsetIsoDate(baseDate: string | undefined, offset: number) {
   return `${year}${month}${day}`;
 }
 
-function formatShortDate(value?: string) {
+function formatShortDate(value: string | undefined, locale: Locale) {
   if (!value || value.length !== 8) return undefined;
-  return `${Number(value.slice(4, 6))}/${Number(value.slice(6, 8))}`;
+  const date = new Date(`${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}T00:00:00+09:00`);
+  return formatMonthDay(date, locale);
 }
 
 function parseDate(value?: string) {
@@ -860,18 +878,18 @@ function parseDate(value?: string) {
   return new Date(`${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}T00:00:00+09:00`);
 }
 
-function buildDaySegments(day: ReturnType<typeof buildExtendedDays>[number]): DaySegment[] {
+function buildDaySegments(day: ReturnType<typeof buildExtendedDays>[number], locale: Locale): DaySegment[] {
   const segments: DaySegment[] = [];
   const hasAmPm = day.am || day.pm;
   if (hasAmPm) {
     if (day.am) {
-      segments.push({ key: "am", label: "AM", part: day.am });
+      segments.push({ key: "am", label: getLocalizedText(strings.resortPage.periodAm, locale), part: day.am });
     }
     if (day.pm) {
-      segments.push({ key: "pm", label: "PM", part: day.pm });
+      segments.push({ key: "pm", label: getLocalizedText(strings.resortPage.periodPm, locale), part: day.pm });
     }
   } else if (day.allDay) {
-    segments.push({ key: "all", label: "All day", part: day.allDay });
+    segments.push({ key: "all", label: getLocalizedText(strings.resortPage.allDay, locale), part: day.allDay });
   } else {
     segments.push({ key: "day", label: "—" });
   }
@@ -920,7 +938,7 @@ function derivePrecipitationDisplay(args: {
   return { value: undefined, unit: undefined };
 }
 
-function buildMiniSeriesFromHistory(slots: WeatherHistorySlot[]): MiniSeriesPoint[] {
+function buildMiniSeriesFromHistory(slots: WeatherHistorySlot[], locale: Locale): MiniSeriesPoint[] {
   return slots.map((slot) => {
     const precip = derivePrecipitationDisplay({
       rain: slot.precipitationRain,
@@ -929,7 +947,7 @@ function buildMiniSeriesFromHistory(slots: WeatherHistorySlot[]): MiniSeriesPoin
       precipitationType: slot.precipitationType,
     });
     return {
-      label: formatHistoryTimestamp(slot),
+      label: formatHistoryTimestamp(slot, locale),
       temperature: slot.temperature,
       precipitation: precip.value,
       precipitationUnit: precip.unit,
@@ -937,7 +955,7 @@ function buildMiniSeriesFromHistory(slots: WeatherHistorySlot[]): MiniSeriesPoin
   });
 }
 
-function buildMiniSeriesFromForecast(slots: ForecastSlot[]): MiniSeriesPoint[] {
+function buildMiniSeriesFromForecast(slots: ForecastSlot[], locale: Locale): MiniSeriesPoint[] {
   return slots.map((slot) => {
     const precip = derivePrecipitationDisplay({
       rain: slot.precipitationRain,
@@ -947,7 +965,7 @@ function buildMiniSeriesFromForecast(slots: ForecastSlot[]): MiniSeriesPoint[] {
       precipitationType: slot.precipitationType,
     });
     return {
-      label: formatForecastTimestamp(slot),
+      label: formatForecastTimestamp(slot, locale),
       temperature: slot.temperature,
       precipitation: precip.value,
       precipitationUnit: precip.unit,
@@ -1099,7 +1117,7 @@ function SixHourChart({ title, status, error, points, onReload, labels, temperat
       {status === "loading" ? (
         <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">{labels.loading}</p>
       ) : status === "error" ? (
-        <p className="mt-3 text-sm text-amber-700 dark:text-amber-200">{error ?? labels.error}</p>
+        <p className="mt-3 text-sm text-amber-700 dark:text-amber-200">{labels.error}</p>
       ) : !validPoints.length ? (
         <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">{labels.error}</p>
       ) : (
@@ -1228,8 +1246,8 @@ function formatSegmentPrecipChance(part?: MidRangeDayPart, fallback?: number) {
 
 export function ConditionIcon({ part, className }: { part?: MidRangeDayPart; className?: string }) {
   const { t } = useI18n();
-  const { Icon, labelKey, label } = getConditionIcon(part?.weather);
-  const displayLabel = labelKey ? t(strings.resortPage.conditions[labelKey]) : label;
+  const { Icon, labelKey } = getConditionIcon(part?.weather);
+  const displayLabel = t(strings.resortPage.conditions[labelKey]);
   return (
     <span className={cn("flex flex-col items-center gap-1 text-xs text-slate-600 dark:text-slate-300", className)}>
       <Icon
@@ -1243,23 +1261,31 @@ export function ConditionIcon({ part, className }: { part?: MidRangeDayPart; cla
   );
 }
 
-function getConditionIcon(weather?: string): { Icon: IconType; label: string; labelKey?: keyof typeof strings.resortPage.conditions } {
+function getConditionIcon(weather?: string): { Icon: IconType; labelKey: keyof typeof strings.resortPage.conditions } {
   if (!weather) {
-    return { Icon: WiCloud, label: "Unknown", labelKey: "unknown" };
+    return { Icon: WiCloud, labelKey: "unknown" };
   }
   const normalized = weather.toLowerCase();
   const rule =
     CONDITION_ICON_RULES.find((entry) => entry.test.test(normalized)) ??
-    { icon: WiCloud, label: "Unknown", key: "unknown" as const };
-  return { Icon: rule.icon, label: rule.label, labelKey: rule.key };
+    { icon: WiCloud, key: "unknown" as const };
+  return { Icon: rule.icon, labelKey: rule.key };
 }
 
-const CONDITION_ICON_RULES: Array<{ test: RegExp; icon: IconType; label: string; key: keyof typeof strings.resortPage.conditions }> = [
-  { test: /(비\/눈|진눈깨비|mixed)/i, icon: WiSleet, label: "Mixed precipitation", key: "mixed" },
-  { test: /(눈|snow)/i, icon: WiSnow, label: "Snow", key: "snow" },
-  { test: /(비|rain|소나기|shower)/i, icon: WiRain, label: "Rain", key: "rain" },
-  { test: /(맑|sun|clear)/i, icon: WiDaySunny, label: "Clear", key: "clear" },
-  { test: /(흐림|overcast)/i, icon: WiCloudy, label: "Overcast", key: "overcast" },
-  { test: /(구름|cloud)/i, icon: WiDayCloudy, label: "Cloudy", key: "cloudy" },
-  { test: /(안개|fog)/i, icon: WiFog, label: "Fog", key: "unknown" },
+const CONDITION_ICON_RULES: Array<{ test: RegExp; icon: IconType; key: keyof typeof strings.resortPage.conditions }> = [
+  { test: /(비\/눈|진눈깨비|mixed|みぞれ|雨\/雪)/i, icon: WiSleet, key: "mixed" },
+  { test: /(눈|snow|雪)/i, icon: WiSnow, key: "snow" },
+  { test: /(비|rain|소나기|shower|雨)/i, icon: WiRain, key: "rain" },
+  { test: /(맑|sun|clear|晴)/i, icon: WiDaySunny, key: "clear" },
+  { test: /(흐림|overcast|曇)/i, icon: WiCloudy, key: "overcast" },
+  { test: /(구름|cloud|くもり)/i, icon: WiDayCloudy, key: "cloudy" },
+  { test: /(안개|fog|霧)/i, icon: WiFog, key: "unknown" },
 ];
+
+function formatMonthDay(date: Date, locale: Locale) {
+  return new Intl.DateTimeFormat(locale === "ja" ? "ja-JP" : locale === "en" ? "en-US" : "ko-KR", {
+    month: "numeric",
+    day: "numeric",
+    timeZone: "Asia/Seoul",
+  }).format(date);
+}

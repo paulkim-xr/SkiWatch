@@ -313,26 +313,26 @@ function AppShell() {
               </div>
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
-                  Third-party licenses
+                  {t(strings.notices.thirdPartyLicenses)}
                 </p>
                 <ul className="mt-1 list-disc space-y-1 pl-4 text-[13px]">
                   <li>
-                    spa-github-pages (MIT © Rafael Pedicini) — used for SPA GitHub Pages routing.
+                    {t(strings.notices.routingLicense)}
                   </li>
                   <li>
-                    Hls.js / video.js (Apache 2.0) — video playback helpers.
+                    {t(strings.notices.videoLicense)}
                   </li>
                   <li>
-                    See{" "}
+                    {t(strings.notices.fullLicensePrefix)}{" "}
                     <a
                       href="https://github.com/paulkim-xr/SkiWatch/blob/main/THIRD_PARTY_NOTICES.md"
                       target="_blank"
                       rel="noreferrer"
                       className="underline"
                     >
-                      THIRD_PARTY_NOTICES.md
+                      {t(strings.notices.fullLicenseLink)}
                     </a>{" "}
-                    for full license texts.
+                    {t(strings.notices.fullLicenseSuffix)}
                   </li>
                 </ul>
               </div>

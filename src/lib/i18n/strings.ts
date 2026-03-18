@@ -90,6 +90,20 @@ export const strings = {
       en: "Send suggestions via GitHub Issues or email.",
       ja: "提案やフィードバックは GitHub Issues かメールでお知らせください。",
     }),
+    thirdPartyLicenses: createText({ ko: "서드파티 라이선스", en: "Third-party licenses", ja: "サードパーティ ライセンス" }),
+    routingLicense: createText({
+      ko: "spa-github-pages (MIT © Rafael Pedicini) — GitHub Pages SPA 라우팅에 사용합니다.",
+      en: "spa-github-pages (MIT © Rafael Pedicini) — used for GitHub Pages SPA routing.",
+      ja: "spa-github-pages (MIT © Rafael Pedicini) — GitHub Pages の SPA ルーティングに使用しています。",
+    }),
+    videoLicense: createText({
+      ko: "Hls.js / video.js (Apache 2.0) — 영상 재생 보조 라이브러리입니다.",
+      en: "Hls.js / video.js (Apache 2.0) — video playback helpers.",
+      ja: "Hls.js / video.js (Apache 2.0) — 動画再生用ヘルパーです。",
+    }),
+    fullLicensePrefix: createText({ ko: "전체 라이선스 문서는", en: "See", ja: "詳細は" }),
+    fullLicenseLink: createText({ ko: "THIRD_PARTY_NOTICES.md", en: "THIRD_PARTY_NOTICES.md", ja: "THIRD_PARTY_NOTICES.md" }),
+    fullLicenseSuffix: createText({ ko: "에서 확인할 수 있습니다.", en: "for full license texts.", ja: "をご覧ください。" }),
   },
   slopes: {
     title: createText({ ko: "슬로프 정보", en: "Slope details", ja: "コース情報" }),
@@ -214,6 +228,9 @@ export const strings = {
     rainTotal: createText({ ko: "비 합계", en: "Rain total", ja: "雨量合計" }),
     maxWind: createText({ ko: "최대 풍속", en: "Max wind", ja: "最大風速" }),
     viewMoreHistory: createText({ ko: "관측 더 보기", en: "Show more observations", ja: "観測をもっと見る" }),
+    allDay: createText({ ko: "하루 종일", en: "All day", ja: "終日" }),
+    dayOffset: createText({ ko: "D+{offset}", en: "Day +{offset}", ja: "{offset}日後" }),
+    temperatureTrend: createText({ ko: "기온 추세", en: "Temperature trend", ja: "気温推移" }),
     conditions: {
       clear: createText({ ko: "맑음", en: "Clear", ja: "快晴" }),
       cloudy: createText({ ko: "구름", en: "Cloudy", ja: "くもり" }),
@@ -244,6 +261,29 @@ export const strings = {
       ja: "気象データ提供: 気象庁 / 公共データポータル (KOGL Type 1)",
     }),
     linkLabel: createText({ ko: "공공누리 라이선스 안내", en: "KOGL License", ja: "KOGL ライセンス" }),
+  },
+  dashboardGrid: {
+    emptyTitle: createText({ ko: "그리드가 비어 있습니다", en: "No cards in the grid", ja: "グリッドにカードがありません" }),
+    emptyBody: createText({
+      ko: "목록에서 웹캠, 날씨, 슬로프를 추가해 레이아웃을 시작하세요. 카드를 드래그해 순서를 바꾸고 확장으로 2x2 타일을 만들 수 있습니다.",
+      en: "Add webcams, weather, or slopes from the list to start your layout. Drag cards to reorder and expand a tile to 2x2.",
+      ja: "リストからカメラ・天気・コースを追加してレイアウトを始めてください。カードはドラッグで並べ替え、拡大で 2x2 タイルにできます。",
+    }),
+    dragToReorder: createText({ ko: "순서 변경", en: "Drag to reorder", ja: "並べ替え" }),
+    moreOptions: createText({ ko: "더 보기", en: "More options", ja: "その他" }),
+    shrinkTile: createText({ ko: "타일 축소", en: "Shrink tile", ja: "タイルを縮小" }),
+    expandTile: createText({ ko: "타일 확장", en: "Expand tile", ja: "タイルを拡大" }),
+    removeFromGrid: createText({ ko: "그리드에서 제거", en: "Remove from grid", ja: "グリッドから削除" }),
+    resizeTile: createText({ ko: "타일 크기 조절", en: "Resize tile", ja: "タイルサイズを変更" }),
+  },
+  weatherBadge: {
+    unavailable: createText({ ko: "날씨 정보를 불러올 수 없습니다", en: "Weather unavailable", ja: "天気情報を取得できません" }),
+  },
+  widgets: {
+    totalSlopes: createText({ ko: "총 슬로프", en: "Total slopes", ja: "総コース数" }),
+    totalLength: createText({ ko: "총 길이", en: "Total length", ja: "総距離" }),
+    unavailable: createText({ ko: "정보를 불러올 수 없습니다", en: "Unavailable", ja: "利用できません" }),
+    moreCount: createText({ ko: "+{count}개 더", en: "+{count} more", ja: "あと {count} 件" }),
   },
 };
 
@@ -284,4 +324,10 @@ export function formatResortPageDescription(resortName: string, locale: Locale):
     return `${resortName} のライブカメラ、天気、コースデータをまとめて確認できます。`;
   }
   return `See live weather, webcams, and slope data for ${resortName}.`;
+}
+
+export function formatTemplate(text: LocalizedText, locale: Locale, params: Record<string, string | number>): string {
+  return Object.entries(params).reduce((result, [key, value]) => {
+    return result.replaceAll(`{${key}}`, String(value));
+  }, getLocalizedText(text, locale));
 }
