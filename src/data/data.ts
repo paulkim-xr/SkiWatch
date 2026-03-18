@@ -28,3 +28,5 @@ export const resorts: Resort[] = [
   Muju,
   EdenValley,
 ];
+
+export default resorts;

@@ -15,9 +15,18 @@ type PlayerProps = {
   resortSlug?: string;
   showSummary?: boolean;
   rounded?: boolean;
+  capturePlacement?: "top-right" | "bottom-right" | "bottom-left";
+  compactCapture?: boolean;
 };
 
-function Player({ stream, resortSlug, showSummary = true, rounded = true }: PlayerProps) {
+function Player({
+  stream,
+  resortSlug,
+  showSummary = true,
+  rounded = true,
+  capturePlacement = "top-right",
+  compactCapture = false,
+}: PlayerProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const { t } = useI18n();
   const { status: summaryStatus, data: summaryData } = useWeather(resortSlug, {
@@ -124,6 +133,18 @@ function Player({ stream, resortSlug, showSummary = true, rounded = true }: Play
   };
 
   const overlayOpacityClass = overlayActive ? "opacity-100" : "opacity-30";
+  const capturePositionClass =
+    capturePlacement === "bottom-right"
+      ? "bottom-4 right-4"
+      : capturePlacement === "bottom-left"
+        ? "bottom-4 left-4"
+        : "right-4 top-4";
+  const captureErrorPositionClass =
+    capturePlacement === "bottom-right"
+      ? "bottom-16 right-4"
+      : capturePlacement === "bottom-left"
+        ? "bottom-16 left-4"
+        : "right-4 top-16";
 
   return (
     <div
@@ -141,10 +162,16 @@ function Player({ stream, resortSlug, showSummary = true, rounded = true }: Play
           type="button"
           onClick={handleCapture}
           disabled={isCapturing}
-          className={`absolute right-4 top-4 z-30 inline-flex items-center gap-1 rounded-md border border-slate-200/70 bg-white/80 px-3 py-1 text-xs font-semibold text-slate-600 shadow backdrop-blur hover:bg-white disabled:opacity-60 dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-100 transition-opacity ${overlayOpacityClass}`}
+          className={cn(
+            "absolute z-30 inline-flex items-center rounded-md border border-slate-200/70 bg-white/80 text-xs font-semibold text-slate-600 shadow backdrop-blur hover:bg-white disabled:opacity-60 dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-100 transition-opacity",
+            capturePositionClass,
+            compactCapture ? "h-8 w-8 justify-center p-0" : "gap-1 px-3 py-1",
+            overlayOpacityClass
+          )}
+          aria-label={isCapturing ? t(strings.player.captureSaving) : t(strings.player.capture)}
         >
           <FiCamera className="h-3.5 w-3.5" />
-          {isCapturing ? t(strings.player.captureSaving) : t(strings.player.capture)}
+          {!compactCapture && (isCapturing ? t(strings.player.captureSaving) : t(strings.player.capture))}
         </button>
       )}
       {stream.type === StreamType.Unavailable ? (
@@ -179,7 +206,7 @@ function Player({ stream, resortSlug, showSummary = true, rounded = true }: Play
         </div>
       )}
       {captureError && (
-        <div className="pointer-events-none absolute right-4 top-16 rounded-md bg-rose-500/90 px-3 py-1 text-xs font-semibold text-white shadow">
+        <div className={cn("pointer-events-none absolute rounded-md bg-rose-500/90 px-3 py-1 text-xs font-semibold text-white shadow", captureErrorPositionClass)}>
           {captureError}
         </div>
       )}

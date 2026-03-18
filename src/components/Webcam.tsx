@@ -16,20 +16,13 @@ import {
 } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 import { Resort, Stream, StreamType } from "@/data/Util";
-import { resorts } from "@/data/data";
 import Sidebar from "@/components/ui/Sidebar";
 import Player from "@/components/ui/Player";
 import { DashboardGrid } from "@/components/ui/DashboardGrid";
 import { type DashboardItem, type DashboardItemType } from "@/components/ui/DashboardTypes";
 import { useI18n } from "@/lib/i18n/context";
 import { createText } from "@/lib/i18n/locales";
-import {
-  findStreamById,
-  findStreamBySlugs,
-  getResortSlug,
-  getRouteForStream,
-  getRouteForStreamId,
-} from "@/lib/resortIndex";
+import { useResortData, useResortIndex } from "@/lib/resortData";
 import { getStreamIdentifier } from "@/lib/streamKeys";
 import { cn } from "@/lib/utils";
 
@@ -47,6 +40,8 @@ function Webcam() {
   const location = useLocation();
   const navigate = useNavigate();
   const { t } = useI18n();
+  const { resorts } = useResortData();
+  const { findStreamById, findStreamBySlugs, getResortSlug, getRouteForStream, getRouteForStreamId } = useResortIndex();
 
   const [currentStream, setCurrentStream] = useState<Stream | undefined>();
   const [selectedStreamId, setSelectedStreamId] = useState<string | undefined>();
@@ -318,7 +313,15 @@ function Webcam() {
 
   const handleToggleSpan = (id: string) => {
     setViewItems((items) =>
-      items.map((item) => (item.id === id ? { ...item, colSpan: item.colSpan === 2 ? 1 : 2 } : item))
+      items.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              colSpan: item.colSpan === 2 && item.rowSpan === 2 ? 1 : 2,
+              rowSpan: item.colSpan === 2 && item.rowSpan === 2 ? 1 : 2,
+            }
+          : item
+      )
     );
   };
 
@@ -555,8 +558,18 @@ function Webcam() {
     >
       <div className="flex h-full w-full flex-col overflow-hidden bg-white/70 text-slate-900 backdrop-blur dark:bg-slate-900/40 dark:text-white">
         <div className="flex flex-1 min-h-0 flex-col overflow-hidden md:flex-row md:items-stretch">
-          <div className="order-1 flex w-full shrink-0 flex-col md:h-full md:min-h-0 md:flex-1 md:overflow-hidden">
-            <div className="flex w-full flex-col overflow-hidden rounded-xl border border-slate-200/70 bg-white/80 shadow-sm dark:border-slate-800/60 dark:bg-slate-900/70 md:min-h-0 md:flex-1">
+          <div
+            className={cn(
+              "order-1 flex w-full shrink-0 flex-col md:h-full md:min-h-0 md:flex-1 md:overflow-hidden",
+              isGridMode && "min-h-[58svh]"
+            )}
+          >
+            <div
+              className={cn(
+                "flex w-full flex-col overflow-hidden rounded-xl border border-slate-200/70 bg-white/80 shadow-sm dark:border-slate-800/60 dark:bg-slate-900/70 md:min-h-0 md:flex-1",
+                isGridMode && "min-h-[58svh] md:min-h-0"
+              )}
+            >
               {isGridMode ? (
                 <div className="flex h-full min-h-0 flex-col gap-2 p-3">
                   <div className="flex items-center justify-between gap-2">
@@ -579,6 +592,7 @@ function Webcam() {
                     isDropping={isPointerDragging}
                     dropRef={setGridDropRef}
                     isOver={isGridDropOver || manualOverId === GRID_DROP_ID}
+                    isMobileViewport={isMobileViewport}
                   />
                 </div>
               ) : (

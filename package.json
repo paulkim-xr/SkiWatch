@@ -9,7 +9,8 @@
     "start": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "export:resorts": "node scripts/export-resorts-json.mjs"
   },
   "dependencies": {
     "@radix-ui/react-select": "^2.0.0",

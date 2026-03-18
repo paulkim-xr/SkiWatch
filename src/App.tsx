@@ -19,11 +19,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Seo } from "@/components/Seo";
+import { ResortDataProvider } from "@/lib/resortData";
 
 function App() {
   return (
     <BrowserRouter basename="/SkiWatch">
-      <AppShell />
+      <ResortDataProvider>
+        <AppShell />
+      </ResortDataProvider>
     </BrowserRouter>
   );
 }

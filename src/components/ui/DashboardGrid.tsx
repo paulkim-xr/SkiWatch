@@ -1,10 +1,10 @@
 import { SortableContext, rectSortingStrategy, useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { FiMaximize2, FiMinimize2, FiX } from "react-icons/fi";
+import { FiMaximize2, FiMinimize2, FiMoreVertical, FiX } from "react-icons/fi";
 import { RxDragHandleDots2 } from "react-icons/rx";
 import Player from "@/components/ui/Player";
 import { cn } from "@/lib/utils";
-import { useRef, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import type { CSSProperties } from "react";
 
 import { DashboardItem } from "@/components/ui/DashboardTypes";
@@ -19,6 +19,7 @@ type DashboardGridProps = {
   isDropping?: boolean;
   dropRef?: (node: HTMLDivElement | null) => void;
   isOver?: boolean;
+  isMobileViewport?: boolean;
 };
 
 export function DashboardGrid({
@@ -29,10 +30,13 @@ export function DashboardGrid({
   isDropping,
   dropRef,
   isOver,
+  isMobileViewport = false,
 }: DashboardGridProps) {
   const showDropHighlight = Boolean(isOver || isDropping);
-  const columns = items.length <= 2 ? 2 : items.length <= 4 ? 2 : 3;
-  const rows = Math.max(1, Math.ceil(items.length / columns));
+  const columns = isMobileViewport ? 2 : items.length <= 2 ? 2 : items.length <= 4 ? 2 : 3;
+  const totalCells = items.reduce((sum, item) => sum + item.colSpan * item.rowSpan, 0);
+  const largestRowSpan = items.reduce((max, item) => Math.max(max, item.rowSpan), 1);
+  const rows = Math.max(largestRowSpan, Math.ceil(totalCells / columns));
 
   return (
     <div
@@ -54,10 +58,12 @@ export function DashboardGrid({
       ) : (
         <SortableContext items={items} strategy={rectSortingStrategy}>
           <div
-            className="grid h-full min-h-0 gap-3"
+            className={cn("grid min-h-0 gap-3", isMobileViewport ? "h-auto content-start" : "h-full")}
             style={{
               gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
-              gridTemplateRows: `repeat(${rows}, minmax(0, 1fr))`,
+              gridTemplateRows: isMobileViewport ? undefined : `repeat(${rows}, minmax(0, 1fr))`,
+              gridAutoFlow: "dense",
+              gridAutoRows: isMobileViewport ? "10rem" : undefined,
             }}
           >
             {items.map((item) => (
@@ -93,6 +99,8 @@ function DashboardGridTile({ item, maxCols, maxRows, onRemove, onToggleSpan, onR
     data: { type: "grid" },
   });
   const tileRef = useRef<HTMLDivElement | null>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const style: CSSProperties = {
     transform: CSS.Transform.toString(transform),
@@ -132,62 +140,109 @@ function DashboardGridTile({ item, maxCols, maxRows, onRemove, onToggleSpan, onR
     window.addEventListener("pointerup", onUp);
   };
 
+  useEffect(() => {
+    if (!menuOpen) {
+      return;
+    }
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (menuRef.current?.contains(event.target as Node)) {
+        return;
+      }
+      setMenuOpen(false);
+    };
+
+    window.addEventListener("pointerdown", handlePointerDown);
+    return () => window.removeEventListener("pointerdown", handlePointerDown);
+  }, [menuOpen]);
+
   return (
-    <div ref={setNodeRef} style={style} className="relative">
+    <div
+      ref={setNodeRef}
+      style={style}
+      className={cn("relative", menuOpen && "z-[90]")}
+    >
       <div
         ref={tileRef}
         className={cn(
-          "group relative h-full w-full overflow-hidden rounded-xl border border-slate-200/80 bg-slate-100/80 shadow-sm ring-0 backdrop-blur transition hover:ring-2 hover:ring-accent-light/50 dark:border-slate-800/80 dark:bg-slate-800/50 dark:hover:ring-accent-dark/60",
+          "group relative h-full w-full overflow-visible rounded-xl border border-slate-200/80 bg-slate-100/80 shadow-sm ring-0 backdrop-blur transition hover:ring-2 hover:ring-accent-light/50 dark:border-slate-800/80 dark:bg-slate-800/50 dark:hover:ring-accent-dark/60",
           isDragging && "z-30 scale-[1.01] ring-2 ring-accent-light/70 dark:ring-accent-dark/80"
         )}
       >
-        <div className="absolute left-2 top-2 z-20 flex items-center gap-1">
-          <button
-            type="button"
-            className="inline-flex items-center gap-1 rounded-md border border-slate-200/60 bg-white/90 px-2 py-1 text-[11px] font-semibold text-slate-600 shadow-sm backdrop-blur hover:bg-white dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-slate-200"
-            onClick={onToggleSpan}
-          >
-            {item.colSpan > 1 ? <FiMinimize2 className="h-3.5 w-3.5" /> : <FiMaximize2 className="h-3.5 w-3.5" />}
-            {item.colSpan > 1 ? "1×1" : "2×1"}
-          </button>
+        <div className="absolute inset-0 overflow-hidden rounded-xl">
+          {item.type === "webcam" && item.stream && (
+            <Player
+              stream={item.stream}
+              resortSlug={item.resortSlug}
+              showSummary={false}
+              rounded={false}
+              capturePlacement="bottom-right"
+              compactCapture
+            />
+          )}
+          {item.type === "weather" && item.resortSlug && (
+            <WeatherWidget resortSlug={item.resortSlug} />
+          )}
+          {item.type === "slopes" && item.resortSlug && (
+            <SlopesWidget resortSlug={item.resortSlug} />
+          )}
+          <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between bg-gradient-to-t from-black/60 via-black/20 to-transparent px-3 pb-3 pt-10 text-sm font-semibold text-white drop-shadow pointer-events-none">
+            <span className="line-clamp-2">{item.label}</span>
+          </div>
         </div>
         <div className="absolute right-2 top-2 z-20 flex items-center gap-1 text-slate-500 dark:text-slate-200">
           <button
             type="button"
             aria-label="Drag to reorder"
-            className="inline-flex items-center justify-center rounded-md border border-slate-200/60 bg-white/90 p-2 shadow-sm backdrop-blur hover:bg-white dark:border-slate-700/70 dark:bg-slate-900/80"
+            className="inline-flex h-8 w-8 touch-none items-center justify-center rounded-md border border-slate-200/60 bg-white/90 p-0 shadow-sm backdrop-blur hover:bg-white dark:border-slate-700/70 dark:bg-slate-900/80 sm:h-9 sm:w-9"
             {...attributes}
             {...listeners}
           >
             <RxDragHandleDots2 className="h-4 w-4" />
           </button>
-          <button
-            type="button"
-            aria-label="Remove from grid"
-            onClick={onRemove}
-            className="inline-flex items-center gap-1 rounded-md border border-slate-200/60 bg-white/90 px-2 py-1 text-xs font-semibold text-rose-600 shadow-sm backdrop-blur hover:bg-white dark:border-slate-700/70 dark:bg-slate-900/80 dark:text-rose-300"
-          >
-            <FiX className="h-4 w-4" />
-            Remove
-          </button>
-        </div>
-        {item.type === "webcam" && item.stream && (
-          <Player stream={item.stream} resortSlug={item.resortSlug} showSummary={false} rounded={false} />
-        )}
-        {item.type === "weather" && item.resortSlug && (
-          <WeatherWidget resortSlug={item.resortSlug} />
-        )}
-        {item.type === "slopes" && item.resortSlug && (
-          <SlopesWidget resortSlug={item.resortSlug} />
-        )}
-        <div className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-between bg-gradient-to-t from-black/60 via-black/20 to-transparent px-3 pb-3 pt-10 text-sm font-semibold text-white drop-shadow pointer-events-none">
-          <span className="line-clamp-2">{item.label}</span>
+          <div ref={menuRef} className="relative">
+            <button
+              type="button"
+              aria-label="More options"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-200/60 bg-white/90 p-0 shadow-sm backdrop-blur hover:bg-white dark:border-slate-700/70 dark:bg-slate-900/80 sm:h-9 sm:w-9"
+            >
+              <FiMoreVertical className="h-4 w-4" />
+            </button>
+            {menuOpen && (
+              <div className="absolute right-0 top-10 z-[120] min-w-40 rounded-xl border border-slate-200/80 bg-white/95 p-1.5 shadow-lg backdrop-blur dark:border-slate-700/70 dark:bg-slate-900/95">
+                <button
+                  type="button"
+                  onClick={() => {
+                    onToggleSpan();
+                    setMenuOpen(false);
+                  }}
+                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-100 dark:hover:bg-slate-800"
+                >
+                  {item.colSpan > 1 ? <FiMinimize2 className="h-4 w-4" /> : <FiMaximize2 className="h-4 w-4" />}
+                  <span>{item.colSpan > 1 ? "Shrink tile" : "Expand tile"}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onRemove();
+                    setMenuOpen(false);
+                  }}
+                  className="flex w-full items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-medium text-rose-600 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-500/10"
+                >
+                  <FiX className="h-4 w-4" />
+                  <span>Remove from grid</span>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
         <button
           type="button"
           aria-label="Resize tile"
           onPointerDown={handleResizePointerDown}
-          className="absolute bottom-1 right-1 z-20 h-5 w-5 cursor-se-resize rounded-sm border border-slate-200/70 bg-white/90 text-slate-500 shadow-sm dark:border-slate-700/70 dark:bg-slate-900/90 dark:text-slate-300"
+          className="absolute bottom-1 right-1 z-20 hidden h-5 w-5 cursor-se-resize rounded-sm border border-slate-200/70 bg-white/90 text-slate-500 opacity-0 shadow-sm transition-opacity group-hover:opacity-100 focus-visible:opacity-100 dark:border-slate-700/70 dark:bg-slate-900/90 dark:text-slate-300 sm:block"
         >
           ↘
         </button>

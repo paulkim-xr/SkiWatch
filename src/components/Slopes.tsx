@@ -1,11 +1,11 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
-import { resorts } from "@/data/data";
 import { Difficulty } from "@/data/Util";
 import { useI18n } from "@/lib/i18n/context";
 import { strings, difficultyLabels } from "@/lib/i18n/strings";
 import { getLocalizedText, type LocalizedText } from "@/lib/i18n/locales";
+import { useResortData } from "@/lib/resortData";
 import { cn } from "@/lib/utils";
 
 const difficultyOrder: Difficulty[] = [
@@ -32,6 +32,7 @@ type SortColumn = "resort" | "name" | "difficulty" | "length" | "vertical" | "av
 
 function Slopes() {
   const { t, locale } = useI18n();
+  const { resorts } = useResortData();
   const [difficultyFilter, setDifficultyFilter] = useState<"all" | Difficulty>("all");
   const [resortFilter, setResortFilter] = useState<string>("all");
   const [sortConfig, setSortConfig] = useState<{ column?: SortColumn; direction?: "asc" | "desc" }>({

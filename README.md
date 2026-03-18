@@ -25,3 +25,70 @@ Simple website to see all webcams of Korean ski resorts in one place.
 [무주](https://www.mdysresort.com/guide/webcam.asp)
 
 [에덴밸리](https://www.edenvalley.co.kr/CS/cam_pop1.asp)
+
+## Remote resort data
+
+The app fetches resort data JSON at runtime from the public `data` branch URL by default:
+
+```text
+https://raw.githubusercontent.com/paulkim-xr/SkiWatch/data/resorts.json
+```
+
+If `VITE_RESORT_DATA_URL` is set at build time, it overrides that default. This works on GitHub Pages because the fetch happens in the browser after load.
+
+Accepted JSON shapes:
+
+```json
+[
+  {
+    "name": { "ko": "예시", "en": "Example" },
+    "homepage": "https://example.com",
+    "weather": "https://example.com/weather",
+    "lifts": [],
+    "slopes": [],
+    "streams": []
+  }
+]
+```
+
+or:
+
+```json
+{
+  "resorts": [
+    {
+      "name": { "ko": "예시", "en": "Example" },
+      "homepage": "https://example.com",
+      "weather": "https://example.com/weather",
+      "lifts": [],
+      "slopes": [],
+      "streams": []
+    }
+  ]
+}
+```
+
+Example GitHub raw URL:
+
+```text
+https://raw.githubusercontent.com/<owner>/<repo>/<branch>/path/to/resorts.json
+```
+
+If the remote file fails to load or is invalid, the app falls back to the bundled dataset.
+
+`resorts.json` is intended to be hand-edited, so enum-like values should use readable strings:
+
+```json
+{
+  "difficulty": "BEGINNER",
+  "type": "HLS"
+}
+```
+
+To bootstrap a JSON file from the current TypeScript data, run:
+
+```bash
+npm run export:resorts -- ./resorts.json
+```
+
+That writes a single JSON payload you can move to a dedicated data branch or repo and then reference with `VITE_RESORT_DATA_URL`.

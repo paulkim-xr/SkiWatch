@@ -2,12 +2,13 @@
 
 import { Link } from "react-router-dom";
 import { WeatherBadge } from "@/components/weather/WeatherBadge";
-import { resortEntries } from "@/lib/resortIndex";
 import { useI18n } from "@/lib/i18n/context";
 import { strings } from "@/lib/i18n/strings";
+import { useResortIndex } from "@/lib/resortData";
 
 export function ResortIndexList() {
   const { t } = useI18n();
+  const { resortEntries } = useResortIndex();
 
   return (
     <div className="mx-auto flex max-w-5xl flex-col gap-6">

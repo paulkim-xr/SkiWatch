@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ResortDetail } from "@/components/resort/ResortDetail";
-import { findResortBySlug } from "@/lib/resortIndex";
 import { useI18n } from "@/lib/i18n/context";
 import { strings } from "@/lib/i18n/strings";
+import { useResortIndex } from "@/lib/resortData";
 
 type Params = {
   slug?: string;
@@ -13,7 +13,8 @@ function ResortDetailPage() {
   const { slug } = useParams<Params>();
   const navigate = useNavigate();
   const { t } = useI18n();
-  const entry = useMemo(() => (slug ? findResortBySlug(slug) : undefined), [slug]);
+  const { findResortBySlug } = useResortIndex();
+  const entry = useMemo(() => (slug ? findResortBySlug(slug) : undefined), [findResortBySlug, slug]);
 
   if (!entry) {
     return (

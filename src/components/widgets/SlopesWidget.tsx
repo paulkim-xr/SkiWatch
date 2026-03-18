@@ -2,8 +2,8 @@ import { useMemo } from "react";
 import { useI18n } from "@/lib/i18n/context";
 import { strings, difficultyLabels } from "@/lib/i18n/strings";
 import { getLocalizedText } from "@/lib/i18n/locales";
-import { findResortBySlug } from "@/lib/resortIndex";
 import { Difficulty } from "@/data/Util";
+import { useResortIndex } from "@/lib/resortData";
 import { cn } from "@/lib/utils";
 
 const difficultyColors: Record<Difficulty, string> = {
@@ -18,7 +18,8 @@ const difficultyColors: Record<Difficulty, string> = {
 
 export function SlopesWidget({ resortSlug }: { resortSlug: string }) {
   const { t, locale } = useI18n();
-  const entry = useMemo(() => findResortBySlug(resortSlug), [resortSlug]);
+  const { findResortBySlug } = useResortIndex();
+  const entry = useMemo(() => findResortBySlug(resortSlug), [findResortBySlug, resortSlug]);
 
   if (!entry) {
     return (

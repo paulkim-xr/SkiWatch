@@ -32,7 +32,7 @@ import { strings } from "@/lib/i18n/strings";
 import { getStreamIdentifier } from "@/lib/streamKeys";
 import { type DashboardItemType } from "@/components/ui/DashboardTypes";
 import { cn } from "@/lib/utils";
-import { getResortSlug } from "@/lib/resortIndex";
+import { useResortIndex } from "@/lib/resortData";
 import type { CSSProperties } from "react";
 
 type SidebarProps = {
@@ -128,6 +128,7 @@ function Sidebar({
   });
 
   const listRefs = useRef<Record<string, HTMLElement | null>>({});
+  const { getResortSlug } = useResortIndex();
 
   const collapseEnabled = typeof onToggleCollapse === "function";
   const collapsed = collapseEnabled ? isCollapsed : false;
@@ -241,7 +242,7 @@ function Sidebar({
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const media = window.matchMedia("(min-width: 768px)");
+    const media = window.matchMedia("(hover: hover) and (pointer: fine)");
     const update = () => setDesktopDndEnabled(media.matches);
     update();
     media.addEventListener("change", update);
@@ -460,7 +461,7 @@ function Sidebar({
                         <FiChevronDown
                           className={cn(
                             "h-4 w-4 transition-transform",
-                            favoritesOpen ? "rotate-180" : "rotate-90"
+                            favoritesOpen && "rotate-180"
                           )}
                         />
                       </span>
@@ -548,7 +549,7 @@ function Sidebar({
                           <FiChevronDown
                             className={cn(
                               "h-4 w-4 transition-transform",
-                              isActiveResort ? "rotate-180" : "rotate-90"
+                              isActiveResort && "rotate-180"
                             )}
                           />
                         </span>
