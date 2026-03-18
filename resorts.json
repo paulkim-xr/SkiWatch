@@ -1,0 +1,5115 @@
+[
+  {
+    "name": {
+      "ko": "곤지암",
+      "en": "Konjiam",
+      "ja": "ゴンジアム"
+    },
+    "homepage": "https://www.konjiamresort.co.kr/main.dev",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/4146125300/37.33691985016501/127.29351991528104/",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "휘센",
+          "en": "Whisen",
+          "ja": "ハウィサエン"
+        },
+        "length": 304,
+        "seats": 4,
+        "cabinNum": 26,
+        "speed": 5,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 304
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "익시오",
+          "en": "Ixio",
+          "ja": "ジャイクサイジャオ"
+        },
+        "length": 680,
+        "seats": 6,
+        "cabinNum": 44,
+        "speed": 5,
+        "capacity": 3600,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 680
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "그램",
+          "en": "Gram",
+          "ja": "ガウラアム"
+        },
+        "length": 853,
+        "seats": 6,
+        "cabinNum": 53,
+        "speed": 5,
+        "capacity": 3600,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 853
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "씽큐",
+          "en": "ThinQ",
+          "ja": "サインタユ"
+        },
+        "length": 1325,
+        "seats": 6,
+        "cabinNum": 80,
+        "speed": 5,
+        "capacity": 3600,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 1325
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "CNP",
+          "en": "CNP",
+          "ja": "CNP"
+        },
+        "length": 1306,
+        "seats": 6,
+        "cabinNum": 80,
+        "speed": 5,
+        "capacity": 3600,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 1306
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "휘센",
+          "en": "Whisen",
+          "ja": "ハウィサエン"
+        },
+        "difficulty": "BEGINNER",
+        "length": 497,
+        "width": 74,
+        "area": 29743,
+        "elevation": 60,
+        "avgAngle": 7,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "익시오",
+          "en": "Ixio",
+          "ja": "ジャイクサイジャオ"
+        },
+        "difficulty": "BE_IN",
+        "length": 757,
+        "width": 76,
+        "elevation": 119,
+        "area": 72539,
+        "avgAngle": 10.4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "그램1",
+          "en": "Gram 1",
+          "ja": "ガウラアム1"
+        },
+        "difficulty": "ADVANCED",
+        "length": 548,
+        "width": 61,
+        "area": 33712,
+        "elevation": 171,
+        "avgAngle": 17.3,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "그램2",
+          "en": "Gram 2",
+          "ja": "ガウラアム2"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 828,
+        "width": 54,
+        "area": 45190,
+        "elevation": 200,
+        "avgAngle": 13.6,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "씽큐1",
+          "en": "ThinQ 1",
+          "ja": "サインタユ1"
+        },
+        "difficulty": "IN_AD",
+        "length": 380,
+        "width": 55,
+        "area": 21646,
+        "elevation": 104,
+        "avgAngle": 14.2,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "씽큐2",
+          "en": "ThinQ 2",
+          "ja": "サインタユ2"
+        },
+        "difficulty": "BE_IN",
+        "length": 1049,
+        "width": 55,
+        "area": 54859,
+        "elevation": 215,
+        "avgAngle": 12.9,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "씽큐3",
+          "en": "ThinQ 3",
+          "ja": "サインタユ3"
+        },
+        "difficulty": "IN_AD",
+        "length": 462,
+        "width": 68,
+        "area": 25894,
+        "elevation": 117,
+        "avgAngle": 14.2,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "씽큐Br",
+          "en": "ThinQ Br",
+          "ja": "サインタユBr"
+        },
+        "difficulty": "ADVANCED",
+        "length": 204,
+        "width": 31,
+        "area": 6454,
+        "elevation": 23,
+        "avgAngle": 10.9,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "CNP1",
+          "en": "CNP1",
+          "ja": "CNP1"
+        },
+        "difficulty": "BE_IN",
+        "length": 549,
+        "width": 31,
+        "area": 15330,
+        "elevation": 98,
+        "avgAngle": 10.9,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 9,
+        "name": {
+          "ko": "CNP2",
+          "en": "CNP2",
+          "ja": "CNP2"
+        },
+        "difficulty": "ADVANCED",
+        "length": 1087,
+        "width": 66,
+        "area": 52870,
+        "elevation": 239,
+        "avgAngle": 14,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "정상 휴게소",
+          "en": "Summit Rest Area",
+          "ja": "山頂 休憩所"
+        },
+        "type": "External",
+        "url": "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam01.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "정상부 슬로프",
+          "en": "Summit Slope",
+          "ja": "山頂 コース"
+        },
+        "type": "External",
+        "url": "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam02.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "중간 슬로프",
+          "en": "Middle Slope",
+          "ja": "中腹 コース"
+        },
+        "type": "External",
+        "url": "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam05.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "초중급 베이스",
+          "en": "Beginners Base",
+          "ja": "初級 ベース"
+        },
+        "type": "External",
+        "url": "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam03.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "중상급 베이스",
+          "en": "Intermediate-Advanced Base",
+          "ja": "中上級 ベース"
+        },
+        "type": "External",
+        "url": "http://konjiam.live.cdn.cloudn.co.kr/konjiam/cam04.stream/playlist.m3u8"
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "지산",
+      "en": "Jisan",
+      "ja": "チサン"
+    },
+    "homepage": "https://jisanresort.co.kr/w/ski/",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/4150034000/37.2167714356273/127.345183861823/",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "레몬",
+          "en": "Lemon",
+          "ja": "ラエマオン"
+        },
+        "length": 300,
+        "seats": 4,
+        "capacity": 1280,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 42
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "오렌지",
+          "en": "Orange",
+          "ja": "ジャオラエンチャイ"
+        },
+        "length": 300,
+        "seats": 4,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 44
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "뉴오렌지",
+          "en": "New Orange",
+          "ja": "ナユジャオラエンチャイ"
+        },
+        "length": 716,
+        "seats": 6,
+        "capacity": 3200,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 145
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "블루",
+          "en": "Blue",
+          "ja": "バウルラウ"
+        },
+        "length": 760,
+        "seats": 4,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 145
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "실버",
+          "en": "Silver",
+          "ja": "サイルバオ"
+        },
+        "length": 652,
+        "seats": 6,
+        "capacity": 3200,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 209
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "1-1",
+          "en": "1-1",
+          "ja": "1-1"
+        },
+        "difficulty": "BEGINNER",
+        "length": 300,
+        "elevation": 42,
+        "avgAngle": 5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "1",
+          "en": "1",
+          "ja": "1"
+        },
+        "difficulty": "BEGINNER",
+        "length": 300,
+        "elevation": 44,
+        "avgAngle": 7,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "2",
+          "en": "2",
+          "ja": "2"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 700,
+        "elevation": 145,
+        "avgAngle": 9,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "3",
+          "en": "3",
+          "ja": "3"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 720,
+        "elevation": 145,
+        "avgAngle": 9,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "5",
+          "en": "5",
+          "ja": "5"
+        },
+        "difficulty": "ADVANCED",
+        "length": 870,
+        "elevation": 209,
+        "avgAngle": 21,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "6",
+          "en": "6",
+          "ja": "6"
+        },
+        "difficulty": "EXPERT",
+        "length": 900,
+        "elevation": 209,
+        "avgAngle": 24,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "7",
+          "en": "7",
+          "ja": "7"
+        },
+        "difficulty": "IN_AD",
+        "length": 1200,
+        "elevation": 177,
+        "avgAngle": 13,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "레몬",
+          "en": "Lemon",
+          "ja": "Lemon"
+        },
+        "type": "HLS",
+        "url": "https://ant.livecity.co.kr:5443/jisancam/streams/jisan1.m3u8"
+      },
+      {
+        "name": {
+          "ko": "오렌지/뉴오렌지",
+          "en": "Orange/New Orange",
+          "ja": "オレンジ／New オレンジ"
+        },
+        "type": "HLS",
+        "url": "https://ant.livecity.co.kr:5443/jisancam/streams/jisan2.m3u8"
+      },
+      {
+        "name": {
+          "ko": "5번/6번 슬로프",
+          "en": "Slope 5/6",
+          "ja": "コース 5／6"
+        },
+        "type": "HLS",
+        "url": "https://ant.livecity.co.kr:5443/jisancam/streams/jisan3.m3u8"
+      },
+      {
+        "name": {
+          "ko": "블루",
+          "en": "Blue",
+          "ja": "ブルー"
+        },
+        "type": "HLS",
+        "url": "https://ant.livecity.co.kr:5443/jisancam/streams/jisan4.m3u8"
+      },
+      {
+        "name": {
+          "ko": "실버",
+          "en": "Silver",
+          "ja": "シルバー"
+        },
+        "type": "HLS",
+        "url": "https://ant.livecity.co.kr:5443/jisancam/streams/jisan5.m3u8"
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "비발디파크",
+      "en": "Vivaldi Park",
+      "ja": "ビバルディパーク"
+    },
+    "homepage": "https://www.sonohotelsresorts.com/skiboard",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/5172037000/37.64508331765885/127.68202103965271/",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "발라드 1호기",
+          "en": "Ballad no.1",
+          "ja": "バアルラアダウ 1ハオガイ"
+        },
+        "length": 468,
+        "seats": 4,
+        "cabinNum": 38,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "발라드 2호기",
+          "en": "Ballad no.2",
+          "ja": "バアルラアダウ 2ハオガイ"
+        },
+        "length": 492,
+        "seats": 4,
+        "cabinNum": 41,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "재즈",
+          "en": "Jazz",
+          "ja": "チャアチャウ"
+        },
+        "length": 855,
+        "seats": 6,
+        "cabinNum": 53,
+        "capacity": 3600,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "힙합 1호기",
+          "en": "Hip-hop no.1",
+          "ja": "ハイプハアプ 1ハオガイ"
+        },
+        "length": 552,
+        "seats": 4,
+        "cabinNum": 74,
+        "capacity": 1800,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "힙합 2호기",
+          "en": "Hip-hop no.2",
+          "ja": "ハイプハアプ 2ハオガイ"
+        },
+        "length": 582,
+        "seats": 4,
+        "cabinNum": 76,
+        "capacity": 1800,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "테크노",
+          "en": "Techno",
+          "ja": "パエタウナオ"
+        },
+        "length": 1008,
+        "seats": 8,
+        "cabinNum": 51,
+        "capacity": 4800,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "곤돌라",
+          "en": "Gondola",
+          "ja": "ガオンダオルラア"
+        },
+        "length": 1115,
+        "seats": 8,
+        "cabinNum": 38,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "스노위곤돌라",
+          "en": "Snowy Gondola",
+          "ja": "サウナオジャウィガオンダオルラア"
+        },
+        "length": 942,
+        "seats": 8,
+        "cabinNum": 28,
+        "capacity": 1101,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "발라드",
+          "en": "Ballad",
+          "ja": "バアルラアダウ"
+        },
+        "difficulty": "BEGINNER",
+        "length": 508,
+        "width": 80,
+        "avgAngle": 8,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "레게",
+          "en": "Reggae",
+          "ja": "ラエガエ"
+        },
+        "difficulty": "IN_AD",
+        "length": 570,
+        "width": 37,
+        "avgAngle": 14,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "클래식",
+          "en": "Classic",
+          "ja": "タウルラアサイク"
+        },
+        "difficulty": "IN_AD",
+        "length": 450,
+        "width": 35,
+        "avgAngle": 12,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "펑키",
+          "en": "Funky",
+          "ja": "ハオンタイ"
+        },
+        "difficulty": "IN_AD",
+        "length": 575,
+        "width": 30,
+        "avgAngle": 16,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "테크노 1",
+          "en": "Techno 1",
+          "ja": "パエタウナオ 1"
+        },
+        "difficulty": "IN_AD",
+        "length": 480,
+        "width": 50,
+        "avgAngle": 11,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "테크노 2",
+          "en": "Techno 2",
+          "ja": "パエタウナオ 2"
+        },
+        "difficulty": "ADVANCED",
+        "length": 680,
+        "width": 45,
+        "avgAngle": 17,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "힙합 1",
+          "en": "Hip-hop 1",
+          "ja": "ハイプハアプ 1"
+        },
+        "difficulty": "IN_AD",
+        "length": 240,
+        "width": 40,
+        "avgAngle": 11,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "힙합 2",
+          "en": "Hip-hop 2",
+          "ja": "ハイプハアプ 2"
+        },
+        "difficulty": "IN_AD",
+        "length": 620,
+        "width": 85,
+        "avgAngle": 15,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "블루스",
+          "en": "Blues",
+          "ja": "バウルラウサウ"
+        },
+        "difficulty": "BEGINNER",
+        "length": 365,
+        "width": 60,
+        "avgAngle": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 9,
+        "name": {
+          "ko": "재즈",
+          "en": "Jazz",
+          "ja": "チャアチャウ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 900,
+        "width": 75,
+        "avgAngle": 12,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 10,
+        "name": {
+          "ko": "락",
+          "en": "Rock",
+          "ja": "ラアク"
+        },
+        "difficulty": "EXPERT",
+        "length": 610,
+        "width": 30,
+        "avgAngle": 21,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "슬로프 전경",
+          "en": "Main Overview"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#8-TW0014A15451",
+        "metadata": {
+          "vivaldi": {
+            "channel": 8,
+            "serial": "TW0014A15451",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "발라드 상단",
+          "en": "Ballad Upper"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#11-TD0314A17496",
+        "metadata": {
+          "vivaldi": {
+            "channel": 11,
+            "serial": "TD0314A17496",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "발라드 하단",
+          "en": "Ballad Lower"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#2-TW0014A15451",
+        "metadata": {
+          "vivaldi": {
+            "channel": 2,
+            "serial": "TW0014A15451",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "재즈 상단",
+          "en": "Jazz Upper"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#4-XU0121A37907",
+        "metadata": {
+          "vivaldi": {
+            "channel": 4,
+            "serial": "XU0121A37907",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "재즈 하단",
+          "en": "Jazz Lower"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#1-TW0014A15451",
+        "metadata": {
+          "vivaldi": {
+            "channel": 1,
+            "serial": "TW0014A15451",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "테크노 상단",
+          "en": "Techno Upper"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#2-XU0121A37904",
+        "metadata": {
+          "vivaldi": {
+            "channel": 2,
+            "serial": "XU0121A37904",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "테크노 하단",
+          "en": "Techno Lower"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#5-XU0121A37904",
+        "metadata": {
+          "vivaldi": {
+            "channel": 5,
+            "serial": "XU0121A37904",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "블루스",
+          "en": "Blues"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#4-TW0014A15451",
+        "metadata": {
+          "vivaldi": {
+            "channel": 4,
+            "serial": "TW0014A15451",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "레게",
+          "en": "Reggae"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#10-TD0314A17496",
+        "metadata": {
+          "vivaldi": {
+            "channel": 10,
+            "serial": "TD0314A17496",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "펑키 상단",
+          "en": "Funky Upper"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#5-TW0014A15451",
+        "metadata": {
+          "vivaldi": {
+            "channel": 5,
+            "serial": "TW0014A15451",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "펑키 하단",
+          "en": "Funky Lower"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#8-XU0121A37904",
+        "metadata": {
+          "vivaldi": {
+            "channel": 8,
+            "serial": "XU0121A37904",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "힙합",
+          "en": "Hip-Hop"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#6-TW0014A15451",
+        "metadata": {
+          "vivaldi": {
+            "channel": 6,
+            "serial": "TW0014A15451",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "스키월드 정상",
+          "en": "Ski World Summit"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#9-TW0014A15451",
+        "metadata": {
+          "vivaldi": {
+            "channel": 9,
+            "serial": "TW0014A15451",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "스노위랜드 1",
+          "en": "Snowy Land 1"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#16-TD0314A17496",
+        "metadata": {
+          "vivaldi": {
+            "channel": 16,
+            "serial": "TD0314A17496",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      },
+      {
+        "name": {
+          "ko": "스노위랜드 2",
+          "en": "Snowy Land 2"
+        },
+        "type": "Vivaldi",
+        "url": "https://mice.sonohotelsresorts.com/daemyung.vp.utill.09_02_02_01.ds/dmparse.dm?areaType=S#12-TD0314A17496",
+        "metadata": {
+          "vivaldi": {
+            "channel": 12,
+            "serial": "TD0314A17496",
+            "token": ";b64707e34a200ee658255a03b96b6fb175ab8122aaed3462f8bb9f162ceab445e2ea8e66c0a0e7035c03354d7df4ff4b0a25a4519cbd8a11a5851fd6f71fef597d786574210744785c5bced6b51b7295da116039f706d42e87001761f1ba197ba91707dfb5f8ef49643e10ca4510cdcdbbfe7dbca96af5961b7265c27533c0fde1bbb7d09fe329b921da6b36a37ded7851cd4e1c7ed48db6e7a08f693331782c"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "엘리시안 강촌",
+      "en": "Elysian Gangchon",
+      "ja": "エリシアン・ガンチョン"
+    },
+    "homepage": "https://www.elysian.co.kr/",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/4182025000/37.822145126315334/127.58991724984118",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "A1",
+          "en": "A1",
+          "ja": "A1"
+        },
+        "length": 210,
+        "seats": 4,
+        "speed": 1.2,
+        "capacity": 1100,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 20
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "A",
+          "en": "A",
+          "ja": "A"
+        },
+        "length": 360,
+        "seats": 4,
+        "speed": 4,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 36
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "B",
+          "en": "B",
+          "ja": "B"
+        },
+        "length": 747,
+        "seats": 4,
+        "speed": 4,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 166
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "C",
+          "en": "C",
+          "ja": "C"
+        },
+        "length": 807,
+        "seats": 6,
+        "speed": 4,
+        "capacity": 3200,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 173
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "D",
+          "en": "D",
+          "ja": "D"
+        },
+        "length": 795,
+        "seats": 4,
+        "speed": 4,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 173
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "E",
+          "en": "E",
+          "ja": "E"
+        },
+        "length": 509,
+        "seats": 4,
+        "speed": 4,
+        "capacity": 1800,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "elevation": 125
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "팬더",
+          "en": "Panda",
+          "ja": "ハアンダオ"
+        },
+        "difficulty": "BEGINNER",
+        "length": 306,
+        "elevation": 21,
+        "avgAngle": 5.142764557884242,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "래빗",
+          "en": "Rabbit",
+          "ja": "ラアバイス"
+        },
+        "difficulty": "BEGINNER",
+        "length": 436,
+        "elevation": 34,
+        "maxAngle": 7.40691212849523,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "드래곤/래빗",
+          "en": "Dragon/Rabbit",
+          "ja": "ダウラアガオン/ラアバイス"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1500,
+        "elevation": 165,
+        "maxAngle": 12.952764513375518,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "호스/제브라",
+          "en": "Horse/Zebra",
+          "ja": "ハオサウ/チャエバウラア"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1032,
+        "elevation": 165,
+        "maxAngle": 19.29004621918873,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "호스/페가수스",
+          "en": "Horse/Pegasus",
+          "ja": "ハオサウ/ハエガアサウサウ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1045,
+        "elevation": 172,
+        "maxAngle": 17.223436191131462,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "디어",
+          "en": "Deer",
+          "ja": "ダイジャオ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 945,
+        "elevation": 172,
+        "maxAngle": 18.26288994219413,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "퓨마",
+          "en": "Puma",
+          "ja": "ハユマア"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1175,
+        "elevation": 120,
+        "maxAngle": 9.090276920822323,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "레퍼드",
+          "en": "Leopard",
+          "ja": "ラエハオダウ"
+        },
+        "difficulty": "ADVANCED",
+        "length": 518,
+        "elevation": 124,
+        "maxAngle": 27.47443162627713,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "재규어",
+          "en": "Jaguar",
+          "ja": "チャアガユジャオ"
+        },
+        "difficulty": "ADVANCED",
+        "length": 524,
+        "maxAngle": 28.36904629327858,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "스키하우스, 알프하우스, 챌린지하우스, 눈썰매장",
+          "en": "Ski House, Alp House, Challenge House, Snow Sled",
+          "ja": "Ski ハウス, Alp ハウス, Challenge ハウス, 雪そり"
+        },
+        "type": "IFrame",
+        "url": "https://www.youtube.com/embed/lDg9E7h3nGE"
+      },
+      {
+        "name": {
+          "ko": "페가수스, 디어래퍼드, 디어하단, 드래곤",
+          "en": "Pegasus, Deer-Leopard, Deer Lower Zone, Dragon",
+          "ja": "ペガサス, ディア-レオパード, ディア 下部, ドラゴン"
+        },
+        "type": "IFrame",
+        "url": "https://www.youtube.com/embed/O6_8VBu4FSA"
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "오크밸리",
+      "en": "Oak Valley",
+      "ja": "オークバレー"
+    },
+    "homepage": "https://oakvalley.co.kr/ski/introduction/slope",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/5113033000/37.4031964505172/127.817056509833/",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "플라워",
+          "en": "Flower",
+          "ja": "ハウルラアジャウォ"
+        },
+        "length": 483,
+        "seats": 6,
+        "cabinNum": 33,
+        "speed": 5,
+        "capacity": 3200,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "버드",
+          "en": "Bird",
+          "ja": "バオダウ"
+        },
+        "length": 495,
+        "seats": 4,
+        "cabinNum": 39,
+        "speed": 5,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "마운틴",
+          "en": "Mountain",
+          "ja": "マアジャウンパイン"
+        },
+        "length": 931,
+        "seats": 8,
+        "speed": 5,
+        "capacity": 3400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "A",
+          "en": "A",
+          "ja": "A"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1610,
+        "width": 52,
+        "elevation": 262,
+        "avgAngle": 9.090276920822323,
+        "maxAngle": 16.69924423399362,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "area": 73314
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "B",
+          "en": "B",
+          "ja": "B"
+        },
+        "difficulty": "ADVANCED",
+        "length": 885,
+        "width": 49,
+        "elevation": 205,
+        "avgAngle": 12.952764513375518,
+        "maxAngle": 21.801409486351815,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "area": 36317
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "C",
+          "en": "C",
+          "ja": "C"
+        },
+        "difficulty": "ADVANCED",
+        "length": 375,
+        "width": 46,
+        "elevation": 197,
+        "avgAngle": 17.744671625056935,
+        "maxAngle": 24.702430227771316,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "area": 15691
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "D",
+          "en": "D",
+          "ja": "D"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 885,
+        "width": 55,
+        "area": 46052,
+        "elevation": 230,
+        "avgAngle": 16.17215901578255,
+        "maxAngle": 20.806791012711226,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "D-1",
+          "en": "D-1",
+          "ja": "D-1"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 240,
+        "width": 45,
+        "elevation": 94,
+        "avgAngle": 15.109575122340466,
+        "maxAngle": 19.79887635452493,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "area": 8727
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "E",
+          "en": "E",
+          "ja": "E"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 485,
+        "width": 50,
+        "elevation": 120,
+        "avgAngle": 11.309932474020215,
+        "maxAngle": 17.223436191131462,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "area": 5731
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "F",
+          "en": "F",
+          "ja": "F"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 604,
+        "width": 49,
+        "elevation": 143,
+        "avgAngle": 14.036243467926479,
+        "maxAngle": 22.782405730481685,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "area": 17134
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "G",
+          "en": "G",
+          "ja": "G"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 724,
+        "width": 51,
+        "elevation": 171,
+        "avgAngle": 10.757967088390005,
+        "maxAngle": 16.17215901578255,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "area": 28793
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "H",
+          "en": "H",
+          "ja": "H"
+        },
+        "difficulty": "BEGINNER",
+        "length": 625,
+        "width": 45,
+        "elevation": 99,
+        "avgAngle": 6.2772984895975545,
+        "maxAngle": 14.036243467926479,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "area": 30592
+      },
+      {
+        "id": 9,
+        "name": {
+          "ko": "I",
+          "en": "I",
+          "ja": "I"
+        },
+        "difficulty": "BEGINNER",
+        "length": 550,
+        "width": 46,
+        "elevation": 49,
+        "avgAngle": 5.142764557884242,
+        "maxAngle": 9.090276920822323,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "area": 21585
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "스노우파크 옥탑",
+          "en": "Snow Park Roof",
+          "ja": "スノー パーク Roof"
+        },
+        "type": "HLS",
+        "url": "https://cctv-oak9.ktcdn.co.kr/cctv/ch2.stream/chunklist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "I 슬로프",
+          "en": "I Slope",
+          "ja": "I コース"
+        },
+        "type": "HLS",
+        "url": "https://cctv-oak9.ktcdn.co.kr/cctv/ch9.stream/chunklist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "G 슬로프",
+          "en": "G Slope",
+          "ja": "G コース"
+        },
+        "type": "HLS",
+        "url": "https://cctv-oak9.ktcdn.co.kr/cctv/ch7.stream/chunklist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "F 슬로프",
+          "en": "F Slope",
+          "ja": "F コース"
+        },
+        "type": "HLS",
+        "url": "https://cctv-oak9.ktcdn.co.kr/cctv/ch6.stream/chunklist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "플라워리프트 하차장",
+          "en": "Flower Lift Unloading Area",
+          "ja": "Flower リフト Unloading Area"
+        },
+        "type": "HLS",
+        "url": "https://cctv-oak9.ktcdn.co.kr/cctv/ch5.stream/chunklist.m3u8"
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "웰리힐리파크",
+      "en": "WelliHilli Park",
+      "ja": "ウェリーヒリパーク"
+    },
+    "homepage": "https://www.wellihillipark.com/snowpark",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/5173033000/37.4855522986022/128.247790847244/",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "알파",
+          "en": "Alpha",
+          "ja": "ジャアルハア"
+        },
+        "length": 484,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 130
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "뉴알파",
+          "en": "New Alpha",
+          "ja": "ナユジャアルハア"
+        },
+        "length": 464,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 125
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "브라보",
+          "en": "Bravo",
+          "ja": "バウラアバオ"
+        },
+        "length": 776,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 209
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "델타",
+          "en": "Delta",
+          "ja": "ダエルパア"
+        },
+        "length": 580,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 154
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "에코",
+          "en": "Echo",
+          "ja": "ジャエタオ"
+        },
+        "length": 642,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 170
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "패밀리",
+          "en": "Family",
+          "ja": "ハアマイルライ"
+        },
+        "length": 743,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 195
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "첼린지",
+          "en": "Challenge",
+          "ja": "カエルラインチャイ"
+        },
+        "length": 765,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 200
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "곤돌라",
+          "en": "Gondola",
+          "ja": "ガオンダオルラア"
+        },
+        "length": 1302,
+        "seats": 8,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 285
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "A1",
+          "en": "A1",
+          "ja": "A1"
+        },
+        "difficulty": "PARK",
+        "length": 450,
+        "minAngle": 5.2,
+        "maxAngle": 15.1,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "A2",
+          "en": "A2",
+          "ja": "A2"
+        },
+        "difficulty": "BEGINNER",
+        "length": 598,
+        "minAngle": 5.7,
+        "maxAngle": 10.6,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "A3",
+          "en": "A3",
+          "ja": "A3"
+        },
+        "difficulty": "PARK",
+        "length": 539,
+        "minAngle": 4.8,
+        "maxAngle": 10.3,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "B1",
+          "en": "B1",
+          "ja": "B1"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1112,
+        "minAngle": 4.9,
+        "maxAngle": 16.4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "B2",
+          "en": "B2",
+          "ja": "B2"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1038,
+        "minAngle": 4.9,
+        "maxAngle": 18.5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "C1",
+          "en": "C1",
+          "ja": "C1"
+        },
+        "difficulty": "ADVANCED",
+        "length": 370,
+        "minAngle": 9.4,
+        "maxAngle": 22.9,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "C2",
+          "en": "C2",
+          "ja": "C2"
+        },
+        "difficulty": "ADVANCED",
+        "length": 275,
+        "minAngle": 12.2,
+        "maxAngle": 28.7,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "C3",
+          "en": "C3",
+          "ja": "C3"
+        },
+        "difficulty": "EXPERT",
+        "length": 504,
+        "minAngle": 5.8,
+        "maxAngle": 32.1,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "C4",
+          "en": "C4",
+          "ja": "C4"
+        },
+        "difficulty": "ADVANCED",
+        "length": 827,
+        "minAngle": 5,
+        "maxAngle": 26.6,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 9,
+        "name": {
+          "ko": "C5",
+          "en": "C5",
+          "ja": "C5"
+        },
+        "difficulty": "ADVANCED",
+        "length": 661,
+        "minAngle": 6.4,
+        "maxAngle": 25.2,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 10,
+        "name": {
+          "ko": "D1",
+          "en": "D1",
+          "ja": "D1"
+        },
+        "difficulty": "BEGINNER",
+        "length": 620,
+        "minAngle": 6,
+        "maxAngle": 14,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 11,
+        "name": {
+          "ko": "D2",
+          "en": "D2",
+          "ja": "D2"
+        },
+        "difficulty": "PARK",
+        "length": 150,
+        "minAngle": 4.9,
+        "maxAngle": 25.8,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 12,
+        "name": {
+          "ko": "D+",
+          "en": "D+",
+          "ja": "D+"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1000,
+        "minAngle": 6.2,
+        "maxAngle": 14.1,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 13,
+        "name": {
+          "ko": "E1",
+          "en": "E1",
+          "ja": "E1"
+        },
+        "difficulty": "EXPERT",
+        "length": 625,
+        "minAngle": 8.3,
+        "maxAngle": 32,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 14,
+        "name": {
+          "ko": "E2",
+          "en": "E2",
+          "ja": "E2"
+        },
+        "difficulty": "ADVANCED",
+        "length": 650,
+        "minAngle": 5.3,
+        "maxAngle": 25,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 15,
+        "name": {
+          "ko": "E3",
+          "en": "E3",
+          "ja": "E3"
+        },
+        "difficulty": "EXPERT",
+        "length": 321,
+        "minAngle": 8.2,
+        "maxAngle": 27.7,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 16,
+        "name": {
+          "ko": "S1",
+          "en": "S1",
+          "ja": "S1"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1786,
+        "minAngle": 3.3,
+        "maxAngle": 9.9,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 17,
+        "name": {
+          "ko": "S2",
+          "en": "S2",
+          "ja": "S2"
+        },
+        "difficulty": "BEGINNER",
+        "length": 814,
+        "minAngle": 3.5,
+        "maxAngle": 11.7,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "알파",
+          "en": "Alpha",
+          "ja": "Alpha"
+        },
+        "type": "HLS",
+        "url": "https://live.wellihillipark.com/wellihillipark/_definst_/cam02.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "베이스",
+          "en": "Base",
+          "ja": "ベース"
+        },
+        "type": "HLS",
+        "url": "https://live.wellihillipark.com/wellihillipark/_definst_/cam03.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "리조트 전경",
+          "en": "Resort Overview",
+          "ja": "Resort 全景"
+        },
+        "type": "HLS",
+        "url": "https://live.wellihillipark.com/wellihillipark/_definst_/cam04.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "정상광장",
+          "en": "Summit Plaza",
+          "ja": "山頂 広場"
+        },
+        "type": "HLS",
+        "url": "https://live.wellihillipark.com/wellihillipark/_definst_/cam05.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "패밀리",
+          "en": "Family",
+          "ja": "Family"
+        },
+        "type": "HLS",
+        "url": "https://live.wellihillipark.com/wellihillipark/_definst_/cam06.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "워터플래닛",
+          "en": "Water Planet",
+          "ja": "Water Planet"
+        },
+        "type": "HLS",
+        "url": "https://live.wellihillipark.com/wellihillipark/_definst_/cam07.stream/playlist.m3u8"
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "휘닉스파크",
+      "en": "Phoenix Park",
+      "ja": "ハウィナイクサウハアタウ"
+    },
+    "homepage": "https://phoenixhnr.co.kr/page/main/pyeongchang?q%5BhmpgDivCd%5D=PP&page=1&size=4",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/5176034000/37.5835498839915/128.324835376419/",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "펭귄",
+          "en": "Penguin",
+          "ja": "ハエンガウィン"
+        },
+        "length": 640,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "스패로우",
+          "en": "Sparrow",
+          "ja": "サウハアラオジャウ"
+        },
+        "length": 935.2,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "도도",
+          "en": "Mountain",
+          "ja": "ダオダオ"
+        },
+        "length": 295.9,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "호크",
+          "en": "Hawk",
+          "ja": "ハオタウ"
+        },
+        "length": 627.4,
+        "seats": 6,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "도브",
+          "en": "Dove",
+          "ja": "ダオバウ"
+        },
+        "length": 529.5,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "팔콘",
+          "en": "Falcon",
+          "ja": "ハアルタオン"
+        },
+        "length": 934,
+        "seats": 6,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "이글",
+          "en": "Eagle",
+          "ja": "ジャイガウル"
+        },
+        "length": 1006.7,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "곤돌라",
+          "en": "Gondola",
+          "ja": "ガオンダオルラア"
+        },
+        "length": 1683,
+        "seats": 8,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "콘돌",
+          "en": "Condor",
+          "ja": "タオンダオル"
+        },
+        "length": 889,
+        "seats": 4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "스패로우",
+          "en": "Sparrow",
+          "ja": "サウハアラオジャウ"
+        },
+        "difficulty": "BEGINNER",
+        "length": 978,
+        "elevation": 120,
+        "avgAngle": 6.98,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "펭귄",
+          "en": "Penguin",
+          "ja": "ハエンガウィン"
+        },
+        "difficulty": "BEGINNER",
+        "length": 665,
+        "elevation": 94,
+        "avgAngle": 8.33,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "도도(강습전용)",
+          "en": "Dodo (Training Only)",
+          "ja": "ダオダオ(ガアンサウプチャオンジャヨン)"
+        },
+        "difficulty": "BEGINNER",
+        "length": 350,
+        "elevation": 41,
+        "avgAngle": 6.68,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "키위",
+          "en": "Kiwi",
+          "ja": "タイジャウィ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 550,
+        "elevation": 127.5,
+        "avgAngle": 13,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "파노라마",
+          "en": "Panorama",
+          "ja": "ハアナオラアマア"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1450,
+        "elevation": 390,
+        "avgAngle": 9.97,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "호크",
+          "en": "Hawk",
+          "ja": "ハオタウ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 643,
+        "elevation": 128.35,
+        "avgAngle": 11.28,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "밸리",
+          "en": "Valley",
+          "ja": "バアルライ"
+        },
+        "difficulty": "IN_AD",
+        "length": 1110,
+        "elevation": 294,
+        "avgAngle": 15.4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "듀크(이상호)",
+          "en": "Duke",
+          "ja": "ダユタウ(ジャイサアンハオ)"
+        },
+        "difficulty": "IN_AD",
+        "length": 818,
+        "elevation": 216,
+        "avgAngle": 13.75,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "슬로프스타일(SS/SBS)",
+          "en": "Slope Style (SS/SBS)",
+          "ja": "サウルラオハウサウパアジャイル(SS/SBS)"
+        },
+        "difficulty": "IN_AD",
+        "length": 602,
+        "elevation": 160.6,
+        "avgAngle": 14.93,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 9,
+        "name": {
+          "ko": "챔피온",
+          "en": "Champion",
+          "ja": "カアムハイジャオン"
+        },
+        "difficulty": "ADVANCED",
+        "length": 960,
+        "elevation": 277,
+        "avgAngle": 16.08,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 10,
+        "name": {
+          "ko": "환타지",
+          "en": "Fantasy",
+          "ja": "ハワンパアチャイ"
+        },
+        "difficulty": "ADVANCED",
+        "length": 503,
+        "elevation": 89.5,
+        "avgAngle": 10.08,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 11,
+        "name": {
+          "ko": "디지",
+          "en": "Dizzy",
+          "ja": "ダイチャイ"
+        },
+        "difficulty": "EXPERT",
+        "length": 866,
+        "elevation": 238.7,
+        "avgAngle": 15.4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 12,
+        "name": {
+          "ko": "모글",
+          "en": "Mogul",
+          "ja": "マオガウル"
+        },
+        "difficulty": "EXPERT",
+        "length": 319,
+        "elevation": 109.85,
+        "avgAngle": 19,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 13,
+        "name": {
+          "ko": "파라다이스",
+          "en": "Paradise",
+          "ja": "ハアラアダアジャイサウ"
+        },
+        "difficulty": "EXPERT",
+        "length": 912,
+        "elevation": 255.5,
+        "avgAngle": 15.65,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 14,
+        "name": {
+          "ko": "익스트림파크(상단)",
+          "en": "Extreme Park (Upper)",
+          "ja": "ジャイクサウパウライムハアタウ(サアンダアン)"
+        },
+        "difficulty": "PARK",
+        "length": 765,
+        "elevation": 126,
+        "avgAngle": 9.35,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 15,
+        "name": {
+          "ko": "익스트림파크(하단)",
+          "en": "Extreme Park (Lower)",
+          "ja": "ジャイクサウパウライムハアタウ(ハアダアン)"
+        },
+        "difficulty": "PARK",
+        "length": 765,
+        "elevation": 126,
+        "avgAngle": 9.35,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 16,
+        "name": {
+          "ko": "하프파이프",
+          "en": "Halfpipe",
+          "ja": "ハアハウハアジャイハウ"
+        },
+        "difficulty": "PARK",
+        "length": 168,
+        "elevation": 50.56,
+        "avgAngle": 16.73,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "호크/스패로우",
+          "en": "Hawk/Sparrow",
+          "ja": "Hawk／Sparrow"
+        },
+        "type": "HLS",
+        "url": "https://streaming.phoenixhnr.co.kr/hls/yh_02_3.m3u8"
+      },
+      {
+        "name": {
+          "ko": "불새마루",
+          "en": "Bulsae Maru",
+          "ja": "Bulsae Maru"
+        },
+        "type": "HLS",
+        "url": "https://streaming.phoenixhnr.co.kr/hls/ht_01_01.m3u8"
+      },
+      {
+        "name": {
+          "ko": "펭귄",
+          "en": "Penguin",
+          "ja": "Penguin"
+        },
+        "type": "HLS",
+        "url": "https://streaming.phoenixhnr.co.kr/hls/bc_01.m3u8"
+      },
+      {
+        "name": {
+          "ko": "스노우 빌리지",
+          "en": "Snow Village",
+          "ja": "スノー ビレッジ"
+        },
+        "type": "HLS",
+        "url": "https://streaming.phoenixhnr.co.kr/hls/yh_01_2.m3u8"
+      },
+      {
+        "name": {
+          "ko": "도도",
+          "en": "Dodo",
+          "ja": "Dodo"
+        },
+        "type": "HLS",
+        "url": "https://streaming.phoenixhnr.co.kr/hls/sp_01.m3u8"
+      },
+      {
+        "name": {
+          "ko": "몽블랑 광장",
+          "en": "Montblanc Plaza",
+          "ja": "Montblanc 広場"
+        },
+        "type": "HLS",
+        "url": "https://streaming.phoenixhnr.co.kr/hls/mb_03.m3u8"
+      },
+      {
+        "name": {
+          "ko": "베이스",
+          "en": "Base",
+          "ja": "ベース"
+        },
+        "type": "HLS",
+        "url": "https://streaming.phoenixhnr.co.kr/hls/bc_02_1.m3u8"
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "용평",
+      "en": "Yongpyong",
+      "ja": "ヨンピョン"
+    },
+    "homepage": "https://www.yongpyong.co.kr/kor/skiNboard/introduce.do",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/5176038000/37.64575528879609/128.6805216545055/",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "골드",
+          "en": "Gold",
+          "ja": "ガオルダウ"
+        },
+        "length": 1689,
+        "seats": 6,
+        "capacity": 3200,
+        "connectedSlopeIds": [
+          5,
+          8,
+          9,
+          15
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "뉴골드",
+          "en": "New Gold",
+          "ja": "ナユガオルダウ"
+        },
+        "length": 720,
+        "seats": 4,
+        "capacity": 720,
+        "connectedSlopeIds": [
+          5,
+          15
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "브릿지",
+          "en": "Bridge",
+          "ja": "バウライスチャイ"
+        },
+        "length": 366,
+        "seats": 2,
+        "capacity": 900,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "레드",
+          "en": "Red",
+          "ja": "ラエダウ"
+        },
+        "length": 905,
+        "seats": 4,
+        "capacity": 2400,
+        "connectedSlopeIds": [
+          4,
+          10,
+          11,
+          13
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "뉴레드",
+          "en": "New Red",
+          "ja": "ナユラエダウ"
+        },
+        "length": 550,
+        "seats": 3,
+        "capacity": 1350,
+        "connectedSlopeIds": [
+          4,
+          10,
+          11,
+          13
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "블루",
+          "en": "Blue",
+          "ja": "バウルラウ"
+        },
+        "length": 600,
+        "seats": 2,
+        "capacity": 900,
+        "connectedSlopeIds": [
+          4,
+          10,
+          11,
+          13
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "핑크",
+          "en": "Pink",
+          "ja": "ハインタウ"
+        },
+        "length": 630,
+        "seats": 3,
+        "capacity": 1350,
+        "connectedSlopeIds": [
+          2
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "옐로우",
+          "en": "Yellow",
+          "ja": "ジャイェルラオジャウ"
+        },
+        "length": 496,
+        "seats": 4,
+        "capacity": 1800,
+        "connectedSlopeIds": [
+          0,
+          1,
+          2
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "뉴옐로우",
+          "en": "New Yellow",
+          "ja": "ナユジャイェルラオジャウ"
+        },
+        "length": 348,
+        "seats": 4,
+        "capacity": 1800,
+        "connectedSlopeIds": [
+          0,
+          1
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 9,
+        "name": {
+          "ko": "실버",
+          "en": "Silver",
+          "ja": "サイルバオ"
+        },
+        "length": 700,
+        "seats": 4,
+        "capacity": 1800,
+        "connectedSlopeIds": [
+          6,
+          14
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 10,
+        "name": {
+          "ko": "메가그린",
+          "en": "Mega Green",
+          "ja": "マエガアガウライン"
+        },
+        "length": 568,
+        "seats": 6,
+        "capacity": 3200,
+        "connectedSlopeIds": [
+          3
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 11,
+        "name": {
+          "ko": "그린",
+          "en": "Green",
+          "ja": "ガウライン"
+        },
+        "length": 598,
+        "seats": 4,
+        "capacity": 2400,
+        "connectedSlopeIds": [
+          3
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 12,
+        "name": {
+          "ko": "레인보우",
+          "en": "Rainbow",
+          "ja": "ラエジャインバオジャウ"
+        },
+        "length": 1421,
+        "seats": 4,
+        "capacity": 2400,
+        "connectedSlopeIds": [
+          7,
+          12,
+          16,
+          17,
+          18
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 13,
+        "name": {
+          "ko": "발왕산 관광케이블카",
+          "en": "Gondola",
+          "ja": "バアルジャワンサアン ガワンガワンタエジャイバウルタア"
+        },
+        "length": 3742,
+        "seats": 8,
+        "capacity": 1800,
+        "connectedSlopeIds": [
+          7,
+          12,
+          16,
+          17,
+          18
+        ],
+        "connectedLiftIds": []
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "옐로우",
+          "en": "Yellow",
+          "ja": "ジャイェルラオジャウ"
+        },
+        "difficulty": "BEGINNER",
+        "length": 600,
+        "elevation": 61,
+        "minAngle": 4,
+        "avgAngle": 6.8,
+        "maxAngle": 9.6,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "뉴옐로우",
+          "en": "New Yellow",
+          "ja": "ナユジャイェルラオジャウ"
+        },
+        "difficulty": "BEGINNER",
+        "length": 350,
+        "elevation": 60,
+        "minAngle": 4,
+        "avgAngle": 6.3,
+        "maxAngle": 9.6,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "핑크",
+          "en": "Pink",
+          "ja": "ハインタウ"
+        },
+        "difficulty": "BE_IN",
+        "length": 600,
+        "elevation": 91,
+        "minAngle": 5.1,
+        "avgAngle": 8,
+        "maxAngle": 13,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "메가그린",
+          "en": "Mega Green",
+          "ja": "マエガアガウライン"
+        },
+        "difficulty": "BE_IN",
+        "length": 1000,
+        "elevation": 108,
+        "minAngle": 6.8,
+        "avgAngle": 8.5,
+        "maxAngle": 15.6,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "레드파라다이스",
+          "en": "Red Paradise",
+          "ja": "ラエダウハアラアダアジャイサウ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1000,
+        "elevation": 150,
+        "minAngle": 7.4,
+        "avgAngle": 12.4,
+        "maxAngle": 20.3,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "골드파라다이스",
+          "en": "Gold Paradise",
+          "ja": "ガオルダウハアラアダアジャイサウ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1520,
+        "elevation": 222,
+        "minAngle": 4.6,
+        "avgAngle": 7.97,
+        "maxAngle": 11.9,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "실버파라다이스",
+          "en": "Silver Paradise",
+          "ja": "サイルバオハアラアダアジャイサウ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1460,
+        "elevation": 269,
+        "minAngle": 6.3,
+        "avgAngle": 10.2,
+        "maxAngle": 16.2,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "레인보우파라다이스",
+          "en": "Rainbow Paradise",
+          "ja": "ラエジャインバオジャウハアラアダアジャイサウ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 5600,
+        "elevation": 702,
+        "minAngle": 4,
+        "avgAngle": 7.4,
+        "maxAngle": 14.6,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "골드 환타스틱",
+          "en": "Gold Fantastic",
+          "ja": "ガオルダウ ハワンパアサウパイク"
+        },
+        "difficulty": "IN_AD",
+        "length": 1850,
+        "elevation": 333,
+        "minAngle": 2.9,
+        "avgAngle": 10.2,
+        "maxAngle": 18.3,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 9,
+        "name": {
+          "ko": "골드밸리",
+          "en": "Gold Valley",
+          "ja": "ガオルダウバアルライ"
+        },
+        "difficulty": "ADVANCED",
+        "length": 1850,
+        "elevation": 333,
+        "minAngle": 4,
+        "avgAngle": 11.3,
+        "maxAngle": 23.3,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 10,
+        "name": {
+          "ko": "뉴레드",
+          "en": "New Red",
+          "ja": "ナユラエダウ"
+        },
+        "difficulty": "ADVANCED",
+        "length": 500,
+        "elevation": 194,
+        "minAngle": 14,
+        "avgAngle": 19.8,
+        "maxAngle": 22.8,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 11,
+        "name": {
+          "ko": "블루",
+          "en": "Blue",
+          "ja": "バウルラウ"
+        },
+        "difficulty": "ADVANCED",
+        "length": 300,
+        "elevation": 80,
+        "minAngle": 6.3,
+        "avgAngle": 16.2,
+        "maxAngle": 19.8,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 12,
+        "name": {
+          "ko": "레인보우 4",
+          "en": "Rainbow 4",
+          "ja": "ラエジャインバオジャウ 4"
+        },
+        "difficulty": "ADVANCED",
+        "length": 635,
+        "elevation": 180,
+        "minAngle": 8.5,
+        "avgAngle": 15.6,
+        "maxAngle": 24.7,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 13,
+        "name": {
+          "ko": "레드",
+          "en": "Red",
+          "ja": "ラエダウ"
+        },
+        "difficulty": "EXPERT",
+        "length": 1000,
+        "elevation": 194,
+        "minAngle": 5.1,
+        "avgAngle": 11.9,
+        "maxAngle": 26.6,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 14,
+        "name": {
+          "ko": "실버",
+          "en": "Silver",
+          "ja": "サイルバオ"
+        },
+        "difficulty": "EXPERT",
+        "length": 1000,
+        "elevation": 263,
+        "minAngle": 4,
+        "avgAngle": 16.2,
+        "maxAngle": 26.1,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 15,
+        "name": {
+          "ko": "뉴골드",
+          "en": "New Gold",
+          "ja": "ナユガオルダウ"
+        },
+        "difficulty": "EXPERT",
+        "length": 650,
+        "elevation": 180,
+        "minAngle": 10.2,
+        "avgAngle": 17.2,
+        "maxAngle": 25.2,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 16,
+        "name": {
+          "ko": "레인보우 1",
+          "en": "Rainbow 1",
+          "ja": "ラエジャインバオジャウ 1"
+        },
+        "difficulty": "EXPERT",
+        "length": 1607,
+        "elevation": 500,
+        "minAngle": 8.5,
+        "avgAngle": 17.2,
+        "maxAngle": 29.7,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 17,
+        "name": {
+          "ko": "레인보우 2",
+          "en": "Rainbow 2",
+          "ja": "ラエジャインバオジャウ 2"
+        },
+        "difficulty": "EXPERT",
+        "length": 752,
+        "elevation": 500,
+        "minAngle": 8.5,
+        "avgAngle": 21.3,
+        "maxAngle": 29.2,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 18,
+        "name": {
+          "ko": "레인보우 3",
+          "en": "Rainbow 3",
+          "ja": "ラエジャインバオジャウ 3"
+        },
+        "difficulty": "EXPERT",
+        "length": 1046,
+        "elevation": 500,
+        "minAngle": 8.5,
+        "avgAngle": 18.3,
+        "maxAngle": 26.1,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 19,
+        "name": {
+          "ko": "드래곤파크",
+          "en": "Dragon Park",
+          "ja": "ダウラアガオンハアタウ"
+        },
+        "difficulty": "PARK",
+        "length": 1046,
+        "elevation": 500,
+        "minAngle": 8.5,
+        "avgAngle": 18.3,
+        "maxAngle": 26.1,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "옐로우",
+          "en": "Yellow",
+          "ja": "イエロー"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam03.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "핑크",
+          "en": "Pink",
+          "ja": "ピンク"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam07.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "베이스 전경 / 레드 슬로프",
+          "en": "Base Overview / Red Slope",
+          "ja": "ベース全景 ／ レッド コース"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam10.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "메가그린",
+          "en": "Mega Green",
+          "ja": "メガ グリーン"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam01.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "골드 베이스",
+          "en": "Gold Base",
+          "ja": "ゴールド ベース"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam06.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "골드 정상",
+          "en": "Gold Peak",
+          "ja": "ゴールド 山頂"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam04.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "레인보우 베이스",
+          "en": "Rainbow Base",
+          "ja": "レインボー ベース"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam08.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "레인보우 정상",
+          "en": "Rainbow Peak",
+          "ja": "レインボー 山頂"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam14.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "레인보우 파라다이스 초입",
+          "en": "Rainbow Paradise Entrance",
+          "ja": "レインボー パラダイス 入口"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam09.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "발왕산 숲길",
+          "en": "Balwangsan Forest Path",
+          "ja": "バルワンサン フォレスト パス"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam15.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "용평 진입로",
+          "en": "Yongpyong Entrance",
+          "ja": "ヨンピョン 入口"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam05.stream/playlist.m3u8"
+      },
+      {
+        "name": {
+          "ko": "워터파크",
+          "en": "Water Park",
+          "ja": "Water パーク"
+        },
+        "type": "HLS",
+        "url": "https://live.yongpyong.co.kr/Ycam1/cam11.stream/playlist.m3u8"
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "알펜시아",
+      "en": "Alpensia",
+      "ja": "アルペンシア"
+    },
+    "homepage": "https://www.alpensia.com/main.do",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/5176038000/37.656374437920505/128.6733956273516",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "리프트 1",
+          "en": "Lift 1",
+          "ja": "ライハウパウ 1"
+        },
+        "length": 541,
+        "seats": 4,
+        "cabinNum": 45,
+        "speed": 5,
+        "capacity": 2400,
+        "connectedSlopeIds": [
+          0
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "리프트 2",
+          "en": "Lift 2",
+          "ja": "ライハウパウ 2"
+        },
+        "length": 664,
+        "seats": 6,
+        "cabinNum": 43,
+        "speed": 5,
+        "capacity": 3085,
+        "connectedSlopeIds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "리프트 3",
+          "en": "Lift 3",
+          "ja": "ライハウパウ 3"
+        },
+        "length": 651,
+        "seats": 6,
+        "cabinNum": 44,
+        "speed": 5,
+        "capacity": 3085,
+        "connectedSlopeIds": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "connectedLiftIds": []
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "알파",
+          "en": "Alpha",
+          "ja": "ジャアルハア"
+        },
+        "difficulty": "BEGINNER",
+        "length": 648,
+        "area": 32481,
+        "elevation": 78,
+        "avgAngle": 3.9471525884133127,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [
+          0
+        ]
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "브라보",
+          "en": "Bravo",
+          "ja": "バウラアバオ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1351,
+        "area": 49115,
+        "elevation": 194,
+        "avgAngle": 4.915342887157992,
+        "connectedSlopeIds": [
+          0
+        ],
+        "connectedLiftIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "찰리",
+          "en": "Charlie",
+          "ja": "カアルライ"
+        },
+        "difficulty": "EXPERT",
+        "length": 374,
+        "area": 13794,
+        "elevation": 194,
+        "avgAngle": 11.914643827788685,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "델타",
+          "en": "Delta",
+          "ja": "ダエルパア"
+        },
+        "difficulty": "ADVANCED",
+        "length": 634,
+        "area": 12990,
+        "elevation": 170,
+        "avgAngle": 9.369385096487484,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "에코",
+          "en": "Echo",
+          "ja": "ジャエタオ"
+        },
+        "difficulty": "ADVANCED",
+        "length": 762,
+        "area": 43110,
+        "elevation": 194,
+        "avgAngle": 9.034402602139247,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [
+          1,
+          2
+        ]
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "폭스트롯",
+          "en": "Foxtrot",
+          "ja": "ハオクサウパウラオス"
+        },
+        "difficulty": "EXPERT",
+        "length": 826,
+        "area": 26158,
+        "elevation": 194,
+        "avgAngle": 8.194263334630211,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [
+          1,
+          2
+        ]
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "현장웹캠",
+          "en": "Webcam",
+          "ja": "Webcam"
+        },
+        "type": "IFrame",
+        "url": "https://www.youtube.com/embed/482p_sVR2sA"
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "하이원",
+      "en": "High1",
+      "ja": "ハイワン"
+    },
+    "homepage": "https://www.high1.com/ski/index.do",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/5177025300/37.20814465709975/128.82597024482814/",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "주피터",
+          "en": "Jupiter",
+          "ja": "チャウハイパオ"
+        },
+        "length": 950,
+        "seats": 6,
+        "speed": 5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 240
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "제우스",
+          "en": "Zeus",
+          "ja": "チャエジャウサウ"
+        },
+        "length": 1912,
+        "seats": 6,
+        "speed": 5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 420
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "빅토리아",
+          "en": "Victoria",
+          "ja": "バイクパオライジャア"
+        },
+        "length": 1323,
+        "seats": 4,
+        "speed": 5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 300
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "헤라",
+          "en": "Hera",
+          "ja": "ハエラア"
+        },
+        "length": 1221,
+        "seats": 6,
+        "speed": 5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 300
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "아폴로",
+          "en": "Apollo",
+          "ja": "ジャアハオルラオ"
+        },
+        "length": 1232,
+        "seats": 4,
+        "speed": 5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 360
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "아테나",
+          "en": "Athena",
+          "ja": "ジャアパエナア"
+        },
+        "length": 1547,
+        "seats": 6,
+        "speed": 5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 360
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "밸리",
+          "en": "Valley",
+          "ja": "バアルライ"
+        },
+        "length": 1243,
+        "seats": 8,
+        "speed": 5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 360
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "마운틴",
+          "en": "Mountain",
+          "ja": "マアジャウンパイン"
+        },
+        "length": 2832,
+        "seats": 8,
+        "speed": 5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 720
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "팰리스",
+          "en": "Palace",
+          "ja": "ハアルライサウ"
+        },
+        "length": 2523,
+        "seats": 8,
+        "speed": 5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 600
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "제우스 1",
+          "en": "Zeus 1",
+          "ja": "チャエジャウサウ 1"
+        },
+        "difficulty": "BEGINNER",
+        "length": 2328,
+        "width": 41.3,
+        "elevation": 370,
+        "avgAngle": 9.48,
+        "maxAngle": 13.6,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "제우스 2",
+          "en": "Zeus 2",
+          "ja": "チャエジャウサウ 2"
+        },
+        "difficulty": "BEGINNER",
+        "length": 2198,
+        "width": 19.9,
+        "elevation": 95.61,
+        "avgAngle": 7.49,
+        "maxAngle": 13.5,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "제우스 3",
+          "en": "Zeus 3",
+          "ja": "チャエジャウサウ 3"
+        },
+        "difficulty": "BEGINNER",
+        "length": 1835,
+        "width": 71.2,
+        "elevation": 273,
+        "avgAngle": 8.73,
+        "maxAngle": 13.8,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "제우스 3-1",
+          "en": "Zeus 3-1",
+          "ja": "チャエジャウサウ 3-1"
+        },
+        "difficulty": "BEGINNER",
+        "length": 1023,
+        "width": 71.2,
+        "elevation": 121,
+        "avgAngle": 6.8,
+        "maxAngle": 10.8,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "빅토리아 1",
+          "en": "Victoria 1",
+          "ja": "バイクパオライジャア 1"
+        },
+        "difficulty": "ADVANCED",
+        "length": 1439,
+        "width": 49.1,
+        "elevation": 379,
+        "avgAngle": 15.58,
+        "maxAngle": 27.7,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "빅토리아 2",
+          "en": "Victoria 2",
+          "ja": "バイクパオライジャア 2"
+        },
+        "difficulty": "ADVANCED",
+        "length": 1382,
+        "width": 36.1,
+        "elevation": 269,
+        "avgAngle": 18.72,
+        "maxAngle": 25.8,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "빅토리아 3",
+          "en": "Victoria 3",
+          "ja": "バイクパオライジャア 3"
+        },
+        "difficulty": "EXPERT",
+        "length": 1311,
+        "width": 34.1,
+        "elevation": 376,
+        "avgAngle": 17.01,
+        "maxAngle": 35.4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "헤라 1",
+          "en": "Hera 1",
+          "ja": "ハエラア 1"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1508,
+        "width": 39.4,
+        "elevation": 197.03,
+        "avgAngle": 14.86,
+        "maxAngle": 21.8,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "헤라 2",
+          "en": "Hera 2",
+          "ja": "ハエラア 2"
+        },
+        "difficulty": "IN_AD",
+        "length": 1301,
+        "width": 38.8,
+        "elevation": 294.73,
+        "avgAngle": 17.4,
+        "maxAngle": 24.2,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 9,
+        "name": {
+          "ko": "헤라 3",
+          "en": "Hera 3",
+          "ja": "ハエラア 3"
+        },
+        "difficulty": "ADVANCED",
+        "length": 1278,
+        "width": 36.6,
+        "elevation": 262.12,
+        "avgAngle": 19.75,
+        "maxAngle": 25.8,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 10,
+        "name": {
+          "ko": "아폴로 1",
+          "en": "Apollo 1",
+          "ja": "ジャアハオルラオ 1"
+        },
+        "difficulty": "ADVANCED",
+        "length": 1506,
+        "width": 35,
+        "elevation": 349.48,
+        "avgAngle": 11.35,
+        "maxAngle": 25.4,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 11,
+        "name": {
+          "ko": "아폴로 2",
+          "en": "Apollo 2",
+          "ja": "ジャアハオルラオ 2"
+        },
+        "difficulty": "ADVANCED",
+        "length": 863,
+        "width": 33.1,
+        "elevation": 161,
+        "avgAngle": 20.32,
+        "maxAngle": 24.2,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 12,
+        "name": {
+          "ko": "아폴로 3",
+          "en": "Apollo 3",
+          "ja": "ジャアハオルラオ 3"
+        },
+        "difficulty": "ADVANCED",
+        "length": 754,
+        "width": 33.7,
+        "elevation": 121.39,
+        "avgAngle": 15.85,
+        "maxAngle": 26.3,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 13,
+        "name": {
+          "ko": "아폴로 4",
+          "en": "Apollo 4",
+          "ja": "ジャアハオルラオ 4"
+        },
+        "difficulty": "ADVANCED",
+        "length": 1569,
+        "width": 54.7,
+        "elevation": 409.63,
+        "avgAngle": 15.45,
+        "maxAngle": 24.2,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 14,
+        "name": {
+          "ko": "아폴로 5",
+          "en": "Apollo 5",
+          "ja": "ジャアハオルラオ 5"
+        },
+        "difficulty": "EXPERT",
+        "length": 1239,
+        "width": 40.8,
+        "elevation": 266.33,
+        "avgAngle": 22.13,
+        "maxAngle": 33,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 15,
+        "name": {
+          "ko": "아폴로 6",
+          "en": "Apollo 6",
+          "ja": "ジャアハオルラオ 6"
+        },
+        "difficulty": "ADVANCED",
+        "length": 1543,
+        "width": 44.3,
+        "elevation": 193.37,
+        "avgAngle": 18.03,
+        "maxAngle": 24.3,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 16,
+        "name": {
+          "ko": "아테나 2",
+          "en": "Athena 2",
+          "ja": "ジャアパエナア 2"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1666,
+        "width": 42,
+        "elevation": 312,
+        "avgAngle": 10.7,
+        "maxAngle": 15.2,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 17,
+        "name": {
+          "ko": "아테나 3",
+          "en": "Athena 3",
+          "ja": "ジャアパエナア 3"
+        },
+        "difficulty": "BEGINNER",
+        "length": 1862,
+        "width": 19.2,
+        "elevation": 228.3,
+        "avgAngle": 7.28,
+        "maxAngle": 11.3,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 18,
+        "name": {
+          "ko": "아테나 3-1",
+          "en": "Athena 3-1",
+          "ja": "ジャアパエナア 3-1"
+        },
+        "difficulty": "BEGINNER",
+        "length": 1162,
+        "width": 19.2,
+        "elevation": 138.3,
+        "avgAngle": 6.8,
+        "maxAngle": 10,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "제우스2 입구",
+          "en": "Zeus 2 Entrance",
+          "ja": "ゼウス 2 入口"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=1"
+      },
+      {
+        "name": {
+          "ko": "헤라2 입구",
+          "en": "Hera 2 Entrance",
+          "ja": "ヘラ 2 入口"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=2"
+      },
+      {
+        "name": {
+          "ko": "하이원 탑",
+          "en": "High1 Top",
+          "ja": "ハイワン 山頂"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=3"
+      },
+      {
+        "name": {
+          "ko": "아테나1",
+          "en": "Athena 1",
+          "ja": "アテナ 1"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=4"
+      },
+      {
+        "name": {
+          "ko": "마운틴 허브",
+          "en": "Mountain Hub",
+          "ja": "マウンテン ハブ"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=5"
+      },
+      {
+        "name": {
+          "ko": "아테나2",
+          "en": "Athena 2",
+          "ja": "アテナ 2"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=6"
+      },
+      {
+        "name": {
+          "ko": "마운틴 베이스",
+          "en": "Mountain Base",
+          "ja": "マウンテン ベース"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=7"
+      },
+      {
+        "name": {
+          "ko": "아테나2 하단",
+          "en": "Athena 2 Bottom",
+          "ja": "アテナ 2 下部"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=8"
+      },
+      {
+        "name": {
+          "ko": "빅토리아 상단",
+          "en": "Victoria Top",
+          "ja": "ビクトリア 山頂"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=9"
+      },
+      {
+        "name": {
+          "ko": "제우스2",
+          "en": "Zeus 2",
+          "ja": "ゼウス 2"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=10"
+      },
+      {
+        "name": {
+          "ko": "밸리 허브",
+          "en": "Valley Hub",
+          "ja": "バレー ハブ"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=11"
+      },
+      {
+        "name": {
+          "ko": "빅토리아1",
+          "en": "Victoria 1",
+          "ja": "ビクトリア 1"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=12"
+      },
+      {
+        "name": {
+          "ko": "제우스3",
+          "en": "Zeus 3",
+          "ja": "ゼウス 3"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=13"
+      },
+      {
+        "name": {
+          "ko": "제우스3 중단부",
+          "en": "Zeus 3 Middle",
+          "ja": "ゼウス 3 中腹"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=14"
+      },
+      {
+        "name": {
+          "ko": "아폴로4 중단부",
+          "en": "Apollo 4 Middle",
+          "ja": "アポロ 4 中腹"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=15"
+      },
+      {
+        "name": {
+          "ko": "아폴로 베이스",
+          "en": "Apollo Base",
+          "ja": "アポロ ベース"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=16"
+      },
+      {
+        "name": {
+          "ko": "제우스3 하단",
+          "en": "Zeus 3 Bottom",
+          "ja": "ゼウス 3 下部"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=17"
+      },
+      {
+        "name": {
+          "ko": "밸리 베이스",
+          "en": "Valley Base",
+          "ja": "バレー ベース"
+        },
+        "type": "External",
+        "url": "http://www.high1.com/webcam/pop_webcam.do?ch=18"
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "오투",
+      "en": "O2",
+      "ja": "オーツー"
+    },
+    "homepage": "https://www.o2resort.com/main.xhtml",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/5119053500/37.176269951563/128.940538490386/",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "애플",
+          "en": "Apple",
+          "ja": "ジャアハウル"
+        },
+        "length": 615,
+        "seats": 4,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 220
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "체리",
+          "en": "Cherry",
+          "ja": "カエライ"
+        },
+        "length": 1030,
+        "seats": 6,
+        "capacity": 3085,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 360
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "오렌지",
+          "en": "Orange",
+          "ja": "ジャオラエンチャイ"
+        },
+        "length": 526,
+        "seats": 8,
+        "capacity": 3600,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 180
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "토마토",
+          "en": "Tomato",
+          "ja": "パオマアパオ"
+        },
+        "length": 865,
+        "seats": 6,
+        "capacity": 3085,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 300
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "스위트셔틀",
+          "en": "Sweet Shuttle",
+          "ja": "サウジャウィパウサヨパウル"
+        },
+        "length": 2161,
+        "seats": 8,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [],
+        "rideTime": 630
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "드림1",
+          "en": "DREAM1",
+          "ja": "ダウライム1"
+        },
+        "difficulty": "BEGINNER",
+        "length": 556,
+        "width": 92,
+        "elevation": 51,
+        "avgAngle": 5.142764557884242,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "드림2",
+          "en": "DREAM2",
+          "ja": "ダウライム2"
+        },
+        "difficulty": "BEGINNER",
+        "length": 963,
+        "width": 48,
+        "elevation": 112,
+        "avgAngle": 6.84277341263094,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "헤드",
+          "en": "HEAD",
+          "ja": "ハエダウ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1155,
+        "width": 33,
+        "elevation": 178,
+        "avgAngle": 8.530765609948133,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "해피",
+          "en": "HAPPY",
+          "ja": "ハアハイ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 2144,
+        "width": 31,
+        "elevation": 388,
+        "avgAngle": 10.203973721731684,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "글로리1",
+          "en": "GLORY1",
+          "ja": "ガウルラオライ1"
+        },
+        "difficulty": "ADVANCED",
+        "length": 561,
+        "width": 33,
+        "elevation": 172,
+        "avgAngle": 17.223436191131462,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "글로리2",
+          "en": "GLORY2",
+          "ja": "ガウルラオライ2"
+        },
+        "difficulty": "ADVANCED",
+        "length": 628,
+        "width": 83,
+        "elevation": 172,
+        "avgAngle": 15.109575122340466,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "글로리3",
+          "en": "GLORY3",
+          "ja": "ガウルラオライ3"
+        },
+        "difficulty": "ADVANCED",
+        "length": 3256,
+        "width": 39,
+        "elevation": 526,
+        "avgAngle": 10.757967088390005,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "패션1",
+          "en": "PASSION1",
+          "ja": "ハアサヨン1"
+        },
+        "difficulty": "EXPERT",
+        "length": 1057,
+        "width": 37,
+        "elevation": 380,
+        "avgAngle": 19.79887635452493,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "패션2",
+          "en": "PASSION2",
+          "ja": "ハアサヨン2"
+        },
+        "difficulty": "EXPERT",
+        "length": 735,
+        "width": 37,
+        "elevation": 234,
+        "avgAngle": 17.744671625056935,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 9,
+        "name": {
+          "ko": "첼린지1",
+          "en": "CHALLENGE1",
+          "ja": "カエルラインチャイ1"
+        },
+        "difficulty": "EXPERT",
+        "length": 582,
+        "width": 41,
+        "elevation": 225,
+        "avgAngle": 17.744671625056935,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 10,
+        "name": {
+          "ko": "첼린지2",
+          "en": "CHALLENGE2",
+          "ja": "カエルラインチャイ2"
+        },
+        "difficulty": "EXPERT",
+        "length": 807,
+        "width": 39,
+        "elevation": 369,
+        "avgAngle": 22.293629159694078,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 11,
+        "name": {
+          "ko": "첼린지3",
+          "en": "CHALLENGE3",
+          "ja": "カエルラインチャイ3"
+        },
+        "difficulty": "EXPERT",
+        "length": 753,
+        "width": 51,
+        "elevation": 37,
+        "avgAngle": 21.801409486351815,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 12,
+        "name": {
+          "ko": "하프파이프",
+          "en": "Halfpipe",
+          "ja": "ハアハウハアジャイハウ"
+        },
+        "difficulty": "PARK",
+        "length": 345,
+        "width": 24,
+        "elevation": 82,
+        "avgAngle": 13.495733280795813,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "스키하우스",
+          "en": "Ski House",
+          "ja": "Ski ハウス"
+        },
+        "type": "External",
+        "url": "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=0"
+      },
+      {
+        "name": {
+          "ko": "드림1",
+          "en": "Dream 1",
+          "ja": "Dream 1"
+        },
+        "type": "External",
+        "url": "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=1"
+      },
+      {
+        "name": {
+          "ko": "버금마루",
+          "en": "Beogeum Maru",
+          "ja": "Beogeum Maru"
+        },
+        "type": "External",
+        "url": "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=2"
+      },
+      {
+        "name": {
+          "ko": "으뜸마루",
+          "en": "Eutteum Maru",
+          "ja": "Eutteum Maru"
+        },
+        "type": "External",
+        "url": "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=3"
+      },
+      {
+        "name": {
+          "ko": "글로리1",
+          "en": "Glory 1",
+          "ja": "Glory 1"
+        },
+        "type": "External",
+        "url": "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=4"
+      },
+      {
+        "name": {
+          "ko": "해피",
+          "en": "Happy",
+          "ja": "Happy"
+        },
+        "type": "External",
+        "url": "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=5"
+      },
+      {
+        "name": {
+          "ko": "드림2",
+          "en": "Dream 2",
+          "ja": "Dream 2"
+        },
+        "type": "External",
+        "url": "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=6"
+      },
+      {
+        "name": {
+          "ko": "글로리3",
+          "en": "Glory 3",
+          "ja": "Glory 3"
+        },
+        "type": "External",
+        "url": "http://118.46.149.144:8080/streaming/streamhls2.jsp?ch=7"
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "무주",
+      "en": "Muju",
+      "ja": "ムジュ"
+    },
+    "homepage": "https://mdysresort.com/",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/5273034000/35.88956946780578/127.73198583536177/",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "보트",
+          "en": "Boat",
+          "ja": "バオパウ"
+        },
+        "length": 360,
+        "seats": 2,
+        "cabinNum": 51,
+        "speed": 1.8,
+        "capacity": 900,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "요트",
+          "en": "Yacht",
+          "ja": "ジャヨパウ"
+        },
+        "length": 685,
+        "seats": 4,
+        "cabinNum": 85,
+        "speed": 2,
+        "capacity": 1800,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "크루저",
+          "en": "Cruiser",
+          "ja": "タウラウチャオ"
+        },
+        "length": 1090,
+        "seats": 4,
+        "cabinNum": 136,
+        "speed": 2,
+        "capacity": 1800,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "무주 익스프레스",
+          "en": "Muju Express",
+          "ja": "マウチャウ ジャイクサウハウラエサウ"
+        },
+        "length": 1548,
+        "seats": 4,
+        "cabinNum": 108,
+        "speed": 5,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "라이너",
+          "en": "Liner",
+          "ja": "ラアジャイナオ"
+        },
+        "length": 995,
+        "seats": 4,
+        "cabinNum": 70,
+        "speed": 5,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "카누",
+          "en": "Canoe",
+          "ja": "タアナウ"
+        },
+        "length": 595,
+        "seats": 4,
+        "cabinNum": 75,
+        "speed": 1.8,
+        "capacity": 1800,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "곤도라",
+          "en": "Gondola",
+          "ja": "ガオンダオラア"
+        },
+        "length": 2659,
+        "seats": 8,
+        "cabinNum": 103,
+        "speed": 5,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "코러스",
+          "en": "Chorus",
+          "ja": "タオラオサウ"
+        },
+        "length": 1588,
+        "seats": 4,
+        "cabinNum": 110,
+        "speed": 5,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "하모니",
+          "en": "Harmony",
+          "ja": "ハアマオナイ"
+        },
+        "length": 1512,
+        "seats": 6,
+        "cabinNum": 83,
+        "speed": 4.2,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 9,
+        "name": {
+          "ko": "멜로디",
+          "en": "Melody",
+          "ja": "マエルラオダイ"
+        },
+        "length": 1086,
+        "seats": 4,
+        "cabinNum": 76,
+        "speed": 5,
+        "capacity": 2400,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 10,
+        "name": {
+          "ko": "점프",
+          "en": "Jump",
+          "ja": "チャオムハウ"
+        },
+        "length": 293,
+        "seats": 2,
+        "cabinNum": 37,
+        "speed": 2,
+        "capacity": 900,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 11,
+        "name": {
+          "ko": "쌍쌍",
+          "en": "Ssangssang",
+          "ja": "サアンサアン"
+        },
+        "length": 750,
+        "seats": 6,
+        "cabinNum": 51,
+        "speed": 5,
+        "capacity": 3200,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 12,
+        "name": {
+          "ko": "스쿨버스",
+          "en": "School Bus",
+          "ja": "サウタウルバオサウ"
+        },
+        "length": 286,
+        "seats": 2,
+        "cabinNum": 41,
+        "speed": 1.5,
+        "capacity": 750,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 13,
+        "name": {
+          "ko": "에코",
+          "en": "Echo",
+          "ja": "ジャエタオ"
+        },
+        "length": 712,
+        "seats": 6,
+        "cabinNum": 45,
+        "speed": 5,
+        "capacity": 3200,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "서역기행",
+          "en": "Soyokgihang",
+          "ja": "サオジャヨクガイハアン"
+        },
+        "difficulty": "BEGINNER",
+        "length": 3413,
+        "area": 70720,
+        "elevation": 332,
+        "minAngle": 2.29061004263853,
+        "avgAngle": 7.800958299396296,
+        "maxAngle": 13.549896256714597,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "이스턴",
+          "en": "Eastern",
+          "ja": "ジャイサウパオン"
+        },
+        "difficulty": "BEGINNER",
+        "length": 374,
+        "area": 16870,
+        "elevation": 63,
+        "minAngle": 5.710593137499643,
+        "avgAngle": 10.148466405860853,
+        "maxAngle": 15.376251248826192,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "루키힐",
+          "en": "Rookie Hill",
+          "ja": "ラウタイハイル"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 721,
+        "area": 33040,
+        "elevation": 150,
+        "minAngle": 9.090276920822323,
+        "avgAngle": 12.024306669779088,
+        "maxAngle": 16.17215901578255,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "웨스턴",
+          "en": "Western",
+          "ja": "ジャウェサウパオン"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 305,
+        "area": 4790,
+        "elevation": 50,
+        "minAngle": 5.710593137499643,
+        "avgAngle": 9.480903617950828,
+        "maxAngle": 14.036243467926479,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "터보",
+          "en": "Turbo",
+          "ja": "パオバオ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1430,
+        "area": 47910,
+        "elevation": 265,
+        "minAngle": 1.7756005265572732,
+        "avgAngle": 10.64732771037781,
+        "maxAngle": 17.744671625056935,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "썬다운",
+          "en": "Sun Down",
+          "ja": "サオンダアジャウン"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 577,
+        "area": 45040,
+        "elevation": 74,
+        "minAngle": 12.952764513375518,
+        "avgAngle": 15.429505048448918,
+        "maxAngle": 25.173524524530166,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "프리웨이",
+          "en": "Freeway",
+          "ja": "ハウライジャウェジャイ"
+        },
+        "difficulty": "ADVANCED",
+        "length": 879,
+        "area": 38032,
+        "elevation": 199,
+        "minAngle": 5.313224638415126,
+        "avgAngle": 13.007169726685293,
+        "maxAngle": 19.29004621918873,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 7,
+        "name": {
+          "ko": "파노라마",
+          "en": "Panorama",
+          "ja": "ハアナオラアマア"
+        },
+        "difficulty": "ADVANCED",
+        "length": 737,
+        "area": 23570,
+        "elevation": 178,
+        "minAngle": 9.759381267669877,
+        "avgAngle": 13.874353304408048,
+        "maxAngle": 31.79891282429442,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 8,
+        "name": {
+          "ko": "레이더스 하단",
+          "en": "Raiders Lower Zone",
+          "ja": "ラエジャイダオサウ ハアダアン"
+        },
+        "difficulty": "ADVANCED",
+        "length": 473,
+        "area": 18369,
+        "elevation": 85,
+        "minAngle": 14.036243467926479,
+        "avgAngle": 17.066486212035144,
+        "maxAngle": 19.90025599873023,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 9,
+        "name": {
+          "ko": "야마가",
+          "en": "Yamaga",
+          "ja": "ジャヤマアガア"
+        },
+        "difficulty": "ADVANCED",
+        "length": 1039,
+        "area": 42730,
+        "elevation": 267,
+        "minAngle": 8.530765609948133,
+        "avgAngle": 14.788677614165174,
+        "maxAngle": 26.565051177077986,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 10,
+        "name": {
+          "ko": "레이더스 상단",
+          "en": "Raiders Higher Zone",
+          "ja": "ラエジャイダオサウ サアンダアン"
+        },
+        "difficulty": "EXPERT",
+        "length": 480,
+        "area": 21360,
+        "elevation": 250,
+        "minAngle": 15.642246457208728,
+        "avgAngle": 21.30578361782877,
+        "maxAngle": 37.234833981574674,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 11,
+        "name": {
+          "ko": "스피츠 하단",
+          "en": "Spitz Lower Zone",
+          "ja": "サウハイカウ ハアダアン"
+        },
+        "difficulty": "BEGINNER",
+        "length": 720,
+        "area": 48000,
+        "elevation": 128,
+        "minAngle": 2.862405226111748,
+        "avgAngle": 10.037394094426105,
+        "maxAngle": 11.309932474020215,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 12,
+        "name": {
+          "ko": "실크로드 하단",
+          "en": "Silk Road Lower Zone",
+          "ja": "サイルタウラオダウ ハアダアン"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1714,
+        "area": 95194,
+        "elevation": 302,
+        "minAngle": 5.710593137499643,
+        "avgAngle": 10.148466405860853,
+        "maxAngle": 15.376251248826192,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 13,
+        "name": {
+          "ko": "실크로드 상단",
+          "en": "Silk Road Upper",
+          "ja": "サイルタウラオダウ サアンダアン"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 4386,
+        "area": 103178,
+        "elevation": 473,
+        "minAngle": 3.718993973158043,
+        "avgAngle": 8.306495184679916,
+        "maxAngle": 14.842227057911101,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 14,
+        "name": {
+          "ko": "커넥션",
+          "en": "Connection",
+          "ja": "タオナエクサヨン"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1078,
+        "area": 72278,
+        "elevation": 156.7,
+        "minAngle": 2.862405226111748,
+        "avgAngle": 11.804892339786432,
+        "maxAngle": 15.642246457208728,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 15,
+        "name": {
+          "ko": "미뉴에트",
+          "en": "Minuet",
+          "ja": "マイナユジャエパウ"
+        },
+        "difficulty": "ADVANCED",
+        "length": 1339,
+        "area": 75729,
+        "elevation": 398,
+        "minAngle": 11.309932474020215,
+        "avgAngle": 17.014110708074398,
+        "maxAngle": 28.810793742973065,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 16,
+        "name": {
+          "ko": "모차르트",
+          "en": "Mozart",
+          "ja": "マオカアラウパウ"
+        },
+        "difficulty": "EXPERT",
+        "length": 520,
+        "area": 18200,
+        "elevation": 90,
+        "minAngle": 14.842227057911101,
+        "avgAngle": 21.40517943011853,
+        "maxAngle": 26.565051177077986,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 17,
+        "name": {
+          "ko": "알레그로",
+          "en": "Allegro",
+          "ja": "ジャアルラエガウラオ"
+        },
+        "difficulty": "EXPERT",
+        "length": 467,
+        "area": 14286,
+        "elevation": 171,
+        "minAngle": 15.642246457208728,
+        "avgAngle": 20.806791012711226,
+        "maxAngle": 27.02158159117704,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 18,
+        "name": {
+          "ko": "왈츠",
+          "en": "Waltz",
+          "ja": "ジャワルカウ"
+        },
+        "difficulty": "EXPERT",
+        "length": 111,
+        "area": 1182,
+        "elevation": 14,
+        "minAngle": 2.5765718302688305,
+        "avgAngle": 7.237817048767123,
+        "maxAngle": 7.96961039432136,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 19,
+        "name": {
+          "ko": "카덴자",
+          "en": "Cadenza",
+          "ja": "タアダエンチャア"
+        },
+        "difficulty": "EXPERT",
+        "length": 252,
+        "area": 4085,
+        "elevation": 72,
+        "minAngle": 13.33309714718511,
+        "avgAngle": 16.383336134869744,
+        "maxAngle": 30.963756532073525,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 20,
+        "name": {
+          "ko": "폴카",
+          "en": "Polka",
+          "ja": "ハオルタア"
+        },
+        "difficulty": "EXPERT",
+        "length": 428,
+        "area": 24899,
+        "elevation": 158,
+        "minAngle": 12.680383491819821,
+        "avgAngle": 20.956839850450837,
+        "maxAngle": 26.565051177077986,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "설천봉 정상",
+          "en": "Seolcheon Peak",
+          "ja": "Seolcheon 山頂"
+        },
+        "type": "External",
+        "url": "http://www.mdysresort.com/guide/webcam_popup_jh.asp?cam_num=07"
+      },
+      {
+        "name": {
+          "ko": "설천상단슬로프",
+          "en": "Seolcheon Top Slope",
+          "ja": "Seolcheon 山頂 コース"
+        },
+        "type": "External",
+        "url": "http://www.mdysresort.com/guide/webcam_popup_jh.asp?cam_num=06"
+      },
+      {
+        "name": {
+          "ko": "모차르트, 미뉴에트",
+          "en": "Mozart, Minuet",
+          "ja": "Mozart, Minuet"
+        },
+        "type": "External",
+        "url": "http://www.mdysresort.com/guide/webcam_popup_jh.asp?cam_num=08"
+      },
+      {
+        "name": {
+          "ko": "폴카",
+          "en": "Polka",
+          "ja": "Polka"
+        },
+        "type": "External",
+        "url": "http://www.mdysresort.com/guide/webcam_popup_jh.asp?cam_num=09"
+      },
+      {
+        "name": {
+          "ko": "실크로드, 미뉴에트 하단",
+          "en": "Silk Road, Minuet Bottom",
+          "ja": "Silk ロード, Minuet 下部"
+        },
+        "type": "External",
+        "url": "http://www.mdysresort.com/guide/webcam_popup_jh.asp?cam_num=10"
+      },
+      {
+        "name": {
+          "ko": "만선봉 정상",
+          "en": "Manseon Peak",
+          "ja": "Manseon 山頂"
+        },
+        "type": "External",
+        "url": "http://www.mdysresort.com/guide/webcam_popup_jh.asp?cam_num=02"
+      },
+      {
+        "name": {
+          "ko": "하이디하우스",
+          "en": "Heidi House",
+          "ja": "Heidi ハウス"
+        },
+        "type": "External",
+        "url": "http://www.mdysresort.com/guide/webcam_popup_jh.asp?cam_num=03"
+      },
+      {
+        "name": {
+          "ko": "서역기행, 썬다운",
+          "en": "Seoyeok Journey, Sundown",
+          "ja": "Seoyeok Journey, Sundown"
+        },
+        "type": "External",
+        "url": "http://www.mdysresort.com/guide/webcam_popup_jh.asp?cam_num=04"
+      },
+      {
+        "name": {
+          "ko": "커넥션",
+          "en": "Connection",
+          "ja": "Connection"
+        },
+        "type": "External",
+        "url": "http://www.mdysresort.com/guide/webcam_popup_jh.asp?cam_num=11"
+      },
+      {
+        "name": {
+          "ko": "설천하우스",
+          "en": "Seolcheon House",
+          "ja": "Seolcheon ハウス"
+        },
+        "type": "External",
+        "url": "http://www.mdysresort.com/guide/webcam_popup_jh.asp?cam_num=05"
+      },
+      {
+        "name": {
+          "ko": "만선하우스",
+          "en": "Manseon House",
+          "ja": "Manseon ハウス"
+        },
+        "type": "External",
+        "url": "http://www.mdysresort.com/guide/webcam_popup_jh.asp?cam_num=01"
+      }
+    ]
+  },
+  {
+    "name": {
+      "ko": "에덴밸리",
+      "en": "Eden Valley",
+      "ja": "エデンバレー"
+    },
+    "homepage": "https://www.edenvalley.co.kr/",
+    "weather": "https://www.weather.go.kr/w/index.do#dong/4833033000/35.4248265727876/128.985235423114",
+    "lifts": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "에덴",
+          "en": "Eden",
+          "ja": "ジャエダエン"
+        },
+        "length": 552,
+        "seats": 6,
+        "speed": 5,
+        "capacity": 3085,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "밸리",
+          "en": "Valley",
+          "ja": "バアルライ"
+        },
+        "length": 847,
+        "seats": 6,
+        "speed": 5,
+        "capacity": 3085,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "아담",
+          "en": "Adam",
+          "ja": "ジャアダアム"
+        },
+        "length": 996,
+        "seats": 6,
+        "speed": 5,
+        "capacity": 3085,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": []
+      }
+    ],
+    "slopes": [
+      {
+        "id": 0,
+        "name": {
+          "ko": "베이직",
+          "en": "Basic",
+          "ja": "バエジャイチャイク"
+        },
+        "difficulty": "BEGINNER",
+        "length": 587,
+        "width": 49,
+        "area": 34385,
+        "avgAngle": 6.84277341263094,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "id": 1,
+        "name": {
+          "ko": "메인",
+          "en": "Main",
+          "ja": "マエジャイン"
+        },
+        "difficulty": "BEGINNER",
+        "length": 454,
+        "width": 45,
+        "area": 43162,
+        "avgAngle": 5.710593137499643,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "id": 2,
+        "name": {
+          "ko": "쥬피터",
+          "en": "Jupiter",
+          "ja": "チャユハイパオ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1023,
+        "width": 42,
+        "area": 25580,
+        "avgAngle": 9.648045316098157,
+        "connectedSlopeIds": [
+          1
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 3,
+        "name": {
+          "ko": "새턴",
+          "en": "Saturn",
+          "ja": "サアパオン"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 851,
+        "width": 49,
+        "area": 24999,
+        "avgAngle": 12.4,
+        "connectedSlopeIds": [
+          1
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 4,
+        "name": {
+          "ko": "우라누스",
+          "en": "Uranus",
+          "ja": "ジャウラアナウサウ"
+        },
+        "difficulty": "INTERMEDIATE",
+        "length": 1495,
+        "width": 54,
+        "area": 56476,
+        "avgAngle": 9.090276920822323,
+        "connectedSlopeIds": [],
+        "connectedLiftIds": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "id": 5,
+        "name": {
+          "ko": "머큐리",
+          "en": "Mercury",
+          "ja": "マオタユライ"
+        },
+        "difficulty": "ADVANCED",
+        "length": 949,
+        "width": 50,
+        "area": 23402,
+        "avgAngle": 15.109575122340466,
+        "connectedSlopeIds": [
+          1
+        ],
+        "connectedLiftIds": []
+      },
+      {
+        "id": 6,
+        "name": {
+          "ko": "비너스",
+          "en": "Venus",
+          "ja": "バイナオサウ"
+        },
+        "difficulty": "ADVANCED",
+        "length": 862,
+        "width": 46,
+        "area": 18416,
+        "avgAngle": 16.69924423399362,
+        "connectedSlopeIds": [
+          1
+        ],
+        "connectedLiftIds": []
+      }
+    ],
+    "streams": [
+      {
+        "name": {
+          "ko": "베이직",
+          "en": "Basic",
+          "ja": "Basic"
+        },
+        "type": "IFrame",
+        "url": "https://rtsp.me/embed/2kTsKt35/"
+      },
+      {
+        "name": {
+          "ko": "슬로프 광장",
+          "en": "Slope Plaza",
+          "ja": "コース 広場"
+        },
+        "type": "Unavailable",
+        "url": "https://rtsp.me/embed/ry9aTdQh"
+      }
+    ]
+  }
+]
